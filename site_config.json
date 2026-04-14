@@ -1,0 +1,64 @@
+{
+  "site": {
+    "name": "32K Michigan Office Demo",
+    "square_feet": 32000,
+    "location": "Detroit, MI",
+    "timezone": "America/Detroit"
+  },
+  "network": {
+    "base_ip": "192.168.100.",
+    "start_octet": 1,
+    "subnet_mask_prefix": 24,
+    "bacnet_port": 47808
+  },
+  "simulation": {
+    "tick_interval_seconds": 10,
+    "noise_scale": 1.0
+  },
+  "magnitudes": {
+    "building_peak_kw": 200,
+    "building_baseline_kw": 22,
+    "ahu_vav_peak_kw_each": 55,
+    "ahu_sz_peak_kw": 17,
+    "vav_reheat_peak_kw_each": 3.6,
+    "lighting_peak_kw": 35,
+    "plug_peak_kw": 29,
+    "plug_baseline_kw": 4,
+    "gas_peak_scfh": 500,
+    "gas_baseline_scfh": 50,
+    "water_peak_gpm": 8,
+    "water_baseline_gpm": 0.05,
+    "voltage_nominal": 208,
+    "voltage_phase_nominal": 120,
+    "power_factor_nominal": 0.92
+  },
+  "schedule": {
+    "occupied_weekday_start": "07:00",
+    "occupied_weekday_end": "18:00",
+    "ramp_up_hours": 2,
+    "ramp_down_hours": 1,
+    "saturday_peak_fraction": 0.3,
+    "sunday_baseline_fraction": 0.05,
+    "cooling_setpoint_occupied": 74,
+    "heating_setpoint_occupied": 70,
+    "cooling_setpoint_unoccupied": 82,
+    "heating_setpoint_unoccupied": 60
+  },
+  "weather": {
+    "location": "Detroit_MI",
+    "monthly_high_low_f": [
+      [32, 19], [35, 21], [45, 28], [58, 38], [70, 48], [79, 58],
+      [83, 63], [81, 62], [74, 54], [61, 42], [49, 33], [36, 24]
+    ],
+    "diurnal_peak_hour": 15,
+    "diurnal_trough_hour": 5,
+    "random_walk_bound_f": 1.5
+  },
+  "logging": {
+    "console_level": "INFO",
+    "file_level": "DEBUG",
+    "log_dir": "./logs",
+    "rotate_daily": true,
+    "retention_days": 7
+  }
+}
