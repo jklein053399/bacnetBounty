@@ -9,8 +9,8 @@ The live unit has FAC (fan array) and power metering points not in the
 base PIC, and omits RSMZ compressor module points not installed.
 
 Sources:
-  - .live-references/aaon_vccx_ip_live_export.json (primary — from real RTU)
-  - .live-references/aaon_vccx_ip_full_pic.json (supplemental — full PIC)
+  - device-data/aaon_vccx_ip_live_export.json (primary — from real RTU)
+  - device-data/aaon_vccx_ip_full_pic.json (supplemental — full PIC)
 """
 
 import json
@@ -27,12 +27,12 @@ from BAC0.core.devices.local.factory import (
 
 # Path to the live export JSON (ground truth)
 _LIVE_JSON = os.path.join(
-    os.path.dirname(__file__), "..", "..", ".live-references", "aaon_vccx_ip_live_export.json"
+    os.path.dirname(__file__), "..", "device-data", "aaon_vccx_ip_live_export.json"
 )
 
 # Fallback to PIC if live export not available
 _PIC_JSON = os.path.join(
-    os.path.dirname(__file__), "..", "..", ".live-references", "aaon_vccx_ip_full_pic.json"
+    os.path.dirname(__file__), "..", "device-data", "aaon_vccx_ip_full_pic.json"
 )
 
 

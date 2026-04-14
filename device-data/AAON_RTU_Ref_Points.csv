@@ -1,0 +1,439 @@
+﻿Object Name,Object ID,Property ID,Index,Value,Description
+AHU 1              ,device:3600005,systemStatus,,Operational,VCCX-IP Controller
+Application Software Version,analogInput:1,presentValue,,2.25,Application Software Version
+Control Mode,analogInput:2,presentValue,,4.00,Control Mode
+Control Status,analogInput:3,presentValue,,5.00,Control Status
+Hvac Mode,analogInput:4,presentValue,,3.00,Hvac Mode
+Control Temperature,analogInput:5,presentValue,,68.30,Control Temperature
+Mode Cooling Setpoint,analogInput:6,presentValue,,75.00,Mode Cooling Setpoint
+Mode Heating Setpoint,analogInput:7,presentValue,,68.00,Mode Heating Setpoint
+Sensor Slide Adjust Effect,analogInput:8,presentValue,,0.00,Sensor Slide Adjust Effect
+Supply Air Temperature,analogInput:9,presentValue,,113.50,Supply Air Temperature
+Supply Air Setpoint,analogInput:10,presentValue,,120.00,Supply Air Setpoint
+Controlling Coil Temp Setpoint,analogInput:11,presentValue,,45.00,Controlling Coil Temp Setpoint
+Space Temperature,analogInput:12,presentValue,,68.30,Space Temperature
+Space Humidity,analogInput:13,presentValue,,0.00,Space Humidity
+Return Air Temperature,analogInput:14,presentValue,,75.70,Return Air Temperature
+Return Air Humidity,analogInput:15,presentValue,,21.90,Return Air Humidity
+Outdoor Air Temperature,analogInput:16,presentValue,,33.10,Outdoor Air Temperature
+Outdoor Air Humidity,analogInput:17,presentValue,,71.00,Outdoor Air Humidity
+Outdoor Air Wetbulb,analogInput:18,presentValue,,28.90,Outdoor Air Wetbulb
+Outdoor Air Dewpoint,analogInput:19,presentValue,,24.70,Outdoor Air Dewpoint
+Supply Air Setpoint Reset Voltage,analogInput:20,presentValue,,0.00,Supply Air Setpoint Reset Voltage
+Duct Static Pressure,analogInput:21,presentValue,,0.00,Duct Static Pressure
+Duct Static Control Signal,analogInput:22,presentValue,,100.00,Duct Static Control Signal
+Building Pressure,analogInput:23,presentValue,, -0.03,Building Pressure
+Building Pressure Control Signal,analogInput:24,presentValue,,0.00,Building Pressure Control Signal
+Outdoor Airflow,analogInput:25,presentValue,,0.00,Outdoor Airflow
+Supply Airflow,analogInput:26,presentValue,,0.00,Supply Airflow
+Return Airflow,analogInput:27,presentValue,,0.00,Return Airflow
+Exhaust Airflow,analogInput:28,presentValue,,0.00,Exhaust Airflow
+Carbon Dioxide,analogInput:29,presentValue,,0.00,Carbon Dioxide
+Desired Economizer Position,analogInput:30,presentValue,,10.00,Desired Economizer Position
+Economizer Feedback Position,analogInput:31,presentValue,,5.00,Economizer Feedback Position
+Return Damper Position,analogInput:32,presentValue,,90.00,Return Damper Position
+Return Bypass Position,analogInput:33,presentValue,,0.00,Return Bypass Position
+Modulating Cooling Position,analogInput:34,presentValue,,0.00,Modulating Cooling Position
+Modulating Heat Position,analogInput:35,presentValue,,0.00,Modulating Heat Position
+Preheater Leaving Air Temp #1,analogInput:36,presentValue,,0.00,Preheater Leaving Air Temp #1
+Preheater Leaving Air Temp #2,analogInput:37,presentValue,,0.00,Preheater Leaving Air Temp #2
+Preheater Entering Air Temp,analogInput:38,presentValue,, -50.00,Preheater Entering Air Temp
+Preheater Setpoint Reset Voltage,analogInput:39,presentValue,,0.00,Preheater Setpoint Reset Voltage
+Preheater SCR Output Signal,analogInput:40,presentValue,,0.00,Preheater SCR Output Signal
+Preheater PWM Output Signal,analogInput:41,presentValue,,0.00,Preheater PWM Output Signal
+Mod Hot Gas Reheat Valve Position,analogInput:42,presentValue,,0.00,Mod Hot Gas Reheat Valve Position
+Mod Gas Heat Valve Position,analogInput:43,presentValue,,67.60,Mod Gas Heat Valve Position
+Alarm Status,analogInput:144,presentValue,,0.00,Alarm Status
+Outdoor Air Enthalpy,analogInput:145,presentValue,,10.70,Outdoor Air Enthalpy
+Plenum Pressure,analogInput:146,presentValue,,0.00,Plenum Pressure
+Return Fan VFD Signal,analogInput:147,presentValue,,0.00,Return Fan VFD Signal
+Plenum Pressure Setpoint,analogInput:148,presentValue,,0.00,Plenum Pressure Setpoint
+Return Air Enthalpy,analogInput:149,presentValue,,22.60,Return Air Enthalpy
+Current Duct Static Setpoint,analogInput:150,presentValue,,1.50,Current Duct Static Setpoint
+Entering Water Temp,analogInput:277,presentValue,, -126.60,Entering Water Temp
+Return Plenum Pressure Status,analogInput:278,presentValue,,0.00,Return Plenum Pressure Status
+Return Plenum Control Signal,analogInput:279,presentValue,,0.00,Return Plenum Control Signal
+Mixed Air Temp,analogInput:280,presentValue,,0.00,Mixed Air Temp
+Actual Heat Rise,analogInput:281,presentValue,,0.00,Actual Heat Rise
+Calculated Heat Rise,analogInput:282,presentValue,,0.00,Calculated Heat Rise
+Supply Air Relative Humidity,analogInput:283,presentValue,,0.00,Supply Air Relative Humidity
+Supply Air Dew Point,analogInput:284,presentValue,,0.00,Supply Air Dew Point
+Space Dew Point,analogInput:285,presentValue,,0.00,Space Dew Point
+Return Dew Point,analogInput:286,presentValue,,34.20,Return Dew Point
+FAC Fan Alarm State Fan 1,analogInput:287,presentValue,,0.00,FAC Fan Alarm State Fan 1
+FAC Fan Alarm State Fan 2,analogInput:288,presentValue,,0.00,FAC Fan Alarm State Fan 2
+FAC Fan Alarm State Fan 3,analogInput:289,presentValue,,0.00,FAC Fan Alarm State Fan 3
+FAC Fan Alarm State Fan 4,analogInput:290,presentValue,,0.00,FAC Fan Alarm State Fan 4
+FAC Fan Alarm State Fan 5,analogInput:291,presentValue,,0.00,FAC Fan Alarm State Fan 5
+FAC Fan Alarm State Fan 6,analogInput:292,presentValue,,0.00,FAC Fan Alarm State Fan 6
+FAC Fan Alarm State Fan 7,analogInput:293,presentValue,,0.00,FAC Fan Alarm State Fan 7
+FAC Fan Alarm State Fan 8,analogInput:294,presentValue,,0.00,FAC Fan Alarm State Fan 8
+FAC Fan Alarm State Fan 9,analogInput:295,presentValue,,0.00,FAC Fan Alarm State Fan 9
+FAC Fan Alarm State Fan 10,analogInput:296,presentValue,,0.00,FAC Fan Alarm State Fan 10
+FAC Fan Alarm State Fan 11,analogInput:297,presentValue,,0.00,FAC Fan Alarm State Fan 11
+FAC Fan Alarm State Fan 12,analogInput:298,presentValue,,0.00,FAC Fan Alarm State Fan 12
+A1 Compressor Signal,analogInput:44,presentValue,,0.00,A1 Compressor Signal
+A2 Compressor Signal,analogInput:45,presentValue,,0.00,A2 Compressor Signal
+A1 Condenser Signal,analogInput:46,presentValue,,0.00,A1 Condenser Signal
+A2 Condenser Signal,analogInput:47,presentValue,,0.00,A2 Condenser Signal
+A1 Suction Pressure,analogInput:48,presentValue,,0.00,A1 Suction Pressure
+A2 Suction Pressure,analogInput:49,presentValue,,0.00,A2 Suction Pressure
+A1 Head Pressure,analogInput:50,presentValue,,0.00,A1 Head Pressure
+A2 Head Pressure,analogInput:51,presentValue,,0.00,A2 Head Pressure
+A1 Saturation Temperature,analogInput:52,presentValue,,0.00,A1 Saturation Temperature
+A2 Saturation Temperature,analogInput:53,presentValue,,0.00,A2 Saturation Temperature
+A1 Suction Line Temperature,analogInput:54,presentValue,,0.00,A1 Suction Line Temperature
+A2 Suction Line Temperature,analogInput:55,presentValue,,0.00,A2 Suction Line Temperature
+A1 Condenser Suction Temp (Heat Pump),analogInput:56,presentValue,,0.00,A1 Condenser Suction Temp (Heat Pump)
+A2 Condenser Suction Temp (Heat Pump),analogInput:57,presentValue,,0.00,A2 Condenser Suction Temp (Heat Pump)
+A1 Superheat Temperature,analogInput:58,presentValue,,0.00,A1 Superheat Temperature
+A2 Superheat Temperature,analogInput:59,presentValue,,0.00,A2 Superheat Temperature
+Condenser A1 Superheat (Heat Pump),analogInput:60,presentValue,,0.00,Condenser A1 Superheat (Heat Pump)
+Condenser A2 Superheat (Heat Pump),analogInput:61,presentValue,,0.00,Condenser A2 Superheat (Heat Pump)
+A1 Expansion Valve Position,analogInput:62,presentValue,,0.00,A1 Expansion Valve Position
+A2 Expansion Valve Position,analogInput:63,presentValue,,0.00,A2 Expansion Valve Position
+Condenser A1 Expansion Valve Position,analogInput:64,presentValue,,0.00,Condenser A1 Expansion Valve Position
+Condenser A2 Expansion Valve Position,analogInput:65,presentValue,,0.00,Condenser A2 Expansion Valve Position
+A1 Discharge Temperature,analogInput:66,presentValue,,0.00,A1 Discharge Temperature
+A2 Discharge Temperature,analogInput:67,presentValue,,0.00,A2 Discharge Temperature
+A1 Leaving Water Temp,analogInput:68,presentValue,,0.00,A1 Leaving Water Temp
+B1 Compressor Signal,analogInput:69,presentValue,,0.00,B1 Compressor Signal
+B2 Compressor Signal,analogInput:70,presentValue,,0.00,B2 Compressor Signal
+B1 Condenser Signal,analogInput:71,presentValue,,0.00,B1 Condenser Signal
+B2 Condenser Signal,analogInput:72,presentValue,,0.00,B2 Condenser Signal
+B1 Suction Pressure,analogInput:73,presentValue,,0.00,B1 Suction Pressure
+B2 Suction Pressure,analogInput:74,presentValue,,0.00,B2 Suction Pressure
+B1 Head Pressure,analogInput:75,presentValue,,0.00,B1 Head Pressure
+B2 Head Pressure,analogInput:76,presentValue,,0.00,B2 Head Pressure
+B1 Saturation Temperature,analogInput:77,presentValue,,0.00,B1 Saturation Temperature
+B2 Saturation Temperature,analogInput:78,presentValue,,0.00,B2 Saturation Temperature
+B1 Suction Line Temperature,analogInput:79,presentValue,,0.00,B1 Suction Line Temperature
+B2 Suction Line Temperature,analogInput:80,presentValue,,0.00,B2 Suction Line Temperature
+B1 Condenser Suction Temp (Heat Pump),analogInput:81,presentValue,,0.00,B1 Condenser Suction Temp (Heat Pump)
+B2 Condenser Suction Temp (Heat Pump),analogInput:82,presentValue,,0.00,B2 Condenser Suction Temp (Heat Pump)
+B1 Superheat Temperature,analogInput:83,presentValue,,0.00,B1 Superheat Temperature
+B2 Superheat Temperature,analogInput:84,presentValue,,0.00,B2 Superheat Temperature
+Condenser B1 Superheat (Heat Pump),analogInput:85,presentValue,,0.00,Condenser B1 Superheat (Heat Pump)
+Condenser B2 Superheat (Heat Pump),analogInput:86,presentValue,,0.00,Condenser B2 Superheat (Heat Pump)
+B1 Expansion Valve Position,analogInput:87,presentValue,,0.00,B1 Expansion Valve Position
+B2 Expansion Valve Position,analogInput:88,presentValue,,0.00,B2 Expansion Valve Position
+Condenser B1 Expansion Valve Position,analogInput:89,presentValue,,0.00,Condenser B1 Expansion Valve Position
+Condenser B2 Expansion Valve Position,analogInput:90,presentValue,,0.00,Condenser B2 Expansion Valve Position
+B1 Discharge Temperature,analogInput:91,presentValue,,0.00,B1 Discharge Temperature
+B2 Discharge Temperature,analogInput:92,presentValue,,0.00,B2 Discharge Temperature
+B1 Leaving Water Temp,analogInput:93,presentValue,,0.00,B1 Leaving Water Temp
+C1 Compressor Signal,analogInput:94,presentValue,,0.00,C1 Compressor Signal
+C2 Compressor Signal,analogInput:95,presentValue,,0.00,C2 Compressor Signal
+C1 Condenser Signal,analogInput:96,presentValue,,0.00,C1 Condenser Signal
+C2 Condenser Signal,analogInput:97,presentValue,,0.00,C2 Condenser Signal
+C1 Suction Pressure,analogInput:98,presentValue,,0.00,C1 Suction Pressure
+C2 Suction Pressure,analogInput:99,presentValue,,0.00,C2 Suction Pressure
+C1 Head Pressure,analogInput:100,presentValue,,0.00,C1 Head Pressure
+C2 Head Pressure,analogInput:101,presentValue,,0.00,C2 Head Pressure
+C1 Saturation Temperature,analogInput:102,presentValue,,0.00,C1 Saturation Temperature
+C2 Saturation Temperature,analogInput:103,presentValue,,0.00,C2 Saturation Temperature
+C1 Suction Line Temperature,analogInput:104,presentValue,,0.00,C1 Suction Line Temperature
+C2 Suction Line Temperature,analogInput:105,presentValue,,0.00,C2 Suction Line Temperature
+C1 Condenser Suction Temp (Heat Pump),analogInput:106,presentValue,,0.00,C1 Condenser Suction Temp (Heat Pump)
+C2 Condenser Suction Temp (Heat Pump),analogInput:107,presentValue,,0.00,C2 Condenser Suction Temp (Heat Pump)
+C1 Superheat Temperature,analogInput:108,presentValue,,0.00,C1 Superheat Temperature
+C2 Superheat Temperature,analogInput:109,presentValue,,0.00,C2 Superheat Temperature
+Condenser C1 Superheat (Heat Pump),analogInput:110,presentValue,,0.00,Condenser C1 Superheat (Heat Pump)
+Condenser C2 Superheat (Heat Pump),analogInput:111,presentValue,,0.00,Condenser C2 Superheat (Heat Pump)
+C1 Expansion Valve Position,analogInput:112,presentValue,,0.00,C1 Expansion Valve Position
+C2 Expansion Valve Position,analogInput:113,presentValue,,0.00,C2 Expansion Valve Position
+Condenser C1 Expansion Valve Position,analogInput:114,presentValue,,0.00,Condenser C1 Expansion Valve Position
+Condenser C2 Expansion Valve Position,analogInput:115,presentValue,,0.00,Condenser C2 Expansion Valve Position
+C1 Discharge Temperature,analogInput:116,presentValue,,0.00,C1 Discharge Temperature
+C2 Discharge Temperature,analogInput:117,presentValue,,0.00,C2 Discharge Temperature
+C1 Leaving Water Temp,analogInput:118,presentValue,,0.00,C1 Leaving Water Temp
+D1 Compressor Signal,analogInput:119,presentValue,,0.00,D1 Compressor Signal
+D2 Compressor Signal,analogInput:120,presentValue,,0.00,D2 Compressor Signal
+D1 Condenser Signal,analogInput:121,presentValue,,0.00,D1 Condenser Signal
+D2 Condenser Signal,analogInput:122,presentValue,,0.00,D2 Condenser Signal
+D1 Suction Pressure,analogInput:123,presentValue,,0.00,D1 Suction Pressure
+D2 Suction Pressure,analogInput:124,presentValue,,0.00,D2 Suction Pressure
+D1 Head Pressure,analogInput:125,presentValue,,0.00,D1 Head Pressure
+D2 Head Pressure,analogInput:126,presentValue,,0.00,D2 Head Pressure
+D1 Saturation Temperature,analogInput:127,presentValue,,0.00,D1 Saturation Temperature
+D2 Saturation Temperature,analogInput:128,presentValue,,0.00,D2 Saturation Temperature
+D1 Suction Line Temperature,analogInput:129,presentValue,,0.00,D1 Suction Line Temperature
+D2 Suction Line Temperature,analogInput:130,presentValue,,0.00,D2 Suction Line Temperature
+D1 Condenser Suction Temp (Heat Pump),analogInput:131,presentValue,,0.00,D1 Condenser Suction Temp (Heat Pump)
+D2 Condenser Suction Temp (Heat Pump),analogInput:132,presentValue,,0.00,D2 Condenser Suction Temp (Heat Pump)
+D1 Superheat Temperature,analogInput:133,presentValue,,0.00,D1 Superheat Temperature
+D2 Superheat Temperature,analogInput:134,presentValue,,0.00,D2 Superheat Temperature
+Condenser D1 Superheat (Heat Pump),analogInput:135,presentValue,,0.00,Condenser D1 Superheat (Heat Pump)
+Condenser D2 Superheat (Heat Pump),analogInput:136,presentValue,,0.00,Condenser D2 Superheat (Heat Pump)
+D1 Expansion Valve Position,analogInput:137,presentValue,,0.00,D1 Expansion Valve Position
+D2 Expansion Valve Position,analogInput:138,presentValue,,0.00,D2 Expansion Valve Position
+Condenser D1 Expansion Valve Position,analogInput:139,presentValue,,0.00,Condenser D1 Expansion Valve Position
+Condenser D2 Expansion Valve Position,analogInput:140,presentValue,,0.00,Condenser D2 Expansion Valve Position
+D1 Discharge Temperature,analogInput:141,presentValue,,0.00,D1 Discharge Temperature
+D2 Discharge Temperature,analogInput:142,presentValue,,0.00,D2 Discharge Temperature
+D1 Leaving Water Temp,analogInput:143,presentValue,,0.00,D1 Leaving Water Temp
+Line Frequency,analogInput:299,presentValue,,0.00,Line Frequency
+Line Voltage 1-2,analogInput:300,presentValue,,0.00,Line Voltage 1-2
+Line Voltage 2-3,analogInput:301,presentValue,,0.00,Line Voltage 2-3
+Line Voltage 3-1,analogInput:302,presentValue,,0.00,Line Voltage 3-1
+Average Line Voltage,analogInput:303,presentValue,,0.00,Average Line Voltage
+Total Phase A Current,analogInput:304,presentValue,,0.00,Total Phase A Current
+Total Phase B Current,analogInput:305,presentValue,,0.00,Total Phase B Current
+Total Phase C Current,analogInput:306,presentValue,,0.00,Total Phase C Current
+Average Phase Current,analogInput:307,presentValue,,0.00,Average Phase Current
+Phase A Power,analogInput:308,presentValue,,0.00,Phase A Power
+Phase B Power,analogInput:309,presentValue,,0.00,Phase B Power
+Phase C Power,analogInput:310,presentValue,,0.00,Phase C Power
+Total System Power,analogInput:311,presentValue,,0.00,Total System Power
+Phase A Reactive Power,analogInput:312,presentValue,,0.00,Phase A Reactive Power
+Phase B Reactive Power,analogInput:313,presentValue,,0.00,Phase B Reactive Power
+Phase C Reactive Power,analogInput:314,presentValue,,0.00,Phase C Reactive Power
+Total Reactive Power,analogInput:315,presentValue,,0.00,Total Reactive Power
+Phase A Apparent Power,analogInput:316,presentValue,,0.00,Phase A Apparent Power
+Phase B Apparent Power,analogInput:317,presentValue,,0.00,Phase B Apparent Power
+Phase C Apparent Power,analogInput:318,presentValue,,0.00,Phase C Apparent Power
+Total Apparent Power,analogInput:319,presentValue,,0.00,Total Apparent Power
+Phase A Power Factor,analogInput:320,presentValue,,0.00,Phase A Power Factor
+Phase B Power Factor,analogInput:321,presentValue,,0.00,Phase B Power Factor
+Phase C Power Factor,analogInput:322,presentValue,,0.00,Phase C Power Factor
+Total Power Factor,analogInput:323,presentValue,,0.00,Total Power Factor
+Occupied Cooling Setpoint,analogValue:1,presentValue,,75.00,Occupied Cooling Setpoint
+Occupied Heating Setpoint,analogValue:2,presentValue,,68.00,Occupied Heating Setpoint
+Hood On Cooling Setpoint,analogValue:3,presentValue,,75.00,Hood On Cooling Setpoint
+Hood On Heating Setpoint,analogValue:4,presentValue,,70.00,Hood On Heating Setpoint
+Unoccupied Cooling Offset,analogValue:5,presentValue,,5.00,Unoccupied Cooling Offset
+Unoccupied Heating Offset,analogValue:6,presentValue,,5.00,Unoccupied Heating Offset
+Mode Select Deadband,analogValue:7,presentValue,,1.00,Mode Select Deadband
+Max Coil Setpoint Reset Limit,analogValue:8,presentValue,,45.00,Max Coil Setpoint Reset Limit
+Min Coil Setpoint Reset Limit,analogValue:9,presentValue,,40.00,Min Coil Setpoint Reset Limit
+Supply Air Cooling Setpoint,analogValue:10,presentValue,,55.00,Supply Air Cooling Setpoint
+Supply Air Heating Setpoint,analogValue:11,presentValue,,120.00,Supply Air Heating Setpoint
+Max SAT Cooling Setpoint Reset Limit,analogValue:12,presentValue,,55.00,Max SAT Cooling Setpoint Reset Limit
+Max SAT Heating Setpoint Reset Limit,analogValue:13,presentValue,,120.00,Max SAT Heating Setpoint Reset Limit
+Supply Air Cooling Staging Window,analogValue:14,presentValue,,5.00,Supply Air Cooling Staging Window
+Supply Air Heating Staging Window,analogValue:15,presentValue,,5.00,Supply Air Heating Staging Window
+Warm-Up Target Temperature,analogValue:16,presentValue,,68.00,Warm-Up Target Temperature
+Warm-Up Mode Supply Air Setpoint,analogValue:17,presentValue,,100.00,Warm-Up Mode Supply Air Setpoint
+Cool-Down Mode Supply Air Setpoint,analogValue:18,presentValue,,55.00,Cool-Down Mode Supply Air Setpoint
+Mechanical Cooling Outdoor Air Lockout,analogValue:19,presentValue,,50.00,Mechanical Cooling Outdoor Air Lockout
+Mechanical Heating Outdoor Air Lockout,analogValue:20,presentValue,,90.00,Mechanical Heating Outdoor Air Lockout
+Low Supply Temp Cutoff Alarm,analogValue:21,presentValue,,40.00,Low Supply Temp Cutoff Alarm
+High Supply Temp Cutoff Alarm,analogValue:22,presentValue,,150.00,High Supply Temp Cutoff Alarm
+Preheater Cooling Mode Setpoint,analogValue:23,presentValue,,40.00,Preheater Cooling Mode Setpoint
+Preheater Venting Mode Setpoint,analogValue:24,presentValue,,50.00,Preheater Venting Mode Setpoint
+Preheater Heating Mode Setpoint,analogValue:25,presentValue,,60.00,Preheater Heating Mode Setpoint
+Outdoor Air Dewpoint Setpoint,analogValue:26,presentValue,,55.00,Outdoor Air Dewpoint Setpoint
+Economizer Enable Setpoint,analogValue:27,presentValue,,55.00,Economizer Enable Setpoint
+Heat Wheel Defrost Active,analogValue:28,presentValue,,30.00,Heat Wheel Defrost Active
+PreHeat Enable Setpoint,analogValue:29,presentValue,,30.00,PreHeat Enable Setpoint
+Sensor Slide Offset Max Effect,analogValue:30,presentValue,,0.00,Sensor Slide Offset Max Effect
+Space Sensor Calibration Offset,analogValue:31,presentValue,,0.00,Space Sensor Calibration Offset
+Supply Air Sensor Calibration Offset,analogValue:32,presentValue,,0.00,Supply Air Sensor Calibration Offset
+Return Air Sensor Calibration Offset,analogValue:33,presentValue,,0.00,Return Air Sensor Calibration Offset
+Outdoor Air Sensor Calibration Offset,analogValue:34,presentValue,,0.00,Outdoor Air Sensor Calibration Offset
+Carbon Dioxide Sensor Calibration Offset,analogValue:35,presentValue,,0.00,Carbon Dioxide Sensor Calibration Offset
+Low Ambient Protection Setpoint,analogValue:36,presentValue,,30.00,Low Ambient Protection Setpoint
+SAT Cool Setpoint Reset Source Lo Limit,analogValue:37,presentValue,,70.00,SAT Cool Setpoint Reset Source Lo Limit
+SAT Cool Setpoint Reset Source Hi Limit,analogValue:38,presentValue,,75.00,SAT Cool Setpoint Reset Source Hi Limit
+SAT Heat Setpoint Reset Source Lo Limit,analogValue:39,presentValue,,70.00,SAT Heat Setpoint Reset Source Lo Limit
+SAT Heat Setpoint Reset Source Hi Limit,analogValue:40,presentValue,,75.00,SAT Heat Setpoint Reset Source Hi Limit
+Control Temperature High Alarm Offset,analogValue:41,presentValue,,30.00,Control Temperature High Alarm Offset
+Control Temperature Low Alarm Offset,analogValue:42,presentValue,,30.00,Control Temperature Low Alarm Offset
+Heat Pump Compressor Heat Lockout,analogValue:43,presentValue,,35.00,Heat Pump Compressor Heat Lockout
+Maximum Main Fan VFD in SZVAV Mode,analogValue:44,presentValue,,100.00,Maximum Main Fan VFD in SZVAV Mode
+Minimum Main Fan VFD in Cooling Mode,analogValue:45,presentValue,,30.00,Minimum Main Fan VFD in Cooling Mode
+Minimum Main Fan VFD in HeatingMode,analogValue:46,presentValue,,50.00,Minimum Main Fan VFD in HeatingMode
+Minimum Main Fan VFD in Vent Mode,analogValue:47,presentValue,,20.00,Minimum Main Fan VFD in Vent Mode
+Maximum Economizer in Heating Mode,analogValue:48,presentValue,,50.00,Maximum Economizer in Heating Mode
+Minimum Economizer Position,analogValue:49,presentValue,,10.00,Minimum Economizer Position
+Maximum Economizer CO2 Reset Limit,analogValue:50,presentValue,,50.00,Maximum Economizer CO2 Reset Limit
+Minimum Carbon Dioxide Setpoint,analogValue:51,presentValue,,900.00,Minimum Carbon Dioxide Setpoint
+Maximum Carbon Dioxide Setpoint,analogValue:52,presentValue,,1000.00,Maximum Carbon Dioxide Setpoint
+Indoor Humidity Setpoint Low Reset Limit,analogValue:53,presentValue,,50.00,Indoor Humidity Setpoint Low Reset Limit
+Indoor Humidity Setpoint High Reset Limi,analogValue:54,presentValue,,60.00,Indoor Humidity Setpoint High Reset Limi
+Duct Static Pressure Setpoint,analogValue:55,presentValue,,1.50,Duct Static Pressure Setpoint
+Duct Static Pressure Control Deadband,analogValue:56,presentValue,,0.10,Duct Static Pressure Control Deadband
+Building Pressure Control Setpoint,analogValue:57,presentValue,,0.02,Building Pressure Control Setpoint
+Building Pressure Control Deadband,analogValue:58,presentValue,,0.01,Building Pressure Control Deadband
+Minimum Outdoor CFM Requirement,analogValue:59,presentValue,,2.00,Minimum Outdoor CFM Requirement
+Outdoor CFM Control Deadband,analogValue:60,presentValue,,200.00,Outdoor CFM Control Deadband
+Single Zone VAV Fan Speed Integral,analogValue:61,presentValue,,0.00,Single Zone VAV Fan Speed Integral
+Relay Run-time Hours Warning Limit,analogValue:62,presentValue,,0.00,Relay Run-time Hours Warning Limit
+Cooling Mode Head Pressure Setpoint,analogValue:63,presentValue,,315.00,Cooling Mode Head Pressure Setpoint
+Dehum Mode Head Pressure Setpoint,analogValue:64,presentValue,,400.00,Dehum Mode Head Pressure Setpoint
+Superheat Setpoint,analogValue:65,presentValue,,15.00,Superheat Setpoint
+Maximum Outdoor CFM Requirement,analogValue:66,presentValue,,2.00,Maximum Outdoor CFM Requirement
+Schedule Force,analogValue:67,presentValue,,1.00,Schedule Force
+Hvac Mode Override,analogValue:68,presentValue,,0.00,Hvac Mode Override
+Fan Vfd Override,analogValue:69,presentValue,, -1.00,Fan Vfd Override
+Outdoor Air Damper Override,analogValue:70,presentValue,, -1.00,Outdoor Air Damper Override
+Supply Setpoint Override,analogValue:71,presentValue,,0.00,Supply Setpoint Override
+Space Temperature Override,analogValue:72,presentValue,,0.00,Space Temperature Override
+Space Humidity Override,analogValue:73,presentValue,, -1.00,Space Humidity Override
+Indoor RH Calibration Offset,analogValue:74,presentValue,,0.00,Indoor RH Calibration Offset
+Relief Fan Vfd Override,analogValue:75,presentValue,, -1.00,Relief Fan Vfd Override
+Relief Pressure Override,analogValue:76,presentValue,, -1.00,Relief Pressure Override
+Carbon Dioxide Override,analogValue:77,presentValue,, -1.00,Carbon Dioxide Override
+Outdoor Air Temperature Override,analogValue:78,presentValue,, -100.00,Outdoor Air Temperature Override
+Outdoor Air Humidity Override,analogValue:79,presentValue,, -1.00,Outdoor Air Humidity Override
+Reserved,analogValue:80,presentValue,,30.00,Reserved
+Reserved,analogValue:81,presentValue,,20.00,Reserved
+Reserved,analogValue:82,presentValue,,0.20,Reserved
+Reserved,analogValue:83,presentValue,,0.10,Reserved
+Comparative Enthalpy Enable Setpoint,analogValue:84,presentValue,,28.00,Comparative Enthalpy Enable Setpoint
+Comparative Enthalpy Enable Deadband,analogValue:85,presentValue,,0.50,Comparative Enthalpy Enable Deadband
+Max Static Setpoint Reset Limit,analogValue:86,presentValue,,1.50,Max Static Setpoint Reset Limit
+Min Static Setpoint Reset Limit,analogValue:87,presentValue,,1.50,Min Static Setpoint Reset Limit
+Static Setpoint Reset Rate,analogValue:88,presentValue,,15.00,Static Setpoint Reset Rate
+Cool-Down Target Temperature,analogValue:89,presentValue,,72.00,Cool-Down Target Temperature
+Warm-up Mode Override,analogValue:90,presentValue,,0.00,Warm-up Mode Override
+Cool-down Mode Override,analogValue:91,presentValue,,0.00,Cool-down Mode Override
+Return Air Hi Limit Protection,analogValue:92,presentValue,,80.00,Return Air Hi Limit Protection
+Return Air Lo Limit Protection,analogValue:93,presentValue,,60.00,Return Air Lo Limit Protection
+Sump Drain Override,analogValue:94,presentValue,,0.00,Sump Drain Override
+Return Plenum Pressure Setpoint,analogValue:95,presentValue,,0.10,Return Plenum Pressure Setpoint
+Return Plenum Pressure Deadband,analogValue:96,presentValue,,0.01,Return Plenum Pressure Deadband
+Dehumidification Lockout Setpoint,analogValue:97,presentValue,,0.00,Dehumidification Lockout Setpoint
+Emergency Compressor Lockout,analogValue:98,presentValue,,0.00,Emergency Compressor Lockout
+Supply Air Dew Point Setpoint,analogValue:99,presentValue,,55.00,Supply Air Dew Point Setpoint
+Cooling Enabled Status,binaryInput:1,presentValue,,Inactive,Cooling Enabled Status
+Heating Enabled Status,binaryInput:2,presentValue,,Active,Heating Enabled Status
+Economizer Enabled Status,binaryInput:3,presentValue,,Active,Economizer Enabled Status
+Aux Heat Enabled Status,binaryInput:4,presentValue,,Inactive,Aux Heat Enabled Status
+Emergency Heat Enabled Status,binaryInput:5,presentValue,,Inactive,Emergency Heat Enabled Status
+Fan Proof of Airflow Status,binaryInput:6,presentValue,,Active,Fan Proof of Airflow Status
+Exhaust Hood On/Off Status,binaryInput:7,presentValue,,Inactive,Exhaust Hood On/Off Status
+Remote Forced Occupied Status,binaryInput:8,presentValue,,Inactive,Remote Forced Occupied Status
+Remote Forced Cooling Status,binaryInput:9,presentValue,,Inactive,Remote Forced Cooling Status
+Remote Forced Heating Status,binaryInput:10,presentValue,,Inactive,Remote Forced Heating Status
+Remote Force Dehum Status,binaryInput:11,presentValue,,Inactive,Remote Force Dehum Status
+Bad Supply Air Sensor,binaryInput:12,presentValue,,Inactive,Bad Supply Air Sensor
+Bad Return Air Sensor,binaryInput:13,presentValue,,Inactive,Bad Return Air Sensor
+Bad Outdoor Air Sensor,binaryInput:14,presentValue,,Inactive,Bad Outdoor Air Sensor
+Bad Space Temp Sensor,binaryInput:15,presentValue,,Inactive,Bad Space Temp Sensor
+Bad Carbon Dioxide Sensor,binaryInput:16,presentValue,,Inactive,Bad Carbon Dioxide Sensor
+Bad Building Pressure Sensor,binaryInput:17,presentValue,,Inactive,Bad Building Pressure Sensor
+Bad Outdoor Airflow Sensor,binaryInput:18,presentValue,,Inactive,Bad Outdoor Airflow Sensor
+Bad Exhaust Airflow Sensor,binaryInput:19,presentValue,,Inactive,Bad Exhaust Airflow Sensor
+Bad Supply Airflow Sensor,binaryInput:20,presentValue,,Inactive,Bad Supply Airflow Sensor
+Bad Return Airflow Sensor,binaryInput:21,presentValue,,Inactive,Bad Return Airflow Sensor
+Mechanical Cooling Alarm,binaryInput:22,presentValue,,Inactive,Mechanical Cooling Alarm
+Mechanical Heating Alarm,binaryInput:23,presentValue,,Inactive,Mechanical Heating Alarm
+Fan Proving Alarm,binaryInput:24,presentValue,,Inactive,Fan Proving Alarm
+Dirty Filter Alarm,binaryInput:25,presentValue,,Inactive,Dirty Filter Alarm
+Emergency Shutdown Alarm,binaryInput:26,presentValue,,Inactive,Emergency Shutdown Alarm
+Relay Runtime Warning,binaryInput:27,presentValue,,Inactive,Relay Runtime Warning
+Economizer Missing Alarm,binaryInput:28,presentValue,,Inactive,Economizer Missing Alarm
+Economizer Title 24 Failure A,binaryInput:29,presentValue,,Inactive,Economizer Title 24 Failure A
+Economizer Title 24 Failure B,binaryInput:30,presentValue,,Inactive,Economizer Title 24 Failure B
+Economizer Title 24 Failure C,binaryInput:31,presentValue,,Inactive,Economizer Title 24 Failure C
+Economizer Title 24 Failure D,binaryInput:32,presentValue,,Inactive,Economizer Title 24 Failure D
+Economizer Title 24 Failure E,binaryInput:33,presentValue,,Inactive,Economizer Title 24 Failure E
+High Supply Temp Cutoff,binaryInput:34,presentValue,,Inactive,High Supply Temp Cutoff
+Low Supply Temp Cutoff,binaryInput:35,presentValue,,Inactive,Low Supply Temp Cutoff
+High Control Mode Alarm,binaryInput:36,presentValue,,Inactive,High Control Mode Alarm
+Low Control Mode Alarm,binaryInput:37,presentValue,,Inactive,Low Control Mode Alarm
+Missing Refrigeration Module #1,binaryInput:38,presentValue,,Inactive,Missing Refrigeration Module #1
+Missing Refrigeration Module #2,binaryInput:39,presentValue,,Inactive,Missing Refrigeration Module #2
+Missing Refrigeration Module #3,binaryInput:40,presentValue,,Inactive,Missing Refrigeration Module #3
+Missing Refrigeration Module #4,binaryInput:41,presentValue,,Inactive,Missing Refrigeration Module #4
+Missing Preheater Board,binaryInput:42,presentValue,,Inactive,Missing Preheater Board
+Missing Reheat Board,binaryInput:43,presentValue,,Inactive,Missing Reheat Board
+Missing Mod Gas Board,binaryInput:44,presentValue,,Inactive,Missing Mod Gas Board
+Missing EM1 Board,binaryInput:45,presentValue,,Inactive,Missing EM1 Board
+Missing 12 Relay Expansion Board,binaryInput:46,presentValue,,Inactive,Missing 12 Relay Expansion Board
+On Board Relay 1 Main Fan,binaryInput:47,presentValue,,Active,On Board Relay 1 Main Fan
+On Board Relay 2,binaryInput:48,presentValue,,Inactive,On Board Relay 2
+On Board Relay 3,binaryInput:49,presentValue,,Inactive,On Board Relay 3
+On Board Relay 4,binaryInput:50,presentValue,,Inactive,On Board Relay 4
+On Board Relay 5,binaryInput:51,presentValue,,Inactive,On Board Relay 5
+On Board Relay 6,binaryInput:52,presentValue,,Inactive,On Board Relay 6
+On Board Relay 7,binaryInput:53,presentValue,,Inactive,On Board Relay 7
+On Board Relay 8,binaryInput:54,presentValue,,Inactive,On Board Relay 8
+Expansion Board EM1 Relay 1,binaryInput:55,presentValue,,Inactive,Expansion Board EM1 Relay 1
+Expansion Board EM1 Relay 2,binaryInput:56,presentValue,,Inactive,Expansion Board EM1 Relay 2
+Expansion Board EM1 Relay 3,binaryInput:57,presentValue,,Inactive,Expansion Board EM1 Relay 3
+Expansion Board EM1 Relay 4,binaryInput:58,presentValue,,Inactive,Expansion Board EM1 Relay 4
+Expansion Board EM1 Relay 5,binaryInput:59,presentValue,,Inactive,Expansion Board EM1 Relay 5
+12 Relay Expansion Board Relay 1,binaryInput:60,presentValue,,Inactive,12 Relay Expansion Board Relay 1
+12 Relay Expansion Board Relay 2,binaryInput:61,presentValue,,Inactive,12 Relay Expansion Board Relay 2
+12 Relay Expansion Board Relay 3,binaryInput:62,presentValue,,Inactive,12 Relay Expansion Board Relay 3
+12 Relay Expansion Board Relay 4,binaryInput:63,presentValue,,Inactive,12 Relay Expansion Board Relay 4
+12 Relay Expansion Board Relay 5,binaryInput:64,presentValue,,Inactive,12 Relay Expansion Board Relay 5
+12 Relay Expansion Board Relay 6,binaryInput:65,presentValue,,Inactive,12 Relay Expansion Board Relay 6
+12 Relay Expansion Board Relay 7,binaryInput:66,presentValue,,Inactive,12 Relay Expansion Board Relay 7
+12 Relay Expansion Board Relay 8,binaryInput:67,presentValue,,Inactive,12 Relay Expansion Board Relay 8
+12 Relay Expansion Board Relay 9,binaryInput:68,presentValue,,Inactive,12 Relay Expansion Board Relay 9
+12 Relay Expansion Board Relay 10,binaryInput:69,presentValue,,Inactive,12 Relay Expansion Board Relay 10
+12 Relay Expansion Board Relay 11,binaryInput:70,presentValue,,Inactive,12 Relay Expansion Board Relay 11
+12 Relay Expansion Board Relay 12,binaryInput:71,presentValue,,Inactive,12 Relay Expansion Board Relay 12
+Preheater Enable Status,binaryInput:72,presentValue,,Inactive,Preheater Enable Status
+Preheater Emergency Shutdown,binaryInput:73,presentValue,,Inactive,Preheater Emergency Shutdown
+Preheater Spare Binary Input #3,binaryInput:74,presentValue,,Inactive,Preheater Spare Binary Input #3
+MODGAS Enable Status,binaryInput:75,presentValue,,Active,MODGAS Enable Status
+MHGR Enable Status,binaryInput:76,presentValue,,Inactive,MHGR Enable Status
+Preheater Alarm,binaryInput:125,presentValue,,Inactive,Preheater Alarm
+Return Fan Proving Alarm,binaryInput:126,presentValue,,Inactive,Return Fan Proving Alarm
+Return Fan Proving Status,binaryInput:136,presentValue,,Inactive,Return Fan Proving Status
+IAQ Mode Active,binaryInput:137,presentValue,,Inactive,IAQ Mode Active
+Heat Wheel Defrost Active,binaryInput:138,presentValue,,Inactive,Heat Wheel Defrost Active
+Direct Fire Status,binaryInput:139,presentValue,,Inactive,Direct Fire Status
+Direct Fire Alarm Status,binaryInput:140,presentValue,,Inactive,Direct Fire Alarm Status
+Temp Rise Warning,binaryInput:141,presentValue,,Inactive,Temp Rise Warning
+Temp Rise Alarm,binaryInput:142,presentValue,,Inactive,Temp Rise Alarm
+Temp Rise Lockout,binaryInput:143,presentValue,,Inactive,Temp Rise Lockout
+HighCO2 Rise Warning,binaryInput:144,presentValue,,Inactive,HighCO2 Rise Warning
+HighCO2 Rise Alarm,binaryInput:145,presentValue,,Inactive,HighCO2 Rise Alarm
+HighCO2 Rise Lockout,binaryInput:146,presentValue,,Inactive,HighCO2 Rise Lockout
+Ignition Lockout,binaryInput:147,presentValue,,Inactive,Ignition Lockout
+DirectFire Status Lockout,binaryInput:148,presentValue,,Inactive,DirectFire Status Lockout
+Direct Fire Setpoint Override,binaryInput:149,presentValue,,Inactive,Direct Fire Setpoint Override
+Fan Array Failure,binaryInput:150,presentValue,,Inactive,Fan Array Failure
+A1 Compressor Enable,binaryInput:77,presentValue,,Inactive,A1 Compressor Enable
+A2 Compressor Enable,binaryInput:78,presentValue,,Inactive,A2 Compressor Enable
+A1 Compressor Alarms,binaryInput:79,presentValue,,Inactive,A1 Compressor Alarms
+A2 Compressor Alarms,binaryInput:80,presentValue,,Inactive,A2 Compressor Alarms
+A1-2 Defrost Switch,binaryInput:81,presentValue,,Inactive,A1-2 Defrost Switch
+A1-2 Water Proof of Flow,binaryInput:82,presentValue,,Inactive,A1-2 Water Proof of Flow
+A1-4 Emergency Shutdown (RSM-D),binaryInput:83,presentValue,,Inactive,A1-4 Emergency Shutdown (RSM-D)
+Refrigeration Module 1 Relay 1,binaryInput:84,presentValue,,Inactive,Refrigeration Module 1 Relay 1
+Refrigeration Module 1 Relay 2,binaryInput:85,presentValue,,Inactive,Refrigeration Module 1 Relay 2
+Refrigeration Module 1 Relay 3,binaryInput:86,presentValue,,Inactive,Refrigeration Module 1 Relay 3
+Refrigeration Module 1 Relay 4,binaryInput:87,presentValue,,Inactive,Refrigeration Module 1 Relay 4
+Refrigeration Module 1 Relay 5,binaryInput:88,presentValue,,Inactive,Refrigeration Module 1 Relay 5
+B1 Compressor Enable,binaryInput:89,presentValue,,Inactive,B1 Compressor Enable
+B2 Compressor Enable,binaryInput:90,presentValue,,Inactive,B2 Compressor Enable
+B1 Compressor Alarms,binaryInput:91,presentValue,,Inactive,B1 Compressor Alarms
+B2 Compressor Alarms,binaryInput:92,presentValue,,Inactive,B2 Compressor Alarms
+B1-2 Defrost Switch,binaryInput:93,presentValue,,Inactive,B1-2 Defrost Switch
+B1-2 Water Proof of Flow,binaryInput:94,presentValue,,Inactive,B1-2 Water Proof of Flow
+B1-4 Emergency Shutdown (RSM-D),binaryInput:95,presentValue,,Inactive,B1-4 Emergency Shutdown (RSM-D)
+Refrigeration Module 2 Relay 1,binaryInput:96,presentValue,,Inactive,Refrigeration Module 2 Relay 1
+Refrigeration Module 2 Relay 2,binaryInput:97,presentValue,,Inactive,Refrigeration Module 2 Relay 2
+Refrigeration Module 2 Relay 3,binaryInput:98,presentValue,,Inactive,Refrigeration Module 2 Relay 3
+Refrigeration Module 2 Relay 4,binaryInput:99,presentValue,,Inactive,Refrigeration Module 2 Relay 4
+Refrigeration Module 2 Relay 5,binaryInput:100,presentValue,,Inactive,Refrigeration Module 2 Relay 5
+C1 Compressor Enable,binaryInput:101,presentValue,,Inactive,C1 Compressor Enable
+C2 Compressor Enable,binaryInput:102,presentValue,,Inactive,C2 Compressor Enable
+C1 Compressor Alarms,binaryInput:103,presentValue,,Inactive,C1 Compressor Alarms
+C2 Compressor Alarms,binaryInput:104,presentValue,,Inactive,C2 Compressor Alarms
+C1-2 Defrost Switch,binaryInput:105,presentValue,,Inactive,C1-2 Defrost Switch
+C1-2 Water Proof of Flow,binaryInput:106,presentValue,,Inactive,C1-2 Water Proof of Flow
+C1-4 Emergency Shutdown (RSM-D),binaryInput:107,presentValue,,Inactive,C1-4 Emergency Shutdown (RSM-D)
+Refrigeration Module 3 Relay 1,binaryInput:108,presentValue,,Inactive,Refrigeration Module 3 Relay 1
+Refrigeration Module 3 Relay 2,binaryInput:109,presentValue,,Inactive,Refrigeration Module 3 Relay 2
+Refrigeration Module 3 Relay 3,binaryInput:110,presentValue,,Inactive,Refrigeration Module 3 Relay 3
+Refrigeration Module 3 Relay 4,binaryInput:111,presentValue,,Inactive,Refrigeration Module 3 Relay 4
+Refrigeration Module 3 Relay 5,binaryInput:112,presentValue,,Inactive,Refrigeration Module 3 Relay 5
+D1 Compressor Enable,binaryInput:113,presentValue,,Inactive,D1 Compressor Enable
+D2 Compressor Enable,binaryInput:114,presentValue,,Inactive,D2 Compressor Enable
+D1 Compressor Alarms,binaryInput:115,presentValue,,Inactive,D1 Compressor Alarms
+D2 Compressor Alarms,binaryInput:116,presentValue,,Inactive,D2 Compressor Alarms
+D1-2 Defrost Switch,binaryInput:117,presentValue,,Inactive,D1-2 Defrost Switch
+D1-2 Water Proof of Flow,binaryInput:118,presentValue,,Inactive,D1-2 Water Proof of Flow
+D1-4 Emergency Shutdown (RSM-D),binaryInput:119,presentValue,,Inactive,D1-4 Emergency Shutdown (RSM-D)
+Refrigeration Module 4 Relay 1,binaryInput:120,presentValue,,Inactive,Refrigeration Module 4 Relay 1
+Refrigeration Module 4 Relay 2,binaryInput:121,presentValue,,Inactive,Refrigeration Module 4 Relay 2
+Refrigeration Module 4 Relay 3,binaryInput:122,presentValue,,Inactive,Refrigeration Module 4 Relay 3
+Refrigeration Module 4 Relay 4,binaryInput:123,presentValue,,Inactive,Refrigeration Module 4 Relay 4
+Refrigeration Module 4 Relay 5,binaryInput:124,presentValue,,Inactive,Refrigeration Module 4 Relay 5

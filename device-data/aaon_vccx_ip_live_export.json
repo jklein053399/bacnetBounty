@@ -1,0 +1,3066 @@
+{
+  "points": [
+    {
+      "name": "Application Software Version",
+      "bacnet_type": "analogInput",
+      "instance": 1,
+      "value": "2.25",
+      "description": "Application Software Version"
+    },
+    {
+      "name": "Control Mode",
+      "bacnet_type": "analogInput",
+      "instance": 2,
+      "value": "4.00",
+      "description": "Control Mode"
+    },
+    {
+      "name": "Control Status",
+      "bacnet_type": "analogInput",
+      "instance": 3,
+      "value": "5.00",
+      "description": "Control Status"
+    },
+    {
+      "name": "Hvac Mode",
+      "bacnet_type": "analogInput",
+      "instance": 4,
+      "value": "3.00",
+      "description": "Hvac Mode"
+    },
+    {
+      "name": "Control Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 5,
+      "value": "68.30",
+      "description": "Control Temperature"
+    },
+    {
+      "name": "Mode Cooling Setpoint",
+      "bacnet_type": "analogInput",
+      "instance": 6,
+      "value": "75.00",
+      "description": "Mode Cooling Setpoint"
+    },
+    {
+      "name": "Mode Heating Setpoint",
+      "bacnet_type": "analogInput",
+      "instance": 7,
+      "value": "68.00",
+      "description": "Mode Heating Setpoint"
+    },
+    {
+      "name": "Sensor Slide Adjust Effect",
+      "bacnet_type": "analogInput",
+      "instance": 8,
+      "value": "0.00",
+      "description": "Sensor Slide Adjust Effect"
+    },
+    {
+      "name": "Supply Air Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 9,
+      "value": "113.50",
+      "description": "Supply Air Temperature"
+    },
+    {
+      "name": "Supply Air Setpoint",
+      "bacnet_type": "analogInput",
+      "instance": 10,
+      "value": "120.00",
+      "description": "Supply Air Setpoint"
+    },
+    {
+      "name": "Controlling Coil Temp Setpoint",
+      "bacnet_type": "analogInput",
+      "instance": 11,
+      "value": "45.00",
+      "description": "Controlling Coil Temp Setpoint"
+    },
+    {
+      "name": "Space Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 12,
+      "value": "68.30",
+      "description": "Space Temperature"
+    },
+    {
+      "name": "Space Humidity",
+      "bacnet_type": "analogInput",
+      "instance": 13,
+      "value": "0.00",
+      "description": "Space Humidity"
+    },
+    {
+      "name": "Return Air Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 14,
+      "value": "75.70",
+      "description": "Return Air Temperature"
+    },
+    {
+      "name": "Return Air Humidity",
+      "bacnet_type": "analogInput",
+      "instance": 15,
+      "value": "21.90",
+      "description": "Return Air Humidity"
+    },
+    {
+      "name": "Outdoor Air Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 16,
+      "value": "33.10",
+      "description": "Outdoor Air Temperature"
+    },
+    {
+      "name": "Outdoor Air Humidity",
+      "bacnet_type": "analogInput",
+      "instance": 17,
+      "value": "71.00",
+      "description": "Outdoor Air Humidity"
+    },
+    {
+      "name": "Outdoor Air Wetbulb",
+      "bacnet_type": "analogInput",
+      "instance": 18,
+      "value": "28.90",
+      "description": "Outdoor Air Wetbulb"
+    },
+    {
+      "name": "Outdoor Air Dewpoint",
+      "bacnet_type": "analogInput",
+      "instance": 19,
+      "value": "24.70",
+      "description": "Outdoor Air Dewpoint"
+    },
+    {
+      "name": "Supply Air Setpoint Reset Voltage",
+      "bacnet_type": "analogInput",
+      "instance": 20,
+      "value": "0.00",
+      "description": "Supply Air Setpoint Reset Voltage"
+    },
+    {
+      "name": "Duct Static Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 21,
+      "value": "0.00",
+      "description": "Duct Static Pressure"
+    },
+    {
+      "name": "Duct Static Control Signal",
+      "bacnet_type": "analogInput",
+      "instance": 22,
+      "value": "100.00",
+      "description": "Duct Static Control Signal"
+    },
+    {
+      "name": "Building Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 23,
+      "value": "-0.03",
+      "description": "Building Pressure"
+    },
+    {
+      "name": "Building Pressure Control Signal",
+      "bacnet_type": "analogInput",
+      "instance": 24,
+      "value": "0.00",
+      "description": "Building Pressure Control Signal"
+    },
+    {
+      "name": "Outdoor Airflow",
+      "bacnet_type": "analogInput",
+      "instance": 25,
+      "value": "0.00",
+      "description": "Outdoor Airflow"
+    },
+    {
+      "name": "Supply Airflow",
+      "bacnet_type": "analogInput",
+      "instance": 26,
+      "value": "0.00",
+      "description": "Supply Airflow"
+    },
+    {
+      "name": "Return Airflow",
+      "bacnet_type": "analogInput",
+      "instance": 27,
+      "value": "0.00",
+      "description": "Return Airflow"
+    },
+    {
+      "name": "Exhaust Airflow",
+      "bacnet_type": "analogInput",
+      "instance": 28,
+      "value": "0.00",
+      "description": "Exhaust Airflow"
+    },
+    {
+      "name": "Carbon Dioxide",
+      "bacnet_type": "analogInput",
+      "instance": 29,
+      "value": "0.00",
+      "description": "Carbon Dioxide"
+    },
+    {
+      "name": "Desired Economizer Position",
+      "bacnet_type": "analogInput",
+      "instance": 30,
+      "value": "10.00",
+      "description": "Desired Economizer Position"
+    },
+    {
+      "name": "Economizer Feedback Position",
+      "bacnet_type": "analogInput",
+      "instance": 31,
+      "value": "5.00",
+      "description": "Economizer Feedback Position"
+    },
+    {
+      "name": "Return Damper Position",
+      "bacnet_type": "analogInput",
+      "instance": 32,
+      "value": "90.00",
+      "description": "Return Damper Position"
+    },
+    {
+      "name": "Return Bypass Position",
+      "bacnet_type": "analogInput",
+      "instance": 33,
+      "value": "0.00",
+      "description": "Return Bypass Position"
+    },
+    {
+      "name": "Modulating Cooling Position",
+      "bacnet_type": "analogInput",
+      "instance": 34,
+      "value": "0.00",
+      "description": "Modulating Cooling Position"
+    },
+    {
+      "name": "Modulating Heat Position",
+      "bacnet_type": "analogInput",
+      "instance": 35,
+      "value": "0.00",
+      "description": "Modulating Heat Position"
+    },
+    {
+      "name": "Preheater Leaving Air Temp #1",
+      "bacnet_type": "analogInput",
+      "instance": 36,
+      "value": "0.00",
+      "description": "Preheater Leaving Air Temp #1"
+    },
+    {
+      "name": "Preheater Leaving Air Temp #2",
+      "bacnet_type": "analogInput",
+      "instance": 37,
+      "value": "0.00",
+      "description": "Preheater Leaving Air Temp #2"
+    },
+    {
+      "name": "Preheater Entering Air Temp",
+      "bacnet_type": "analogInput",
+      "instance": 38,
+      "value": "-50.00",
+      "description": "Preheater Entering Air Temp"
+    },
+    {
+      "name": "Preheater Setpoint Reset Voltage",
+      "bacnet_type": "analogInput",
+      "instance": 39,
+      "value": "0.00",
+      "description": "Preheater Setpoint Reset Voltage"
+    },
+    {
+      "name": "Preheater SCR Output Signal",
+      "bacnet_type": "analogInput",
+      "instance": 40,
+      "value": "0.00",
+      "description": "Preheater SCR Output Signal"
+    },
+    {
+      "name": "Preheater PWM Output Signal",
+      "bacnet_type": "analogInput",
+      "instance": 41,
+      "value": "0.00",
+      "description": "Preheater PWM Output Signal"
+    },
+    {
+      "name": "Mod Hot Gas Reheat Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 42,
+      "value": "0.00",
+      "description": "Mod Hot Gas Reheat Valve Position"
+    },
+    {
+      "name": "Mod Gas Heat Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 43,
+      "value": "67.60",
+      "description": "Mod Gas Heat Valve Position"
+    },
+    {
+      "name": "Alarm Status",
+      "bacnet_type": "analogInput",
+      "instance": 144,
+      "value": "0.00",
+      "description": "Alarm Status"
+    },
+    {
+      "name": "Outdoor Air Enthalpy",
+      "bacnet_type": "analogInput",
+      "instance": 145,
+      "value": "10.70",
+      "description": "Outdoor Air Enthalpy"
+    },
+    {
+      "name": "Plenum Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 146,
+      "value": "0.00",
+      "description": "Plenum Pressure"
+    },
+    {
+      "name": "Return Fan VFD Signal",
+      "bacnet_type": "analogInput",
+      "instance": 147,
+      "value": "0.00",
+      "description": "Return Fan VFD Signal"
+    },
+    {
+      "name": "Plenum Pressure Setpoint",
+      "bacnet_type": "analogInput",
+      "instance": 148,
+      "value": "0.00",
+      "description": "Plenum Pressure Setpoint"
+    },
+    {
+      "name": "Return Air Enthalpy",
+      "bacnet_type": "analogInput",
+      "instance": 149,
+      "value": "22.60",
+      "description": "Return Air Enthalpy"
+    },
+    {
+      "name": "Current Duct Static Setpoint",
+      "bacnet_type": "analogInput",
+      "instance": 150,
+      "value": "1.50",
+      "description": "Current Duct Static Setpoint"
+    },
+    {
+      "name": "Entering Water Temp",
+      "bacnet_type": "analogInput",
+      "instance": 277,
+      "value": "-126.60",
+      "description": "Entering Water Temp"
+    },
+    {
+      "name": "Return Plenum Pressure Status",
+      "bacnet_type": "analogInput",
+      "instance": 278,
+      "value": "0.00",
+      "description": "Return Plenum Pressure Status"
+    },
+    {
+      "name": "Return Plenum Control Signal",
+      "bacnet_type": "analogInput",
+      "instance": 279,
+      "value": "0.00",
+      "description": "Return Plenum Control Signal"
+    },
+    {
+      "name": "Mixed Air Temp",
+      "bacnet_type": "analogInput",
+      "instance": 280,
+      "value": "0.00",
+      "description": "Mixed Air Temp"
+    },
+    {
+      "name": "Actual Heat Rise",
+      "bacnet_type": "analogInput",
+      "instance": 281,
+      "value": "0.00",
+      "description": "Actual Heat Rise"
+    },
+    {
+      "name": "Calculated Heat Rise",
+      "bacnet_type": "analogInput",
+      "instance": 282,
+      "value": "0.00",
+      "description": "Calculated Heat Rise"
+    },
+    {
+      "name": "Supply Air Relative Humidity",
+      "bacnet_type": "analogInput",
+      "instance": 283,
+      "value": "0.00",
+      "description": "Supply Air Relative Humidity"
+    },
+    {
+      "name": "Supply Air Dew Point",
+      "bacnet_type": "analogInput",
+      "instance": 284,
+      "value": "0.00",
+      "description": "Supply Air Dew Point"
+    },
+    {
+      "name": "Space Dew Point",
+      "bacnet_type": "analogInput",
+      "instance": 285,
+      "value": "0.00",
+      "description": "Space Dew Point"
+    },
+    {
+      "name": "Return Dew Point",
+      "bacnet_type": "analogInput",
+      "instance": 286,
+      "value": "34.20",
+      "description": "Return Dew Point"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 1",
+      "bacnet_type": "analogInput",
+      "instance": 287,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 1"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 2",
+      "bacnet_type": "analogInput",
+      "instance": 288,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 2"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 3",
+      "bacnet_type": "analogInput",
+      "instance": 289,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 3"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 4",
+      "bacnet_type": "analogInput",
+      "instance": 290,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 4"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 5",
+      "bacnet_type": "analogInput",
+      "instance": 291,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 5"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 6",
+      "bacnet_type": "analogInput",
+      "instance": 292,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 6"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 7",
+      "bacnet_type": "analogInput",
+      "instance": 293,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 7"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 8",
+      "bacnet_type": "analogInput",
+      "instance": 294,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 8"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 9",
+      "bacnet_type": "analogInput",
+      "instance": 295,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 9"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 10",
+      "bacnet_type": "analogInput",
+      "instance": 296,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 10"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 11",
+      "bacnet_type": "analogInput",
+      "instance": 297,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 11"
+    },
+    {
+      "name": "FAC Fan Alarm State Fan 12",
+      "bacnet_type": "analogInput",
+      "instance": 298,
+      "value": "0.00",
+      "description": "FAC Fan Alarm State Fan 12"
+    },
+    {
+      "name": "A1 Compressor Signal",
+      "bacnet_type": "analogInput",
+      "instance": 44,
+      "value": "0.00",
+      "description": "A1 Compressor Signal"
+    },
+    {
+      "name": "A2 Compressor Signal",
+      "bacnet_type": "analogInput",
+      "instance": 45,
+      "value": "0.00",
+      "description": "A2 Compressor Signal"
+    },
+    {
+      "name": "A1 Condenser Signal",
+      "bacnet_type": "analogInput",
+      "instance": 46,
+      "value": "0.00",
+      "description": "A1 Condenser Signal"
+    },
+    {
+      "name": "A2 Condenser Signal",
+      "bacnet_type": "analogInput",
+      "instance": 47,
+      "value": "0.00",
+      "description": "A2 Condenser Signal"
+    },
+    {
+      "name": "A1 Suction Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 48,
+      "value": "0.00",
+      "description": "A1 Suction Pressure"
+    },
+    {
+      "name": "A2 Suction Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 49,
+      "value": "0.00",
+      "description": "A2 Suction Pressure"
+    },
+    {
+      "name": "A1 Head Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 50,
+      "value": "0.00",
+      "description": "A1 Head Pressure"
+    },
+    {
+      "name": "A2 Head Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 51,
+      "value": "0.00",
+      "description": "A2 Head Pressure"
+    },
+    {
+      "name": "A1 Saturation Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 52,
+      "value": "0.00",
+      "description": "A1 Saturation Temperature"
+    },
+    {
+      "name": "A2 Saturation Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 53,
+      "value": "0.00",
+      "description": "A2 Saturation Temperature"
+    },
+    {
+      "name": "A1 Suction Line Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 54,
+      "value": "0.00",
+      "description": "A1 Suction Line Temperature"
+    },
+    {
+      "name": "A2 Suction Line Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 55,
+      "value": "0.00",
+      "description": "A2 Suction Line Temperature"
+    },
+    {
+      "name": "A1 Condenser Suction Temp (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 56,
+      "value": "0.00",
+      "description": "A1 Condenser Suction Temp (Heat Pump)"
+    },
+    {
+      "name": "A2 Condenser Suction Temp (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 57,
+      "value": "0.00",
+      "description": "A2 Condenser Suction Temp (Heat Pump)"
+    },
+    {
+      "name": "A1 Superheat Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 58,
+      "value": "0.00",
+      "description": "A1 Superheat Temperature"
+    },
+    {
+      "name": "A2 Superheat Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 59,
+      "value": "0.00",
+      "description": "A2 Superheat Temperature"
+    },
+    {
+      "name": "Condenser A1 Superheat (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 60,
+      "value": "0.00",
+      "description": "Condenser A1 Superheat (Heat Pump)"
+    },
+    {
+      "name": "Condenser A2 Superheat (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 61,
+      "value": "0.00",
+      "description": "Condenser A2 Superheat (Heat Pump)"
+    },
+    {
+      "name": "A1 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 62,
+      "value": "0.00",
+      "description": "A1 Expansion Valve Position"
+    },
+    {
+      "name": "A2 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 63,
+      "value": "0.00",
+      "description": "A2 Expansion Valve Position"
+    },
+    {
+      "name": "Condenser A1 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 64,
+      "value": "0.00",
+      "description": "Condenser A1 Expansion Valve Position"
+    },
+    {
+      "name": "Condenser A2 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 65,
+      "value": "0.00",
+      "description": "Condenser A2 Expansion Valve Position"
+    },
+    {
+      "name": "A1 Discharge Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 66,
+      "value": "0.00",
+      "description": "A1 Discharge Temperature"
+    },
+    {
+      "name": "A2 Discharge Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 67,
+      "value": "0.00",
+      "description": "A2 Discharge Temperature"
+    },
+    {
+      "name": "A1 Leaving Water Temp",
+      "bacnet_type": "analogInput",
+      "instance": 68,
+      "value": "0.00",
+      "description": "A1 Leaving Water Temp"
+    },
+    {
+      "name": "B1 Compressor Signal",
+      "bacnet_type": "analogInput",
+      "instance": 69,
+      "value": "0.00",
+      "description": "B1 Compressor Signal"
+    },
+    {
+      "name": "B2 Compressor Signal",
+      "bacnet_type": "analogInput",
+      "instance": 70,
+      "value": "0.00",
+      "description": "B2 Compressor Signal"
+    },
+    {
+      "name": "B1 Condenser Signal",
+      "bacnet_type": "analogInput",
+      "instance": 71,
+      "value": "0.00",
+      "description": "B1 Condenser Signal"
+    },
+    {
+      "name": "B2 Condenser Signal",
+      "bacnet_type": "analogInput",
+      "instance": 72,
+      "value": "0.00",
+      "description": "B2 Condenser Signal"
+    },
+    {
+      "name": "B1 Suction Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 73,
+      "value": "0.00",
+      "description": "B1 Suction Pressure"
+    },
+    {
+      "name": "B2 Suction Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 74,
+      "value": "0.00",
+      "description": "B2 Suction Pressure"
+    },
+    {
+      "name": "B1 Head Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 75,
+      "value": "0.00",
+      "description": "B1 Head Pressure"
+    },
+    {
+      "name": "B2 Head Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 76,
+      "value": "0.00",
+      "description": "B2 Head Pressure"
+    },
+    {
+      "name": "B1 Saturation Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 77,
+      "value": "0.00",
+      "description": "B1 Saturation Temperature"
+    },
+    {
+      "name": "B2 Saturation Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 78,
+      "value": "0.00",
+      "description": "B2 Saturation Temperature"
+    },
+    {
+      "name": "B1 Suction Line Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 79,
+      "value": "0.00",
+      "description": "B1 Suction Line Temperature"
+    },
+    {
+      "name": "B2 Suction Line Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 80,
+      "value": "0.00",
+      "description": "B2 Suction Line Temperature"
+    },
+    {
+      "name": "B1 Condenser Suction Temp (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 81,
+      "value": "0.00",
+      "description": "B1 Condenser Suction Temp (Heat Pump)"
+    },
+    {
+      "name": "B2 Condenser Suction Temp (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 82,
+      "value": "0.00",
+      "description": "B2 Condenser Suction Temp (Heat Pump)"
+    },
+    {
+      "name": "B1 Superheat Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 83,
+      "value": "0.00",
+      "description": "B1 Superheat Temperature"
+    },
+    {
+      "name": "B2 Superheat Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 84,
+      "value": "0.00",
+      "description": "B2 Superheat Temperature"
+    },
+    {
+      "name": "Condenser B1 Superheat (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 85,
+      "value": "0.00",
+      "description": "Condenser B1 Superheat (Heat Pump)"
+    },
+    {
+      "name": "Condenser B2 Superheat (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 86,
+      "value": "0.00",
+      "description": "Condenser B2 Superheat (Heat Pump)"
+    },
+    {
+      "name": "B1 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 87,
+      "value": "0.00",
+      "description": "B1 Expansion Valve Position"
+    },
+    {
+      "name": "B2 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 88,
+      "value": "0.00",
+      "description": "B2 Expansion Valve Position"
+    },
+    {
+      "name": "Condenser B1 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 89,
+      "value": "0.00",
+      "description": "Condenser B1 Expansion Valve Position"
+    },
+    {
+      "name": "Condenser B2 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 90,
+      "value": "0.00",
+      "description": "Condenser B2 Expansion Valve Position"
+    },
+    {
+      "name": "B1 Discharge Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 91,
+      "value": "0.00",
+      "description": "B1 Discharge Temperature"
+    },
+    {
+      "name": "B2 Discharge Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 92,
+      "value": "0.00",
+      "description": "B2 Discharge Temperature"
+    },
+    {
+      "name": "B1 Leaving Water Temp",
+      "bacnet_type": "analogInput",
+      "instance": 93,
+      "value": "0.00",
+      "description": "B1 Leaving Water Temp"
+    },
+    {
+      "name": "C1 Compressor Signal",
+      "bacnet_type": "analogInput",
+      "instance": 94,
+      "value": "0.00",
+      "description": "C1 Compressor Signal"
+    },
+    {
+      "name": "C2 Compressor Signal",
+      "bacnet_type": "analogInput",
+      "instance": 95,
+      "value": "0.00",
+      "description": "C2 Compressor Signal"
+    },
+    {
+      "name": "C1 Condenser Signal",
+      "bacnet_type": "analogInput",
+      "instance": 96,
+      "value": "0.00",
+      "description": "C1 Condenser Signal"
+    },
+    {
+      "name": "C2 Condenser Signal",
+      "bacnet_type": "analogInput",
+      "instance": 97,
+      "value": "0.00",
+      "description": "C2 Condenser Signal"
+    },
+    {
+      "name": "C1 Suction Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 98,
+      "value": "0.00",
+      "description": "C1 Suction Pressure"
+    },
+    {
+      "name": "C2 Suction Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 99,
+      "value": "0.00",
+      "description": "C2 Suction Pressure"
+    },
+    {
+      "name": "C1 Head Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 100,
+      "value": "0.00",
+      "description": "C1 Head Pressure"
+    },
+    {
+      "name": "C2 Head Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 101,
+      "value": "0.00",
+      "description": "C2 Head Pressure"
+    },
+    {
+      "name": "C1 Saturation Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 102,
+      "value": "0.00",
+      "description": "C1 Saturation Temperature"
+    },
+    {
+      "name": "C2 Saturation Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 103,
+      "value": "0.00",
+      "description": "C2 Saturation Temperature"
+    },
+    {
+      "name": "C1 Suction Line Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 104,
+      "value": "0.00",
+      "description": "C1 Suction Line Temperature"
+    },
+    {
+      "name": "C2 Suction Line Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 105,
+      "value": "0.00",
+      "description": "C2 Suction Line Temperature"
+    },
+    {
+      "name": "C1 Condenser Suction Temp (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 106,
+      "value": "0.00",
+      "description": "C1 Condenser Suction Temp (Heat Pump)"
+    },
+    {
+      "name": "C2 Condenser Suction Temp (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 107,
+      "value": "0.00",
+      "description": "C2 Condenser Suction Temp (Heat Pump)"
+    },
+    {
+      "name": "C1 Superheat Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 108,
+      "value": "0.00",
+      "description": "C1 Superheat Temperature"
+    },
+    {
+      "name": "C2 Superheat Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 109,
+      "value": "0.00",
+      "description": "C2 Superheat Temperature"
+    },
+    {
+      "name": "Condenser C1 Superheat (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 110,
+      "value": "0.00",
+      "description": "Condenser C1 Superheat (Heat Pump)"
+    },
+    {
+      "name": "Condenser C2 Superheat (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 111,
+      "value": "0.00",
+      "description": "Condenser C2 Superheat (Heat Pump)"
+    },
+    {
+      "name": "C1 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 112,
+      "value": "0.00",
+      "description": "C1 Expansion Valve Position"
+    },
+    {
+      "name": "C2 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 113,
+      "value": "0.00",
+      "description": "C2 Expansion Valve Position"
+    },
+    {
+      "name": "Condenser C1 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 114,
+      "value": "0.00",
+      "description": "Condenser C1 Expansion Valve Position"
+    },
+    {
+      "name": "Condenser C2 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 115,
+      "value": "0.00",
+      "description": "Condenser C2 Expansion Valve Position"
+    },
+    {
+      "name": "C1 Discharge Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 116,
+      "value": "0.00",
+      "description": "C1 Discharge Temperature"
+    },
+    {
+      "name": "C2 Discharge Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 117,
+      "value": "0.00",
+      "description": "C2 Discharge Temperature"
+    },
+    {
+      "name": "C1 Leaving Water Temp",
+      "bacnet_type": "analogInput",
+      "instance": 118,
+      "value": "0.00",
+      "description": "C1 Leaving Water Temp"
+    },
+    {
+      "name": "D1 Compressor Signal",
+      "bacnet_type": "analogInput",
+      "instance": 119,
+      "value": "0.00",
+      "description": "D1 Compressor Signal"
+    },
+    {
+      "name": "D2 Compressor Signal",
+      "bacnet_type": "analogInput",
+      "instance": 120,
+      "value": "0.00",
+      "description": "D2 Compressor Signal"
+    },
+    {
+      "name": "D1 Condenser Signal",
+      "bacnet_type": "analogInput",
+      "instance": 121,
+      "value": "0.00",
+      "description": "D1 Condenser Signal"
+    },
+    {
+      "name": "D2 Condenser Signal",
+      "bacnet_type": "analogInput",
+      "instance": 122,
+      "value": "0.00",
+      "description": "D2 Condenser Signal"
+    },
+    {
+      "name": "D1 Suction Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 123,
+      "value": "0.00",
+      "description": "D1 Suction Pressure"
+    },
+    {
+      "name": "D2 Suction Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 124,
+      "value": "0.00",
+      "description": "D2 Suction Pressure"
+    },
+    {
+      "name": "D1 Head Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 125,
+      "value": "0.00",
+      "description": "D1 Head Pressure"
+    },
+    {
+      "name": "D2 Head Pressure",
+      "bacnet_type": "analogInput",
+      "instance": 126,
+      "value": "0.00",
+      "description": "D2 Head Pressure"
+    },
+    {
+      "name": "D1 Saturation Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 127,
+      "value": "0.00",
+      "description": "D1 Saturation Temperature"
+    },
+    {
+      "name": "D2 Saturation Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 128,
+      "value": "0.00",
+      "description": "D2 Saturation Temperature"
+    },
+    {
+      "name": "D1 Suction Line Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 129,
+      "value": "0.00",
+      "description": "D1 Suction Line Temperature"
+    },
+    {
+      "name": "D2 Suction Line Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 130,
+      "value": "0.00",
+      "description": "D2 Suction Line Temperature"
+    },
+    {
+      "name": "D1 Condenser Suction Temp (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 131,
+      "value": "0.00",
+      "description": "D1 Condenser Suction Temp (Heat Pump)"
+    },
+    {
+      "name": "D2 Condenser Suction Temp (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 132,
+      "value": "0.00",
+      "description": "D2 Condenser Suction Temp (Heat Pump)"
+    },
+    {
+      "name": "D1 Superheat Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 133,
+      "value": "0.00",
+      "description": "D1 Superheat Temperature"
+    },
+    {
+      "name": "D2 Superheat Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 134,
+      "value": "0.00",
+      "description": "D2 Superheat Temperature"
+    },
+    {
+      "name": "Condenser D1 Superheat (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 135,
+      "value": "0.00",
+      "description": "Condenser D1 Superheat (Heat Pump)"
+    },
+    {
+      "name": "Condenser D2 Superheat (Heat Pump)",
+      "bacnet_type": "analogInput",
+      "instance": 136,
+      "value": "0.00",
+      "description": "Condenser D2 Superheat (Heat Pump)"
+    },
+    {
+      "name": "D1 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 137,
+      "value": "0.00",
+      "description": "D1 Expansion Valve Position"
+    },
+    {
+      "name": "D2 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 138,
+      "value": "0.00",
+      "description": "D2 Expansion Valve Position"
+    },
+    {
+      "name": "Condenser D1 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 139,
+      "value": "0.00",
+      "description": "Condenser D1 Expansion Valve Position"
+    },
+    {
+      "name": "Condenser D2 Expansion Valve Position",
+      "bacnet_type": "analogInput",
+      "instance": 140,
+      "value": "0.00",
+      "description": "Condenser D2 Expansion Valve Position"
+    },
+    {
+      "name": "D1 Discharge Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 141,
+      "value": "0.00",
+      "description": "D1 Discharge Temperature"
+    },
+    {
+      "name": "D2 Discharge Temperature",
+      "bacnet_type": "analogInput",
+      "instance": 142,
+      "value": "0.00",
+      "description": "D2 Discharge Temperature"
+    },
+    {
+      "name": "D1 Leaving Water Temp",
+      "bacnet_type": "analogInput",
+      "instance": 143,
+      "value": "0.00",
+      "description": "D1 Leaving Water Temp"
+    },
+    {
+      "name": "Line Frequency",
+      "bacnet_type": "analogInput",
+      "instance": 299,
+      "value": "0.00",
+      "description": "Line Frequency"
+    },
+    {
+      "name": "Line Voltage 1-2",
+      "bacnet_type": "analogInput",
+      "instance": 300,
+      "value": "0.00",
+      "description": "Line Voltage 1-2"
+    },
+    {
+      "name": "Line Voltage 2-3",
+      "bacnet_type": "analogInput",
+      "instance": 301,
+      "value": "0.00",
+      "description": "Line Voltage 2-3"
+    },
+    {
+      "name": "Line Voltage 3-1",
+      "bacnet_type": "analogInput",
+      "instance": 302,
+      "value": "0.00",
+      "description": "Line Voltage 3-1"
+    },
+    {
+      "name": "Average Line Voltage",
+      "bacnet_type": "analogInput",
+      "instance": 303,
+      "value": "0.00",
+      "description": "Average Line Voltage"
+    },
+    {
+      "name": "Total Phase A Current",
+      "bacnet_type": "analogInput",
+      "instance": 304,
+      "value": "0.00",
+      "description": "Total Phase A Current"
+    },
+    {
+      "name": "Total Phase B Current",
+      "bacnet_type": "analogInput",
+      "instance": 305,
+      "value": "0.00",
+      "description": "Total Phase B Current"
+    },
+    {
+      "name": "Total Phase C Current",
+      "bacnet_type": "analogInput",
+      "instance": 306,
+      "value": "0.00",
+      "description": "Total Phase C Current"
+    },
+    {
+      "name": "Average Phase Current",
+      "bacnet_type": "analogInput",
+      "instance": 307,
+      "value": "0.00",
+      "description": "Average Phase Current"
+    },
+    {
+      "name": "Phase A Power",
+      "bacnet_type": "analogInput",
+      "instance": 308,
+      "value": "0.00",
+      "description": "Phase A Power"
+    },
+    {
+      "name": "Phase B Power",
+      "bacnet_type": "analogInput",
+      "instance": 309,
+      "value": "0.00",
+      "description": "Phase B Power"
+    },
+    {
+      "name": "Phase C Power",
+      "bacnet_type": "analogInput",
+      "instance": 310,
+      "value": "0.00",
+      "description": "Phase C Power"
+    },
+    {
+      "name": "Total System Power",
+      "bacnet_type": "analogInput",
+      "instance": 311,
+      "value": "0.00",
+      "description": "Total System Power"
+    },
+    {
+      "name": "Phase A Reactive Power",
+      "bacnet_type": "analogInput",
+      "instance": 312,
+      "value": "0.00",
+      "description": "Phase A Reactive Power"
+    },
+    {
+      "name": "Phase B Reactive Power",
+      "bacnet_type": "analogInput",
+      "instance": 313,
+      "value": "0.00",
+      "description": "Phase B Reactive Power"
+    },
+    {
+      "name": "Phase C Reactive Power",
+      "bacnet_type": "analogInput",
+      "instance": 314,
+      "value": "0.00",
+      "description": "Phase C Reactive Power"
+    },
+    {
+      "name": "Total Reactive Power",
+      "bacnet_type": "analogInput",
+      "instance": 315,
+      "value": "0.00",
+      "description": "Total Reactive Power"
+    },
+    {
+      "name": "Phase A Apparent Power",
+      "bacnet_type": "analogInput",
+      "instance": 316,
+      "value": "0.00",
+      "description": "Phase A Apparent Power"
+    },
+    {
+      "name": "Phase B Apparent Power",
+      "bacnet_type": "analogInput",
+      "instance": 317,
+      "value": "0.00",
+      "description": "Phase B Apparent Power"
+    },
+    {
+      "name": "Phase C Apparent Power",
+      "bacnet_type": "analogInput",
+      "instance": 318,
+      "value": "0.00",
+      "description": "Phase C Apparent Power"
+    },
+    {
+      "name": "Total Apparent Power",
+      "bacnet_type": "analogInput",
+      "instance": 319,
+      "value": "0.00",
+      "description": "Total Apparent Power"
+    },
+    {
+      "name": "Phase A Power Factor",
+      "bacnet_type": "analogInput",
+      "instance": 320,
+      "value": "0.00",
+      "description": "Phase A Power Factor"
+    },
+    {
+      "name": "Phase B Power Factor",
+      "bacnet_type": "analogInput",
+      "instance": 321,
+      "value": "0.00",
+      "description": "Phase B Power Factor"
+    },
+    {
+      "name": "Phase C Power Factor",
+      "bacnet_type": "analogInput",
+      "instance": 322,
+      "value": "0.00",
+      "description": "Phase C Power Factor"
+    },
+    {
+      "name": "Total Power Factor",
+      "bacnet_type": "analogInput",
+      "instance": 323,
+      "value": "0.00",
+      "description": "Total Power Factor"
+    },
+    {
+      "name": "Occupied Cooling Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 1,
+      "value": "75.00",
+      "description": "Occupied Cooling Setpoint"
+    },
+    {
+      "name": "Occupied Heating Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 2,
+      "value": "68.00",
+      "description": "Occupied Heating Setpoint"
+    },
+    {
+      "name": "Hood On Cooling Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 3,
+      "value": "75.00",
+      "description": "Hood On Cooling Setpoint"
+    },
+    {
+      "name": "Hood On Heating Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 4,
+      "value": "70.00",
+      "description": "Hood On Heating Setpoint"
+    },
+    {
+      "name": "Unoccupied Cooling Offset",
+      "bacnet_type": "analogValue",
+      "instance": 5,
+      "value": "5.00",
+      "description": "Unoccupied Cooling Offset"
+    },
+    {
+      "name": "Unoccupied Heating Offset",
+      "bacnet_type": "analogValue",
+      "instance": 6,
+      "value": "5.00",
+      "description": "Unoccupied Heating Offset"
+    },
+    {
+      "name": "Mode Select Deadband",
+      "bacnet_type": "analogValue",
+      "instance": 7,
+      "value": "1.00",
+      "description": "Mode Select Deadband"
+    },
+    {
+      "name": "Max Coil Setpoint Reset Limit",
+      "bacnet_type": "analogValue",
+      "instance": 8,
+      "value": "45.00",
+      "description": "Max Coil Setpoint Reset Limit"
+    },
+    {
+      "name": "Min Coil Setpoint Reset Limit",
+      "bacnet_type": "analogValue",
+      "instance": 9,
+      "value": "40.00",
+      "description": "Min Coil Setpoint Reset Limit"
+    },
+    {
+      "name": "Supply Air Cooling Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 10,
+      "value": "55.00",
+      "description": "Supply Air Cooling Setpoint"
+    },
+    {
+      "name": "Supply Air Heating Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 11,
+      "value": "120.00",
+      "description": "Supply Air Heating Setpoint"
+    },
+    {
+      "name": "Max SAT Cooling Setpoint Reset Limit",
+      "bacnet_type": "analogValue",
+      "instance": 12,
+      "value": "55.00",
+      "description": "Max SAT Cooling Setpoint Reset Limit"
+    },
+    {
+      "name": "Max SAT Heating Setpoint Reset Limit",
+      "bacnet_type": "analogValue",
+      "instance": 13,
+      "value": "120.00",
+      "description": "Max SAT Heating Setpoint Reset Limit"
+    },
+    {
+      "name": "Supply Air Cooling Staging Window",
+      "bacnet_type": "analogValue",
+      "instance": 14,
+      "value": "5.00",
+      "description": "Supply Air Cooling Staging Window"
+    },
+    {
+      "name": "Supply Air Heating Staging Window",
+      "bacnet_type": "analogValue",
+      "instance": 15,
+      "value": "5.00",
+      "description": "Supply Air Heating Staging Window"
+    },
+    {
+      "name": "Warm-Up Target Temperature",
+      "bacnet_type": "analogValue",
+      "instance": 16,
+      "value": "68.00",
+      "description": "Warm-Up Target Temperature"
+    },
+    {
+      "name": "Warm-Up Mode Supply Air Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 17,
+      "value": "100.00",
+      "description": "Warm-Up Mode Supply Air Setpoint"
+    },
+    {
+      "name": "Cool-Down Mode Supply Air Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 18,
+      "value": "55.00",
+      "description": "Cool-Down Mode Supply Air Setpoint"
+    },
+    {
+      "name": "Mechanical Cooling Outdoor Air Lockout",
+      "bacnet_type": "analogValue",
+      "instance": 19,
+      "value": "50.00",
+      "description": "Mechanical Cooling Outdoor Air Lockout"
+    },
+    {
+      "name": "Mechanical Heating Outdoor Air Lockout",
+      "bacnet_type": "analogValue",
+      "instance": 20,
+      "value": "90.00",
+      "description": "Mechanical Heating Outdoor Air Lockout"
+    },
+    {
+      "name": "Low Supply Temp Cutoff Alarm",
+      "bacnet_type": "analogValue",
+      "instance": 21,
+      "value": "40.00",
+      "description": "Low Supply Temp Cutoff Alarm"
+    },
+    {
+      "name": "High Supply Temp Cutoff Alarm",
+      "bacnet_type": "analogValue",
+      "instance": 22,
+      "value": "150.00",
+      "description": "High Supply Temp Cutoff Alarm"
+    },
+    {
+      "name": "Preheater Cooling Mode Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 23,
+      "value": "40.00",
+      "description": "Preheater Cooling Mode Setpoint"
+    },
+    {
+      "name": "Preheater Venting Mode Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 24,
+      "value": "50.00",
+      "description": "Preheater Venting Mode Setpoint"
+    },
+    {
+      "name": "Preheater Heating Mode Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 25,
+      "value": "60.00",
+      "description": "Preheater Heating Mode Setpoint"
+    },
+    {
+      "name": "Outdoor Air Dewpoint Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 26,
+      "value": "55.00",
+      "description": "Outdoor Air Dewpoint Setpoint"
+    },
+    {
+      "name": "Economizer Enable Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 27,
+      "value": "55.00",
+      "description": "Economizer Enable Setpoint"
+    },
+    {
+      "name": "Heat Wheel Defrost Active",
+      "bacnet_type": "analogValue",
+      "instance": 28,
+      "value": "30.00",
+      "description": "Heat Wheel Defrost Active"
+    },
+    {
+      "name": "PreHeat Enable Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 29,
+      "value": "30.00",
+      "description": "PreHeat Enable Setpoint"
+    },
+    {
+      "name": "Sensor Slide Offset Max Effect",
+      "bacnet_type": "analogValue",
+      "instance": 30,
+      "value": "0.00",
+      "description": "Sensor Slide Offset Max Effect"
+    },
+    {
+      "name": "Space Sensor Calibration Offset",
+      "bacnet_type": "analogValue",
+      "instance": 31,
+      "value": "0.00",
+      "description": "Space Sensor Calibration Offset"
+    },
+    {
+      "name": "Supply Air Sensor Calibration Offset",
+      "bacnet_type": "analogValue",
+      "instance": 32,
+      "value": "0.00",
+      "description": "Supply Air Sensor Calibration Offset"
+    },
+    {
+      "name": "Return Air Sensor Calibration Offset",
+      "bacnet_type": "analogValue",
+      "instance": 33,
+      "value": "0.00",
+      "description": "Return Air Sensor Calibration Offset"
+    },
+    {
+      "name": "Outdoor Air Sensor Calibration Offset",
+      "bacnet_type": "analogValue",
+      "instance": 34,
+      "value": "0.00",
+      "description": "Outdoor Air Sensor Calibration Offset"
+    },
+    {
+      "name": "Carbon Dioxide Sensor Calibration Offset",
+      "bacnet_type": "analogValue",
+      "instance": 35,
+      "value": "0.00",
+      "description": "Carbon Dioxide Sensor Calibration Offset"
+    },
+    {
+      "name": "Low Ambient Protection Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 36,
+      "value": "30.00",
+      "description": "Low Ambient Protection Setpoint"
+    },
+    {
+      "name": "SAT Cool Setpoint Reset Source Lo Limit",
+      "bacnet_type": "analogValue",
+      "instance": 37,
+      "value": "70.00",
+      "description": "SAT Cool Setpoint Reset Source Lo Limit"
+    },
+    {
+      "name": "SAT Cool Setpoint Reset Source Hi Limit",
+      "bacnet_type": "analogValue",
+      "instance": 38,
+      "value": "75.00",
+      "description": "SAT Cool Setpoint Reset Source Hi Limit"
+    },
+    {
+      "name": "SAT Heat Setpoint Reset Source Lo Limit",
+      "bacnet_type": "analogValue",
+      "instance": 39,
+      "value": "70.00",
+      "description": "SAT Heat Setpoint Reset Source Lo Limit"
+    },
+    {
+      "name": "SAT Heat Setpoint Reset Source Hi Limit",
+      "bacnet_type": "analogValue",
+      "instance": 40,
+      "value": "75.00",
+      "description": "SAT Heat Setpoint Reset Source Hi Limit"
+    },
+    {
+      "name": "Control Temperature High Alarm Offset",
+      "bacnet_type": "analogValue",
+      "instance": 41,
+      "value": "30.00",
+      "description": "Control Temperature High Alarm Offset"
+    },
+    {
+      "name": "Control Temperature Low Alarm Offset",
+      "bacnet_type": "analogValue",
+      "instance": 42,
+      "value": "30.00",
+      "description": "Control Temperature Low Alarm Offset"
+    },
+    {
+      "name": "Heat Pump Compressor Heat Lockout",
+      "bacnet_type": "analogValue",
+      "instance": 43,
+      "value": "35.00",
+      "description": "Heat Pump Compressor Heat Lockout"
+    },
+    {
+      "name": "Maximum Main Fan VFD in SZVAV Mode",
+      "bacnet_type": "analogValue",
+      "instance": 44,
+      "value": "100.00",
+      "description": "Maximum Main Fan VFD in SZVAV Mode"
+    },
+    {
+      "name": "Minimum Main Fan VFD in Cooling Mode",
+      "bacnet_type": "analogValue",
+      "instance": 45,
+      "value": "30.00",
+      "description": "Minimum Main Fan VFD in Cooling Mode"
+    },
+    {
+      "name": "Minimum Main Fan VFD in HeatingMode",
+      "bacnet_type": "analogValue",
+      "instance": 46,
+      "value": "50.00",
+      "description": "Minimum Main Fan VFD in HeatingMode"
+    },
+    {
+      "name": "Minimum Main Fan VFD in Vent Mode",
+      "bacnet_type": "analogValue",
+      "instance": 47,
+      "value": "20.00",
+      "description": "Minimum Main Fan VFD in Vent Mode"
+    },
+    {
+      "name": "Maximum Economizer in Heating Mode",
+      "bacnet_type": "analogValue",
+      "instance": 48,
+      "value": "50.00",
+      "description": "Maximum Economizer in Heating Mode"
+    },
+    {
+      "name": "Minimum Economizer Position",
+      "bacnet_type": "analogValue",
+      "instance": 49,
+      "value": "10.00",
+      "description": "Minimum Economizer Position"
+    },
+    {
+      "name": "Maximum Economizer CO2 Reset Limit",
+      "bacnet_type": "analogValue",
+      "instance": 50,
+      "value": "50.00",
+      "description": "Maximum Economizer CO2 Reset Limit"
+    },
+    {
+      "name": "Minimum Carbon Dioxide Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 51,
+      "value": "900.00",
+      "description": "Minimum Carbon Dioxide Setpoint"
+    },
+    {
+      "name": "Maximum Carbon Dioxide Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 52,
+      "value": "1000.00",
+      "description": "Maximum Carbon Dioxide Setpoint"
+    },
+    {
+      "name": "Indoor Humidity Setpoint Low Reset Limit",
+      "bacnet_type": "analogValue",
+      "instance": 53,
+      "value": "50.00",
+      "description": "Indoor Humidity Setpoint Low Reset Limit"
+    },
+    {
+      "name": "Indoor Humidity Setpoint High Reset Limi",
+      "bacnet_type": "analogValue",
+      "instance": 54,
+      "value": "60.00",
+      "description": "Indoor Humidity Setpoint High Reset Limi"
+    },
+    {
+      "name": "Duct Static Pressure Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 55,
+      "value": "1.50",
+      "description": "Duct Static Pressure Setpoint"
+    },
+    {
+      "name": "Duct Static Pressure Control Deadband",
+      "bacnet_type": "analogValue",
+      "instance": 56,
+      "value": "0.10",
+      "description": "Duct Static Pressure Control Deadband"
+    },
+    {
+      "name": "Building Pressure Control Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 57,
+      "value": "0.02",
+      "description": "Building Pressure Control Setpoint"
+    },
+    {
+      "name": "Building Pressure Control Deadband",
+      "bacnet_type": "analogValue",
+      "instance": 58,
+      "value": "0.01",
+      "description": "Building Pressure Control Deadband"
+    },
+    {
+      "name": "Minimum Outdoor CFM Requirement",
+      "bacnet_type": "analogValue",
+      "instance": 59,
+      "value": "2.00",
+      "description": "Minimum Outdoor CFM Requirement"
+    },
+    {
+      "name": "Outdoor CFM Control Deadband",
+      "bacnet_type": "analogValue",
+      "instance": 60,
+      "value": "200.00",
+      "description": "Outdoor CFM Control Deadband"
+    },
+    {
+      "name": "Single Zone VAV Fan Speed Integral",
+      "bacnet_type": "analogValue",
+      "instance": 61,
+      "value": "0.00",
+      "description": "Single Zone VAV Fan Speed Integral"
+    },
+    {
+      "name": "Relay Run-time Hours Warning Limit",
+      "bacnet_type": "analogValue",
+      "instance": 62,
+      "value": "0.00",
+      "description": "Relay Run-time Hours Warning Limit"
+    },
+    {
+      "name": "Cooling Mode Head Pressure Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 63,
+      "value": "315.00",
+      "description": "Cooling Mode Head Pressure Setpoint"
+    },
+    {
+      "name": "Dehum Mode Head Pressure Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 64,
+      "value": "400.00",
+      "description": "Dehum Mode Head Pressure Setpoint"
+    },
+    {
+      "name": "Superheat Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 65,
+      "value": "15.00",
+      "description": "Superheat Setpoint"
+    },
+    {
+      "name": "Maximum Outdoor CFM Requirement",
+      "bacnet_type": "analogValue",
+      "instance": 66,
+      "value": "2.00",
+      "description": "Maximum Outdoor CFM Requirement"
+    },
+    {
+      "name": "Schedule Force",
+      "bacnet_type": "analogValue",
+      "instance": 67,
+      "value": "1.00",
+      "description": "Schedule Force"
+    },
+    {
+      "name": "Hvac Mode Override",
+      "bacnet_type": "analogValue",
+      "instance": 68,
+      "value": "0.00",
+      "description": "Hvac Mode Override"
+    },
+    {
+      "name": "Fan Vfd Override",
+      "bacnet_type": "analogValue",
+      "instance": 69,
+      "value": "-1.00",
+      "description": "Fan Vfd Override"
+    },
+    {
+      "name": "Outdoor Air Damper Override",
+      "bacnet_type": "analogValue",
+      "instance": 70,
+      "value": "-1.00",
+      "description": "Outdoor Air Damper Override"
+    },
+    {
+      "name": "Supply Setpoint Override",
+      "bacnet_type": "analogValue",
+      "instance": 71,
+      "value": "0.00",
+      "description": "Supply Setpoint Override"
+    },
+    {
+      "name": "Space Temperature Override",
+      "bacnet_type": "analogValue",
+      "instance": 72,
+      "value": "0.00",
+      "description": "Space Temperature Override"
+    },
+    {
+      "name": "Space Humidity Override",
+      "bacnet_type": "analogValue",
+      "instance": 73,
+      "value": "-1.00",
+      "description": "Space Humidity Override"
+    },
+    {
+      "name": "Indoor RH Calibration Offset",
+      "bacnet_type": "analogValue",
+      "instance": 74,
+      "value": "0.00",
+      "description": "Indoor RH Calibration Offset"
+    },
+    {
+      "name": "Relief Fan Vfd Override",
+      "bacnet_type": "analogValue",
+      "instance": 75,
+      "value": "-1.00",
+      "description": "Relief Fan Vfd Override"
+    },
+    {
+      "name": "Relief Pressure Override",
+      "bacnet_type": "analogValue",
+      "instance": 76,
+      "value": "-1.00",
+      "description": "Relief Pressure Override"
+    },
+    {
+      "name": "Carbon Dioxide Override",
+      "bacnet_type": "analogValue",
+      "instance": 77,
+      "value": "-1.00",
+      "description": "Carbon Dioxide Override"
+    },
+    {
+      "name": "Outdoor Air Temperature Override",
+      "bacnet_type": "analogValue",
+      "instance": 78,
+      "value": "-100.00",
+      "description": "Outdoor Air Temperature Override"
+    },
+    {
+      "name": "Outdoor Air Humidity Override",
+      "bacnet_type": "analogValue",
+      "instance": 79,
+      "value": "-1.00",
+      "description": "Outdoor Air Humidity Override"
+    },
+    {
+      "name": "Reserved",
+      "bacnet_type": "analogValue",
+      "instance": 80,
+      "value": "30.00",
+      "description": "Reserved"
+    },
+    {
+      "name": "Reserved",
+      "bacnet_type": "analogValue",
+      "instance": 81,
+      "value": "20.00",
+      "description": "Reserved"
+    },
+    {
+      "name": "Reserved",
+      "bacnet_type": "analogValue",
+      "instance": 82,
+      "value": "0.20",
+      "description": "Reserved"
+    },
+    {
+      "name": "Reserved",
+      "bacnet_type": "analogValue",
+      "instance": 83,
+      "value": "0.10",
+      "description": "Reserved"
+    },
+    {
+      "name": "Comparative Enthalpy Enable Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 84,
+      "value": "28.00",
+      "description": "Comparative Enthalpy Enable Setpoint"
+    },
+    {
+      "name": "Comparative Enthalpy Enable Deadband",
+      "bacnet_type": "analogValue",
+      "instance": 85,
+      "value": "0.50",
+      "description": "Comparative Enthalpy Enable Deadband"
+    },
+    {
+      "name": "Max Static Setpoint Reset Limit",
+      "bacnet_type": "analogValue",
+      "instance": 86,
+      "value": "1.50",
+      "description": "Max Static Setpoint Reset Limit"
+    },
+    {
+      "name": "Min Static Setpoint Reset Limit",
+      "bacnet_type": "analogValue",
+      "instance": 87,
+      "value": "1.50",
+      "description": "Min Static Setpoint Reset Limit"
+    },
+    {
+      "name": "Static Setpoint Reset Rate",
+      "bacnet_type": "analogValue",
+      "instance": 88,
+      "value": "15.00",
+      "description": "Static Setpoint Reset Rate"
+    },
+    {
+      "name": "Cool-Down Target Temperature",
+      "bacnet_type": "analogValue",
+      "instance": 89,
+      "value": "72.00",
+      "description": "Cool-Down Target Temperature"
+    },
+    {
+      "name": "Warm-up Mode Override",
+      "bacnet_type": "analogValue",
+      "instance": 90,
+      "value": "0.00",
+      "description": "Warm-up Mode Override"
+    },
+    {
+      "name": "Cool-down Mode Override",
+      "bacnet_type": "analogValue",
+      "instance": 91,
+      "value": "0.00",
+      "description": "Cool-down Mode Override"
+    },
+    {
+      "name": "Return Air Hi Limit Protection",
+      "bacnet_type": "analogValue",
+      "instance": 92,
+      "value": "80.00",
+      "description": "Return Air Hi Limit Protection"
+    },
+    {
+      "name": "Return Air Lo Limit Protection",
+      "bacnet_type": "analogValue",
+      "instance": 93,
+      "value": "60.00",
+      "description": "Return Air Lo Limit Protection"
+    },
+    {
+      "name": "Sump Drain Override",
+      "bacnet_type": "analogValue",
+      "instance": 94,
+      "value": "0.00",
+      "description": "Sump Drain Override"
+    },
+    {
+      "name": "Return Plenum Pressure Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 95,
+      "value": "0.10",
+      "description": "Return Plenum Pressure Setpoint"
+    },
+    {
+      "name": "Return Plenum Pressure Deadband",
+      "bacnet_type": "analogValue",
+      "instance": 96,
+      "value": "0.01",
+      "description": "Return Plenum Pressure Deadband"
+    },
+    {
+      "name": "Dehumidification Lockout Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 97,
+      "value": "0.00",
+      "description": "Dehumidification Lockout Setpoint"
+    },
+    {
+      "name": "Emergency Compressor Lockout",
+      "bacnet_type": "analogValue",
+      "instance": 98,
+      "value": "0.00",
+      "description": "Emergency Compressor Lockout"
+    },
+    {
+      "name": "Supply Air Dew Point Setpoint",
+      "bacnet_type": "analogValue",
+      "instance": 99,
+      "value": "55.00",
+      "description": "Supply Air Dew Point Setpoint"
+    },
+    {
+      "name": "Cooling Enabled Status",
+      "bacnet_type": "binaryInput",
+      "instance": 1,
+      "value": "Inactive",
+      "description": "Cooling Enabled Status"
+    },
+    {
+      "name": "Heating Enabled Status",
+      "bacnet_type": "binaryInput",
+      "instance": 2,
+      "value": "Active",
+      "description": "Heating Enabled Status"
+    },
+    {
+      "name": "Economizer Enabled Status",
+      "bacnet_type": "binaryInput",
+      "instance": 3,
+      "value": "Active",
+      "description": "Economizer Enabled Status"
+    },
+    {
+      "name": "Aux Heat Enabled Status",
+      "bacnet_type": "binaryInput",
+      "instance": 4,
+      "value": "Inactive",
+      "description": "Aux Heat Enabled Status"
+    },
+    {
+      "name": "Emergency Heat Enabled Status",
+      "bacnet_type": "binaryInput",
+      "instance": 5,
+      "value": "Inactive",
+      "description": "Emergency Heat Enabled Status"
+    },
+    {
+      "name": "Fan Proof of Airflow Status",
+      "bacnet_type": "binaryInput",
+      "instance": 6,
+      "value": "Active",
+      "description": "Fan Proof of Airflow Status"
+    },
+    {
+      "name": "Exhaust Hood On/Off Status",
+      "bacnet_type": "binaryInput",
+      "instance": 7,
+      "value": "Inactive",
+      "description": "Exhaust Hood On/Off Status"
+    },
+    {
+      "name": "Remote Forced Occupied Status",
+      "bacnet_type": "binaryInput",
+      "instance": 8,
+      "value": "Inactive",
+      "description": "Remote Forced Occupied Status"
+    },
+    {
+      "name": "Remote Forced Cooling Status",
+      "bacnet_type": "binaryInput",
+      "instance": 9,
+      "value": "Inactive",
+      "description": "Remote Forced Cooling Status"
+    },
+    {
+      "name": "Remote Forced Heating Status",
+      "bacnet_type": "binaryInput",
+      "instance": 10,
+      "value": "Inactive",
+      "description": "Remote Forced Heating Status"
+    },
+    {
+      "name": "Remote Force Dehum Status",
+      "bacnet_type": "binaryInput",
+      "instance": 11,
+      "value": "Inactive",
+      "description": "Remote Force Dehum Status"
+    },
+    {
+      "name": "Bad Supply Air Sensor",
+      "bacnet_type": "binaryInput",
+      "instance": 12,
+      "value": "Inactive",
+      "description": "Bad Supply Air Sensor"
+    },
+    {
+      "name": "Bad Return Air Sensor",
+      "bacnet_type": "binaryInput",
+      "instance": 13,
+      "value": "Inactive",
+      "description": "Bad Return Air Sensor"
+    },
+    {
+      "name": "Bad Outdoor Air Sensor",
+      "bacnet_type": "binaryInput",
+      "instance": 14,
+      "value": "Inactive",
+      "description": "Bad Outdoor Air Sensor"
+    },
+    {
+      "name": "Bad Space Temp Sensor",
+      "bacnet_type": "binaryInput",
+      "instance": 15,
+      "value": "Inactive",
+      "description": "Bad Space Temp Sensor"
+    },
+    {
+      "name": "Bad Carbon Dioxide Sensor",
+      "bacnet_type": "binaryInput",
+      "instance": 16,
+      "value": "Inactive",
+      "description": "Bad Carbon Dioxide Sensor"
+    },
+    {
+      "name": "Bad Building Pressure Sensor",
+      "bacnet_type": "binaryInput",
+      "instance": 17,
+      "value": "Inactive",
+      "description": "Bad Building Pressure Sensor"
+    },
+    {
+      "name": "Bad Outdoor Airflow Sensor",
+      "bacnet_type": "binaryInput",
+      "instance": 18,
+      "value": "Inactive",
+      "description": "Bad Outdoor Airflow Sensor"
+    },
+    {
+      "name": "Bad Exhaust Airflow Sensor",
+      "bacnet_type": "binaryInput",
+      "instance": 19,
+      "value": "Inactive",
+      "description": "Bad Exhaust Airflow Sensor"
+    },
+    {
+      "name": "Bad Supply Airflow Sensor",
+      "bacnet_type": "binaryInput",
+      "instance": 20,
+      "value": "Inactive",
+      "description": "Bad Supply Airflow Sensor"
+    },
+    {
+      "name": "Bad Return Airflow Sensor",
+      "bacnet_type": "binaryInput",
+      "instance": 21,
+      "value": "Inactive",
+      "description": "Bad Return Airflow Sensor"
+    },
+    {
+      "name": "Mechanical Cooling Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 22,
+      "value": "Inactive",
+      "description": "Mechanical Cooling Alarm"
+    },
+    {
+      "name": "Mechanical Heating Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 23,
+      "value": "Inactive",
+      "description": "Mechanical Heating Alarm"
+    },
+    {
+      "name": "Fan Proving Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 24,
+      "value": "Inactive",
+      "description": "Fan Proving Alarm"
+    },
+    {
+      "name": "Dirty Filter Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 25,
+      "value": "Inactive",
+      "description": "Dirty Filter Alarm"
+    },
+    {
+      "name": "Emergency Shutdown Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 26,
+      "value": "Inactive",
+      "description": "Emergency Shutdown Alarm"
+    },
+    {
+      "name": "Relay Runtime Warning",
+      "bacnet_type": "binaryInput",
+      "instance": 27,
+      "value": "Inactive",
+      "description": "Relay Runtime Warning"
+    },
+    {
+      "name": "Economizer Missing Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 28,
+      "value": "Inactive",
+      "description": "Economizer Missing Alarm"
+    },
+    {
+      "name": "Economizer Title 24 Failure A",
+      "bacnet_type": "binaryInput",
+      "instance": 29,
+      "value": "Inactive",
+      "description": "Economizer Title 24 Failure A"
+    },
+    {
+      "name": "Economizer Title 24 Failure B",
+      "bacnet_type": "binaryInput",
+      "instance": 30,
+      "value": "Inactive",
+      "description": "Economizer Title 24 Failure B"
+    },
+    {
+      "name": "Economizer Title 24 Failure C",
+      "bacnet_type": "binaryInput",
+      "instance": 31,
+      "value": "Inactive",
+      "description": "Economizer Title 24 Failure C"
+    },
+    {
+      "name": "Economizer Title 24 Failure D",
+      "bacnet_type": "binaryInput",
+      "instance": 32,
+      "value": "Inactive",
+      "description": "Economizer Title 24 Failure D"
+    },
+    {
+      "name": "Economizer Title 24 Failure E",
+      "bacnet_type": "binaryInput",
+      "instance": 33,
+      "value": "Inactive",
+      "description": "Economizer Title 24 Failure E"
+    },
+    {
+      "name": "High Supply Temp Cutoff",
+      "bacnet_type": "binaryInput",
+      "instance": 34,
+      "value": "Inactive",
+      "description": "High Supply Temp Cutoff"
+    },
+    {
+      "name": "Low Supply Temp Cutoff",
+      "bacnet_type": "binaryInput",
+      "instance": 35,
+      "value": "Inactive",
+      "description": "Low Supply Temp Cutoff"
+    },
+    {
+      "name": "High Control Mode Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 36,
+      "value": "Inactive",
+      "description": "High Control Mode Alarm"
+    },
+    {
+      "name": "Low Control Mode Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 37,
+      "value": "Inactive",
+      "description": "Low Control Mode Alarm"
+    },
+    {
+      "name": "Missing Refrigeration Module #1",
+      "bacnet_type": "binaryInput",
+      "instance": 38,
+      "value": "Inactive",
+      "description": "Missing Refrigeration Module #1"
+    },
+    {
+      "name": "Missing Refrigeration Module #2",
+      "bacnet_type": "binaryInput",
+      "instance": 39,
+      "value": "Inactive",
+      "description": "Missing Refrigeration Module #2"
+    },
+    {
+      "name": "Missing Refrigeration Module #3",
+      "bacnet_type": "binaryInput",
+      "instance": 40,
+      "value": "Inactive",
+      "description": "Missing Refrigeration Module #3"
+    },
+    {
+      "name": "Missing Refrigeration Module #4",
+      "bacnet_type": "binaryInput",
+      "instance": 41,
+      "value": "Inactive",
+      "description": "Missing Refrigeration Module #4"
+    },
+    {
+      "name": "Missing Preheater Board",
+      "bacnet_type": "binaryInput",
+      "instance": 42,
+      "value": "Inactive",
+      "description": "Missing Preheater Board"
+    },
+    {
+      "name": "Missing Reheat Board",
+      "bacnet_type": "binaryInput",
+      "instance": 43,
+      "value": "Inactive",
+      "description": "Missing Reheat Board"
+    },
+    {
+      "name": "Missing Mod Gas Board",
+      "bacnet_type": "binaryInput",
+      "instance": 44,
+      "value": "Inactive",
+      "description": "Missing Mod Gas Board"
+    },
+    {
+      "name": "Missing EM1 Board",
+      "bacnet_type": "binaryInput",
+      "instance": 45,
+      "value": "Inactive",
+      "description": "Missing EM1 Board"
+    },
+    {
+      "name": "Missing 12 Relay Expansion Board",
+      "bacnet_type": "binaryInput",
+      "instance": 46,
+      "value": "Inactive",
+      "description": "Missing 12 Relay Expansion Board"
+    },
+    {
+      "name": "On Board Relay 1 Main Fan",
+      "bacnet_type": "binaryInput",
+      "instance": 47,
+      "value": "Active",
+      "description": "On Board Relay 1 Main Fan"
+    },
+    {
+      "name": "On Board Relay 2",
+      "bacnet_type": "binaryInput",
+      "instance": 48,
+      "value": "Inactive",
+      "description": "On Board Relay 2"
+    },
+    {
+      "name": "On Board Relay 3",
+      "bacnet_type": "binaryInput",
+      "instance": 49,
+      "value": "Inactive",
+      "description": "On Board Relay 3"
+    },
+    {
+      "name": "On Board Relay 4",
+      "bacnet_type": "binaryInput",
+      "instance": 50,
+      "value": "Inactive",
+      "description": "On Board Relay 4"
+    },
+    {
+      "name": "On Board Relay 5",
+      "bacnet_type": "binaryInput",
+      "instance": 51,
+      "value": "Inactive",
+      "description": "On Board Relay 5"
+    },
+    {
+      "name": "On Board Relay 6",
+      "bacnet_type": "binaryInput",
+      "instance": 52,
+      "value": "Inactive",
+      "description": "On Board Relay 6"
+    },
+    {
+      "name": "On Board Relay 7",
+      "bacnet_type": "binaryInput",
+      "instance": 53,
+      "value": "Inactive",
+      "description": "On Board Relay 7"
+    },
+    {
+      "name": "On Board Relay 8",
+      "bacnet_type": "binaryInput",
+      "instance": 54,
+      "value": "Inactive",
+      "description": "On Board Relay 8"
+    },
+    {
+      "name": "Expansion Board EM1 Relay 1",
+      "bacnet_type": "binaryInput",
+      "instance": 55,
+      "value": "Inactive",
+      "description": "Expansion Board EM1 Relay 1"
+    },
+    {
+      "name": "Expansion Board EM1 Relay 2",
+      "bacnet_type": "binaryInput",
+      "instance": 56,
+      "value": "Inactive",
+      "description": "Expansion Board EM1 Relay 2"
+    },
+    {
+      "name": "Expansion Board EM1 Relay 3",
+      "bacnet_type": "binaryInput",
+      "instance": 57,
+      "value": "Inactive",
+      "description": "Expansion Board EM1 Relay 3"
+    },
+    {
+      "name": "Expansion Board EM1 Relay 4",
+      "bacnet_type": "binaryInput",
+      "instance": 58,
+      "value": "Inactive",
+      "description": "Expansion Board EM1 Relay 4"
+    },
+    {
+      "name": "Expansion Board EM1 Relay 5",
+      "bacnet_type": "binaryInput",
+      "instance": 59,
+      "value": "Inactive",
+      "description": "Expansion Board EM1 Relay 5"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 1",
+      "bacnet_type": "binaryInput",
+      "instance": 60,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 1"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 2",
+      "bacnet_type": "binaryInput",
+      "instance": 61,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 2"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 3",
+      "bacnet_type": "binaryInput",
+      "instance": 62,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 3"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 4",
+      "bacnet_type": "binaryInput",
+      "instance": 63,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 4"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 5",
+      "bacnet_type": "binaryInput",
+      "instance": 64,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 5"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 6",
+      "bacnet_type": "binaryInput",
+      "instance": 65,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 6"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 7",
+      "bacnet_type": "binaryInput",
+      "instance": 66,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 7"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 8",
+      "bacnet_type": "binaryInput",
+      "instance": 67,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 8"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 9",
+      "bacnet_type": "binaryInput",
+      "instance": 68,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 9"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 10",
+      "bacnet_type": "binaryInput",
+      "instance": 69,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 10"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 11",
+      "bacnet_type": "binaryInput",
+      "instance": 70,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 11"
+    },
+    {
+      "name": "12 Relay Expansion Board Relay 12",
+      "bacnet_type": "binaryInput",
+      "instance": 71,
+      "value": "Inactive",
+      "description": "12 Relay Expansion Board Relay 12"
+    },
+    {
+      "name": "Preheater Enable Status",
+      "bacnet_type": "binaryInput",
+      "instance": 72,
+      "value": "Inactive",
+      "description": "Preheater Enable Status"
+    },
+    {
+      "name": "Preheater Emergency Shutdown",
+      "bacnet_type": "binaryInput",
+      "instance": 73,
+      "value": "Inactive",
+      "description": "Preheater Emergency Shutdown"
+    },
+    {
+      "name": "Preheater Spare Binary Input #3",
+      "bacnet_type": "binaryInput",
+      "instance": 74,
+      "value": "Inactive",
+      "description": "Preheater Spare Binary Input #3"
+    },
+    {
+      "name": "MODGAS Enable Status",
+      "bacnet_type": "binaryInput",
+      "instance": 75,
+      "value": "Active",
+      "description": "MODGAS Enable Status"
+    },
+    {
+      "name": "MHGR Enable Status",
+      "bacnet_type": "binaryInput",
+      "instance": 76,
+      "value": "Inactive",
+      "description": "MHGR Enable Status"
+    },
+    {
+      "name": "Preheater Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 125,
+      "value": "Inactive",
+      "description": "Preheater Alarm"
+    },
+    {
+      "name": "Return Fan Proving Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 126,
+      "value": "Inactive",
+      "description": "Return Fan Proving Alarm"
+    },
+    {
+      "name": "Return Fan Proving Status",
+      "bacnet_type": "binaryInput",
+      "instance": 136,
+      "value": "Inactive",
+      "description": "Return Fan Proving Status"
+    },
+    {
+      "name": "IAQ Mode Active",
+      "bacnet_type": "binaryInput",
+      "instance": 137,
+      "value": "Inactive",
+      "description": "IAQ Mode Active"
+    },
+    {
+      "name": "Heat Wheel Defrost Active",
+      "bacnet_type": "binaryInput",
+      "instance": 138,
+      "value": "Inactive",
+      "description": "Heat Wheel Defrost Active"
+    },
+    {
+      "name": "Direct Fire Status",
+      "bacnet_type": "binaryInput",
+      "instance": 139,
+      "value": "Inactive",
+      "description": "Direct Fire Status"
+    },
+    {
+      "name": "Direct Fire Alarm Status",
+      "bacnet_type": "binaryInput",
+      "instance": 140,
+      "value": "Inactive",
+      "description": "Direct Fire Alarm Status"
+    },
+    {
+      "name": "Temp Rise Warning",
+      "bacnet_type": "binaryInput",
+      "instance": 141,
+      "value": "Inactive",
+      "description": "Temp Rise Warning"
+    },
+    {
+      "name": "Temp Rise Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 142,
+      "value": "Inactive",
+      "description": "Temp Rise Alarm"
+    },
+    {
+      "name": "Temp Rise Lockout",
+      "bacnet_type": "binaryInput",
+      "instance": 143,
+      "value": "Inactive",
+      "description": "Temp Rise Lockout"
+    },
+    {
+      "name": "HighCO2 Rise Warning",
+      "bacnet_type": "binaryInput",
+      "instance": 144,
+      "value": "Inactive",
+      "description": "HighCO2 Rise Warning"
+    },
+    {
+      "name": "HighCO2 Rise Alarm",
+      "bacnet_type": "binaryInput",
+      "instance": 145,
+      "value": "Inactive",
+      "description": "HighCO2 Rise Alarm"
+    },
+    {
+      "name": "HighCO2 Rise Lockout",
+      "bacnet_type": "binaryInput",
+      "instance": 146,
+      "value": "Inactive",
+      "description": "HighCO2 Rise Lockout"
+    },
+    {
+      "name": "Ignition Lockout",
+      "bacnet_type": "binaryInput",
+      "instance": 147,
+      "value": "Inactive",
+      "description": "Ignition Lockout"
+    },
+    {
+      "name": "DirectFire Status Lockout",
+      "bacnet_type": "binaryInput",
+      "instance": 148,
+      "value": "Inactive",
+      "description": "DirectFire Status Lockout"
+    },
+    {
+      "name": "Direct Fire Setpoint Override",
+      "bacnet_type": "binaryInput",
+      "instance": 149,
+      "value": "Inactive",
+      "description": "Direct Fire Setpoint Override"
+    },
+    {
+      "name": "Fan Array Failure",
+      "bacnet_type": "binaryInput",
+      "instance": 150,
+      "value": "Inactive",
+      "description": "Fan Array Failure"
+    },
+    {
+      "name": "A1 Compressor Enable",
+      "bacnet_type": "binaryInput",
+      "instance": 77,
+      "value": "Inactive",
+      "description": "A1 Compressor Enable"
+    },
+    {
+      "name": "A2 Compressor Enable",
+      "bacnet_type": "binaryInput",
+      "instance": 78,
+      "value": "Inactive",
+      "description": "A2 Compressor Enable"
+    },
+    {
+      "name": "A1 Compressor Alarms",
+      "bacnet_type": "binaryInput",
+      "instance": 79,
+      "value": "Inactive",
+      "description": "A1 Compressor Alarms"
+    },
+    {
+      "name": "A2 Compressor Alarms",
+      "bacnet_type": "binaryInput",
+      "instance": 80,
+      "value": "Inactive",
+      "description": "A2 Compressor Alarms"
+    },
+    {
+      "name": "A1-2 Defrost Switch",
+      "bacnet_type": "binaryInput",
+      "instance": 81,
+      "value": "Inactive",
+      "description": "A1-2 Defrost Switch"
+    },
+    {
+      "name": "A1-2 Water Proof of Flow",
+      "bacnet_type": "binaryInput",
+      "instance": 82,
+      "value": "Inactive",
+      "description": "A1-2 Water Proof of Flow"
+    },
+    {
+      "name": "A1-4 Emergency Shutdown (RSM-D)",
+      "bacnet_type": "binaryInput",
+      "instance": 83,
+      "value": "Inactive",
+      "description": "A1-4 Emergency Shutdown (RSM-D)"
+    },
+    {
+      "name": "Refrigeration Module 1 Relay 1",
+      "bacnet_type": "binaryInput",
+      "instance": 84,
+      "value": "Inactive",
+      "description": "Refrigeration Module 1 Relay 1"
+    },
+    {
+      "name": "Refrigeration Module 1 Relay 2",
+      "bacnet_type": "binaryInput",
+      "instance": 85,
+      "value": "Inactive",
+      "description": "Refrigeration Module 1 Relay 2"
+    },
+    {
+      "name": "Refrigeration Module 1 Relay 3",
+      "bacnet_type": "binaryInput",
+      "instance": 86,
+      "value": "Inactive",
+      "description": "Refrigeration Module 1 Relay 3"
+    },
+    {
+      "name": "Refrigeration Module 1 Relay 4",
+      "bacnet_type": "binaryInput",
+      "instance": 87,
+      "value": "Inactive",
+      "description": "Refrigeration Module 1 Relay 4"
+    },
+    {
+      "name": "Refrigeration Module 1 Relay 5",
+      "bacnet_type": "binaryInput",
+      "instance": 88,
+      "value": "Inactive",
+      "description": "Refrigeration Module 1 Relay 5"
+    },
+    {
+      "name": "B1 Compressor Enable",
+      "bacnet_type": "binaryInput",
+      "instance": 89,
+      "value": "Inactive",
+      "description": "B1 Compressor Enable"
+    },
+    {
+      "name": "B2 Compressor Enable",
+      "bacnet_type": "binaryInput",
+      "instance": 90,
+      "value": "Inactive",
+      "description": "B2 Compressor Enable"
+    },
+    {
+      "name": "B1 Compressor Alarms",
+      "bacnet_type": "binaryInput",
+      "instance": 91,
+      "value": "Inactive",
+      "description": "B1 Compressor Alarms"
+    },
+    {
+      "name": "B2 Compressor Alarms",
+      "bacnet_type": "binaryInput",
+      "instance": 92,
+      "value": "Inactive",
+      "description": "B2 Compressor Alarms"
+    },
+    {
+      "name": "B1-2 Defrost Switch",
+      "bacnet_type": "binaryInput",
+      "instance": 93,
+      "value": "Inactive",
+      "description": "B1-2 Defrost Switch"
+    },
+    {
+      "name": "B1-2 Water Proof of Flow",
+      "bacnet_type": "binaryInput",
+      "instance": 94,
+      "value": "Inactive",
+      "description": "B1-2 Water Proof of Flow"
+    },
+    {
+      "name": "B1-4 Emergency Shutdown (RSM-D)",
+      "bacnet_type": "binaryInput",
+      "instance": 95,
+      "value": "Inactive",
+      "description": "B1-4 Emergency Shutdown (RSM-D)"
+    },
+    {
+      "name": "Refrigeration Module 2 Relay 1",
+      "bacnet_type": "binaryInput",
+      "instance": 96,
+      "value": "Inactive",
+      "description": "Refrigeration Module 2 Relay 1"
+    },
+    {
+      "name": "Refrigeration Module 2 Relay 2",
+      "bacnet_type": "binaryInput",
+      "instance": 97,
+      "value": "Inactive",
+      "description": "Refrigeration Module 2 Relay 2"
+    },
+    {
+      "name": "Refrigeration Module 2 Relay 3",
+      "bacnet_type": "binaryInput",
+      "instance": 98,
+      "value": "Inactive",
+      "description": "Refrigeration Module 2 Relay 3"
+    },
+    {
+      "name": "Refrigeration Module 2 Relay 4",
+      "bacnet_type": "binaryInput",
+      "instance": 99,
+      "value": "Inactive",
+      "description": "Refrigeration Module 2 Relay 4"
+    },
+    {
+      "name": "Refrigeration Module 2 Relay 5",
+      "bacnet_type": "binaryInput",
+      "instance": 100,
+      "value": "Inactive",
+      "description": "Refrigeration Module 2 Relay 5"
+    },
+    {
+      "name": "C1 Compressor Enable",
+      "bacnet_type": "binaryInput",
+      "instance": 101,
+      "value": "Inactive",
+      "description": "C1 Compressor Enable"
+    },
+    {
+      "name": "C2 Compressor Enable",
+      "bacnet_type": "binaryInput",
+      "instance": 102,
+      "value": "Inactive",
+      "description": "C2 Compressor Enable"
+    },
+    {
+      "name": "C1 Compressor Alarms",
+      "bacnet_type": "binaryInput",
+      "instance": 103,
+      "value": "Inactive",
+      "description": "C1 Compressor Alarms"
+    },
+    {
+      "name": "C2 Compressor Alarms",
+      "bacnet_type": "binaryInput",
+      "instance": 104,
+      "value": "Inactive",
+      "description": "C2 Compressor Alarms"
+    },
+    {
+      "name": "C1-2 Defrost Switch",
+      "bacnet_type": "binaryInput",
+      "instance": 105,
+      "value": "Inactive",
+      "description": "C1-2 Defrost Switch"
+    },
+    {
+      "name": "C1-2 Water Proof of Flow",
+      "bacnet_type": "binaryInput",
+      "instance": 106,
+      "value": "Inactive",
+      "description": "C1-2 Water Proof of Flow"
+    },
+    {
+      "name": "C1-4 Emergency Shutdown (RSM-D)",
+      "bacnet_type": "binaryInput",
+      "instance": 107,
+      "value": "Inactive",
+      "description": "C1-4 Emergency Shutdown (RSM-D)"
+    },
+    {
+      "name": "Refrigeration Module 3 Relay 1",
+      "bacnet_type": "binaryInput",
+      "instance": 108,
+      "value": "Inactive",
+      "description": "Refrigeration Module 3 Relay 1"
+    },
+    {
+      "name": "Refrigeration Module 3 Relay 2",
+      "bacnet_type": "binaryInput",
+      "instance": 109,
+      "value": "Inactive",
+      "description": "Refrigeration Module 3 Relay 2"
+    },
+    {
+      "name": "Refrigeration Module 3 Relay 3",
+      "bacnet_type": "binaryInput",
+      "instance": 110,
+      "value": "Inactive",
+      "description": "Refrigeration Module 3 Relay 3"
+    },
+    {
+      "name": "Refrigeration Module 3 Relay 4",
+      "bacnet_type": "binaryInput",
+      "instance": 111,
+      "value": "Inactive",
+      "description": "Refrigeration Module 3 Relay 4"
+    },
+    {
+      "name": "Refrigeration Module 3 Relay 5",
+      "bacnet_type": "binaryInput",
+      "instance": 112,
+      "value": "Inactive",
+      "description": "Refrigeration Module 3 Relay 5"
+    },
+    {
+      "name": "D1 Compressor Enable",
+      "bacnet_type": "binaryInput",
+      "instance": 113,
+      "value": "Inactive",
+      "description": "D1 Compressor Enable"
+    },
+    {
+      "name": "D2 Compressor Enable",
+      "bacnet_type": "binaryInput",
+      "instance": 114,
+      "value": "Inactive",
+      "description": "D2 Compressor Enable"
+    },
+    {
+      "name": "D1 Compressor Alarms",
+      "bacnet_type": "binaryInput",
+      "instance": 115,
+      "value": "Inactive",
+      "description": "D1 Compressor Alarms"
+    },
+    {
+      "name": "D2 Compressor Alarms",
+      "bacnet_type": "binaryInput",
+      "instance": 116,
+      "value": "Inactive",
+      "description": "D2 Compressor Alarms"
+    },
+    {
+      "name": "D1-2 Defrost Switch",
+      "bacnet_type": "binaryInput",
+      "instance": 117,
+      "value": "Inactive",
+      "description": "D1-2 Defrost Switch"
+    },
+    {
+      "name": "D1-2 Water Proof of Flow",
+      "bacnet_type": "binaryInput",
+      "instance": 118,
+      "value": "Inactive",
+      "description": "D1-2 Water Proof of Flow"
+    },
+    {
+      "name": "D1-4 Emergency Shutdown (RSM-D)",
+      "bacnet_type": "binaryInput",
+      "instance": 119,
+      "value": "Inactive",
+      "description": "D1-4 Emergency Shutdown (RSM-D)"
+    },
+    {
+      "name": "Refrigeration Module 4 Relay 1",
+      "bacnet_type": "binaryInput",
+      "instance": 120,
+      "value": "Inactive",
+      "description": "Refrigeration Module 4 Relay 1"
+    },
+    {
+      "name": "Refrigeration Module 4 Relay 2",
+      "bacnet_type": "binaryInput",
+      "instance": 121,
+      "value": "Inactive",
+      "description": "Refrigeration Module 4 Relay 2"
+    },
+    {
+      "name": "Refrigeration Module 4 Relay 3",
+      "bacnet_type": "binaryInput",
+      "instance": 122,
+      "value": "Inactive",
+      "description": "Refrigeration Module 4 Relay 3"
+    },
+    {
+      "name": "Refrigeration Module 4 Relay 4",
+      "bacnet_type": "binaryInput",
+      "instance": 123,
+      "value": "Inactive",
+      "description": "Refrigeration Module 4 Relay 4"
+    },
+    {
+      "name": "Refrigeration Module 4 Relay 5",
+      "bacnet_type": "binaryInput",
+      "instance": 124,
+      "value": "Inactive",
+      "description": "Refrigeration Module 4 Relay 5"
+    }
+  ],
+  "source": "AAON_RTU_Ref_Points.csv",
+  "device_id": 3600005,
+  "total": 437
+}
