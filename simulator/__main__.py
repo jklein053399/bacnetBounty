@@ -21,6 +21,8 @@ from .config import load_config
 from .logging_config import setup_logging
 from .site_model import SiteModel
 from .devices.emon import EmonClass3200
+from .devices.onicon_gas import OniconF5500Gas
+from .devices.onicon_water import OniconF3500Water
 
 
 log = logging.getLogger("simulator")
@@ -33,13 +35,13 @@ log = logging.getLogger("simulator")
 # Vertical-slice subset (Phase 1 in progress); commented entries come online as
 # their device modules land.
 DEVICE_MANIFEST: list[dict] = [
-    {"kind": "emon", "device_id": 100001, "name": "ELECTRICAL_METER_A", "ip_offset": 0, "scope": "A"},
-    {"kind": "emon", "device_id": 100002, "name": "ELECTRICAL_METER_B", "ip_offset": 1, "scope": "B"},
-    {"kind": "emon", "device_id": 100003, "name": "ELECTRICAL_METER_C", "ip_offset": 2, "scope": "C"},
-    # Gas meter:   {"kind": "onicon_gas",   "device_id": 110001, "name": "GAS_METER",   "ip_offset": 3},
-    # Water meter: {"kind": "onicon_water", "device_id": 120001, "name": "WATER_METER", "ip_offset": 4},
-    # AHUs:        "ahu"          200001/200002/200003   ip_offset 5/6/7
-    # VAVs:        "vav"          300001..300020         ip_offset 8..27
+    {"kind": "emon",         "device_id": 100001, "name": "ELECTRICAL_METER_A", "ip_offset": 0, "scope": "A"},
+    {"kind": "emon",         "device_id": 100002, "name": "ELECTRICAL_METER_B", "ip_offset": 1, "scope": "B"},
+    {"kind": "emon",         "device_id": 100003, "name": "ELECTRICAL_METER_C", "ip_offset": 2, "scope": "C"},
+    {"kind": "onicon_gas",   "device_id": 110001, "name": "GAS_METER",          "ip_offset": 3},
+    {"kind": "onicon_water", "device_id": 120001, "name": "WATER_METER",        "ip_offset": 4},
+    # AHUs: "ahu"  200001/200002/200003   ip_offset 5/6/7        (Session B)
+    # VAVs: "vav"  300001..300020         ip_offset 8..27        (Session B)
 ]
 
 
@@ -74,21 +76,30 @@ async def run():
     devices: list = []
     for spec in DEVICE_MANIFEST:
         ip = f"{cfg.network.base_ip}{cfg.network.start_octet + spec['ip_offset']}"
-        if spec["kind"] == "emon":
-            dev = EmonClass3200(
-                device_id=spec["device_id"],
-                device_name=spec["name"],
-                local_ip=ip,
-                subnet_mask_prefix=cfg.network.subnet_mask_prefix,
-                bacnet_port=cfg.network.bacnet_port,
-                scope=spec["scope"],
-                site_model=site,
-            )
-            dev.update()
-            devices.append(dev)
-            log.info(f"  [{spec['device_id']}] {spec['name']:<22} @ {ip}:{cfg.network.bacnet_port} (E-Mon scope {spec['scope']})")
+        kind = spec["kind"]
+        common_kwargs = dict(
+            device_id=spec["device_id"],
+            device_name=spec["name"],
+            local_ip=ip,
+            subnet_mask_prefix=cfg.network.subnet_mask_prefix,
+            bacnet_port=cfg.network.bacnet_port,
+            site_model=site,
+        )
+        if kind == "emon":
+            dev = EmonClass3200(scope=spec["scope"], **common_kwargs)
+            tag = f"E-Mon scope {spec['scope']}"
+        elif kind == "onicon_gas":
+            dev = OniconF5500Gas(**common_kwargs)
+            tag = "ONICON F-5500 gas"
+        elif kind == "onicon_water":
+            dev = OniconF3500Water(**common_kwargs)
+            tag = "ONICON F-3500 water"
         else:
-            log.warning(f"Unknown device kind in manifest: {spec['kind']!r}")
+            log.warning(f"Unknown device kind in manifest: {kind!r}")
+            continue
+        dev.update()
+        devices.append(dev)
+        log.info(f"  [{spec['device_id']}] {spec['name']:<22} @ {ip}:{cfg.network.bacnet_port} ({tag})")
 
     log.info(f"{len(devices)} devices online.")
     log.info("Entering tick loop. Ctrl+C to stop.")

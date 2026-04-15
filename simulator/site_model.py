@@ -39,6 +39,7 @@ class SiteState:
     # Thermal demand drivers (0..1)
     cooling_load_fraction: float
     heating_load_fraction: float
+    gas_heating_fraction: float         # AHU preheat demand (boiler-fed), not VAV reheat (electric)
 
     # Itemized electric loads (kW)
     lighting_kw: float
@@ -56,9 +57,11 @@ class SiteState:
 
     # Gas (SCFH)
     gas_scfh: float
+    gas_temp_f: float                   # pipe reads near ambient
 
     # Water (GPM)
     water_gpm: float
+    water_temp_f: float                 # domestic cold, stable ~55F
 
     # Totalizers (integrated across ticks)
     meter_a_kwh: float = 0.0
@@ -264,10 +267,24 @@ class SiteModel:
         # Peak demand tracking (fixed 15-min calendar intervals per handoff §Flag 2)
         self._update_peak_demand(now, {"A": meter_a_kw, "B": meter_b_kw, "C": meter_c_kw})
 
-        # Gas — heating-driven (AHU preheat only per handoff; VAV reheat is electric)
-        gas_scfh = mags.gas_baseline_scfh + heat_frac * occ * (mags.gas_peak_scfh - mags.gas_baseline_scfh)
+        # Gas — AHU preheat only (VAV reheat is electric per handoff doc 03 Flag 1).
+        # Spec doc 02 Section 3: heating_load_fraction = (1 - OAT/60) clamped, gated
+        # by occupancy. Small always-on term (0.3 floor when cold) represents boiler
+        # cycling during low-occupancy cold weather. Multiplicative with occupancy
+        # so warm-weather unoccupied hours sit at pure baseline (pilot).
+        if oat < 60.0:
+            oat_term = (60.0 - oat) / 60.0
+        else:
+            oat_term = 0.0
+        gas_heating_fraction = min(1.0, oat_term * (0.3 + 0.7 * occ))
+
+        gas_scfh = mags.gas_baseline_scfh + gas_heating_fraction * (mags.gas_peak_scfh - mags.gas_baseline_scfh)
         gas_scfh *= 0.95 + 0.1 * self._rng.random()
         self._gas_scf += gas_scfh * dt_hours
+
+        # Gas pipe temperature — tracks OAT with small offset (pipe runs outdoor or
+        # through service penetration; gas flow warms it slightly vs ambient).
+        gas_temp_f = oat + 2.0 + 4.0 * self._rng.random()
 
         # Water — occupancy-driven with Poisson-ish bursts
         water_base = mags.water_baseline_gpm + occ * (mags.water_peak_gpm * 0.4 - mags.water_baseline_gpm)
@@ -276,6 +293,9 @@ class SiteModel:
         water_gpm = max(0.0, water_base)
         self._water_gal += water_gpm * (dt_hours * 60.0)  # GPM * minutes
 
+        # Water temperature — domestic cold, stable ~55F year-round with small jitter
+        water_temp_f = 55.0 + self._rng.uniform(-1.0, 1.0)
+
         state = SiteState(
             timestamp=now,
             oat_f=oat,
@@ -283,6 +303,7 @@ class SiteModel:
             lighting_scheduled=lighting_on,
             cooling_load_fraction=cool_frac,
             heating_load_fraction=heat_frac,
+            gas_heating_fraction=gas_heating_fraction,
             lighting_kw=lighting_kw,
             plug_kw=plug_kw,
             ahu_sz_kw=ahu_sz_kw,
@@ -294,7 +315,9 @@ class SiteModel:
             meter_b_kw=meter_b_kw,
             meter_c_kw=meter_c_kw,
             gas_scfh=gas_scfh,
+            gas_temp_f=gas_temp_f,
             water_gpm=water_gpm,
+            water_temp_f=water_temp_f,
             meter_a_kwh=self._meter_a_kwh,
             meter_b_kwh=self._meter_b_kwh,
             meter_c_kwh=self._meter_c_kwh,

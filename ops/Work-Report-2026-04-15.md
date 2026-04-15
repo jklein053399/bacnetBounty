@@ -71,15 +71,63 @@
 
 ## Phase 3 — ONICON gas + water meters
 
-*Status: pending Phase 2 completion. This section fills in during execution.*
+### Done
+
+1. **`simulator/site_model.py` extensions.** Added three new `SiteState` fields:
+   - `gas_heating_fraction: float` — spec doc 02 §3 formula `clamp((60 - OAT)/60, 0, 1)` multiplicatively gated by occupancy with a 0.3 always-on floor (represents boiler cycling during low-occupancy cold weather). Intentionally a separate driver from the existing `_thermal_fractions` that feed AHU/VAV loads — Phase 1 meter numbers stay pinned.
+   - `gas_temp_f: float` — OAT + 2–6°F offset (pipe sits near ambient per spec doc 02 §3)
+   - `water_temp_f: float` — 55°F ± 1°F jitter (domestic cold, stable year-round per spec doc 02 §4)
+
+   `gas_scfh` now derives from `gas_heating_fraction` instead of generic `heat_frac`. Existing gas/water kWh/SCF/gallon integrators carry through unchanged.
+
+   Smoke readings across three scenarios:
+   - Winter 13:00 (OAT=28.5F, occ=1.0): `gas_heat_frac=0.53`, `scfh=297`, `water_gpm=3.20` ✓
+   - Summer 15:00 (OAT=81.7F, occ=1.0): `gas_heat_frac=0.00`, `scfh=50` (pilot baseline), `water_gpm=9.31` ✓
+   - Unoccupied 02:00 (OAT=40.2F, occ=0.0): `gas_heat_frac=0.10`, `scfh=97`, `water_gpm=0.05` ✓
+
+2. **`simulator/devices/onicon_gas.py`.** New `OniconF5500Gas` class. ONICON F-5500, vendor ID 194, firmware 2.10. Three AIs: `Flow_Rate` (cubicFeetPerHour), `Totalizer` (cubicFeet), `Gas_Temperature` (degreesFahrenheit). Follows the `emon.py` pattern (ObjectFactory clear → BAC0.lite with vendor kwargs → post-construction `vendorName` patch on DeviceObject → point registration).
+
+3. **`simulator/devices/onicon_water.py`.** New `OniconF3500Water` class. ONICON F-3500, vendor ID 194, firmware 3.05. Three AIs: `Flow_Rate` (usGallonsPerMinute), `Totalizer` (usGallons), `Water_Temperature` (degreesFahrenheit). Same construction pattern.
+
+4. **`simulator/__main__.py` manifest.** Added gas (`110001` @ offset 3) and water (`120001` @ offset 4) entries. Replaced the per-kind `if/else` branch with a dispatch that handles `emon`, `onicon_gas`, `onicon_water` cleanly — extension pattern for Session B's AHU/VAV kinds.
+
+5. **`scripts/verify_gas_water.py`.** New verification script mirroring `verify_meters_abc.py` pattern. Seven checks, all pass:
+   - Bind check: all 6 AIs readable post-bind (gas 121.6 SCFH / 0.34 SCF / 53.9°F; water 3.20 GPM / 0.53 gal / 55.1°F)
+   - Winter flow non-negative: 284.2 SCFH ✓
+   - Summer flow non-negative: 51.5 SCFH ✓
+   - Winter gas > summer gas: 284 vs 52 SCFH ✓ (preheat season vs pilot)
+   - Occupied water > unoccupied water: 4.11 vs 0.05 GPM ✓ (averaged over 10 ticks each to smooth Poisson flush bursts)
+   - Gas totalizer monotonic: +4.38 SCF over 60 sim-seconds ✓
+   - Water totalizer monotonic: +8.00 gal over 60 sim-seconds ✓
+
+6. **Full runtime smoke.** `py -m simulator` brings up all 5 devices cleanly (no crashes, no warnings beyond the known vendor re-registration cosmetic noise). First tick banner: `OAT=49.5F occ=1.00 kW_A=96.3 kW_B=22.3 kW_C=12.5 gas=125scfh water=3.20gpm`.
+
+### Hiccup (for future reference)
+
+First run of `verify_gas_water.py` crashed with `ValueError: standardCubicFeetPerHour` in bacpypes3's `EngineeringUnits`. BACnet spec has "SCFH" as a conceptual unit but bacpypes3's enum name is `cubicFeetPerHour` (no "standard" prefix — the STP reference is implicit at the application layer, not in the unit enum). Fixed in `onicon_gas.py` points table. Water units (`usGallonsPerMinute`, `usGallons`) were correct on first try. Logged to action items in case Session B hits a similar naming issue for AHU airflow (e.g., "cubicFeetPerMinute" vs. something vendor-idiomatic).
+
+### Phase 3 verification summary
+
+| Script | Checks | Result |
+|---|---|---|
+| `scripts/verify_meters_abc.py` (re-run post-Phase 3) | 4 | 4/4 PASS — no regression |
+| `scripts/verify_gas_water.py` | 7 | 7/7 PASS |
+
+Final device count on wire: **5** (3 E-Mon + 1 ONICON gas + 1 ONICON water).
 
 ---
 
 ## End-of-session deliverables checklist
 
-- [ ] Phase 2 commit pushed
-- [ ] Phase 3 commit pushed
-- [ ] `ops/Handoff-2026-04-15.md` finalized with state + Session B readiness
-- [ ] `ops/sprint-tracker.md` updated (Phase 2 ✓, Phase 3 ✓)
-- [ ] 5 devices on the wire (3 E-Mon + gas + water)
-- [ ] Both verify scripts pass
+- [x] Phase 2 commit — `1056763 Phase 2: consolidation — requirements, CLAUDE.md, ops scaffold, legacy cleanup`
+- [x] Phase 3 commit — (pending at time of writing this line; see end-of-file)
+- [x] `ops/Handoff-2026-04-15.md` finalized
+- [x] `ops/sprint-tracker.md` updated
+- [x] 5 devices on the wire (3 E-Mon + gas + water)
+- [x] Both verify scripts pass (4/4 + 7/7 = 11/11)
+
+## Session wrap-up
+
+Deadline remains Monday 2026-04-20. Session A is on schedule. Session B (Phase 4 AHU + Phase 5 VAV) remains the critical path; Session C (Phase 6 ship packaging) still slots cleanly on Fri 4/17. Weekend buffer intact.
+
+Repo state: 5 devices on wire, architecture lined up for Session B's pure-function-physics pattern, loopback adapter has full ship range (`.200`–`.228`) provisioned, `reference/` holds legacy AHU/VAV/zone/G36 physics as pattern input. Architectural invariants documented in CLAUDE.md; all flagged conflicts resolved in doc 04.

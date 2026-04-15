@@ -28,18 +28,17 @@ Deliverables:
 - [x] `scripts/verify_meters_abc.py` passes 4/4 on new `.200`–`.202` IPs
 - [x] Loopback script `scripts/add_loopback_ips.bat` seeded (`.200`–`.228`)
 
-## Phase 3 — ONICON gas + water meters 🔄
-**Target:** 2026-04-15 (this session, immediately after Phase 2)
-**Status:** not started
+## Phase 3 — ONICON gas + water meters ✅
+**Completed:** 2026-04-15
 
 Deliverables:
-- [ ] `simulator/devices/onicon_gas.py` (F-5500, vendor 194, 3 AIs)
-- [ ] `simulator/devices/onicon_water.py` (F-3500, vendor 194, 3 AIs)
-- [ ] `simulator/site_model.py` extended: `gas_heating_fraction`, `gas_temp_f`, `water_temp_f` added to `SiteState`; gas physics rewired to spec formula
-- [ ] Gas + water registered in `DEVICE_MANIFEST` (`110001`, `120001`)
-- [ ] `scripts/verify_gas_water.py` — binds, flow ≥ 0, totalizers monotonic, winter gas > summer gas, occupied water > unoccupied water
-- [ ] Both `verify_meters_abc.py` AND `verify_gas_water.py` pass
-- [ ] Commit: `Phase 3: ONICON gas + water meters verified on wire`
+- [x] `simulator/devices/onicon_gas.py` (F-5500, vendor 194, 3 AIs)
+- [x] `simulator/devices/onicon_water.py` (F-3500, vendor 194, 3 AIs)
+- [x] `simulator/site_model.py` extended: `gas_heating_fraction`, `gas_temp_f`, `water_temp_f` added to `SiteState`; gas physics rewired to spec formula
+- [x] Gas + water registered in `DEVICE_MANIFEST` (`110001` @ offset 3, `120001` @ offset 4)
+- [x] `scripts/verify_gas_water.py` — 7/7 PASS
+- [x] Both `verify_meters_abc.py` (4/4) AND `verify_gas_water.py` (7/7) pass
+- [x] Full runtime smoke: `py -m simulator` brings up all 5 devices cleanly
 
 ## Phase 4 — AHU device class (3 instances) ⏳
 **Target:** Session B (next session)
