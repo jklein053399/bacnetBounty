@@ -77,5 +77,27 @@
       "design_cfm": 5600, "fan_nominal_kw": 8.0, "cooling_tons": 40,
       "sa_pressure_setpoint_in_wc": 1.5
     }
+  ],
+  "vavs": [
+    {"name": "VAV_1",  "parent_ahu": "AHU_2", "position": "perimeter", "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg":   0},
+    {"name": "VAV_2",  "parent_ahu": "AHU_2", "position": "interior",  "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg":  18},
+    {"name": "VAV_3",  "parent_ahu": "AHU_2", "position": "perimeter", "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg":  36},
+    {"name": "VAV_4",  "parent_ahu": "AHU_2", "position": "interior",  "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg":  54},
+    {"name": "VAV_5",  "parent_ahu": "AHU_2", "position": "perimeter", "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg":  72},
+    {"name": "VAV_6",  "parent_ahu": "AHU_2", "position": "interior",  "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg":  90},
+    {"name": "VAV_7",  "parent_ahu": "AHU_2", "position": "perimeter", "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 108},
+    {"name": "VAV_8",  "parent_ahu": "AHU_2", "position": "interior",  "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 126},
+    {"name": "VAV_9",  "parent_ahu": "AHU_2", "position": "perimeter", "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 144},
+    {"name": "VAV_10", "parent_ahu": "AHU_2", "position": "interior",  "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 162},
+    {"name": "VAV_11", "parent_ahu": "AHU_3", "position": "perimeter", "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 180},
+    {"name": "VAV_12", "parent_ahu": "AHU_3", "position": "interior",  "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 198},
+    {"name": "VAV_13", "parent_ahu": "AHU_3", "position": "perimeter", "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 216},
+    {"name": "VAV_14", "parent_ahu": "AHU_3", "position": "interior",  "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 234},
+    {"name": "VAV_15", "parent_ahu": "AHU_3", "position": "perimeter", "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 252},
+    {"name": "VAV_16", "parent_ahu": "AHU_3", "position": "interior",  "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 270},
+    {"name": "VAV_17", "parent_ahu": "AHU_3", "position": "perimeter", "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 288},
+    {"name": "VAV_18", "parent_ahu": "AHU_3", "position": "interior",  "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 306},
+    {"name": "VAV_19", "parent_ahu": "AHU_3", "position": "perimeter", "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 324},
+    {"name": "VAV_20", "parent_ahu": "AHU_3", "position": "interior",  "design_cfm": 500, "min_cfm": 150, "reheat_mbh": 15, "zone_phase_deg": 342}
   ]
 }

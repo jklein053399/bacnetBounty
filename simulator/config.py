@@ -93,6 +93,17 @@ class AHUConfig:
 
 
 @dataclass
+class VAVConfig:
+    name: str                           # VAV_1 … VAV_20
+    parent_ahu: str                     # "AHU_2" or "AHU_3" (SZ AHU_1 has no VAVs)
+    position: str                       # "perimeter" or "interior" (affects solar/envelope load)
+    design_cfm: float
+    min_cfm: float
+    reheat_mbh: float                   # reheat coil design capacity (thousand BTU/h) — informational
+    zone_phase_deg: float               # per-instance phase offset (0..360) for zone temp drift
+
+
+@dataclass
 class Config:
     site: SiteSection
     network: NetworkSection
@@ -102,6 +113,7 @@ class Config:
     weather: WeatherSection
     logging: LoggingSection
     ahus: list[AHUConfig] = field(default_factory=list)
+    vavs: list[VAVConfig] = field(default_factory=list)
     raw: dict = field(default_factory=dict)
 
 
@@ -126,6 +138,7 @@ def load_config(path: str | Path) -> Config:
             weather=WeatherSection(**data["weather"]),
             logging=LoggingSection(**data["logging"]),
             ahus=[AHUConfig(**a) for a in data.get("ahus", [])],
+            vavs=[VAVConfig(**v) for v in data.get("vavs", [])],
             raw=data,
         )
     except KeyError as e:
@@ -154,3 +167,11 @@ def _validate(cfg: Config) -> None:
             raise ValueError(f"ahus[{i}].kind must be 'single_zone' or 'vav', got {ahu.kind!r}")
         if ahu.design_cfm <= 0 or ahu.fan_nominal_kw <= 0 or ahu.cooling_tons <= 0:
             raise ValueError(f"ahus[{i}]: design_cfm, fan_nominal_kw, cooling_tons must be positive")
+    ahu_names = {a.name for a in cfg.ahus}
+    for i, v in enumerate(cfg.vavs):
+        if v.parent_ahu not in ahu_names:
+            raise ValueError(f"vavs[{i}] ({v.name}): parent_ahu {v.parent_ahu!r} not in ahus[]")
+        if v.position not in ("perimeter", "interior"):
+            raise ValueError(f"vavs[{i}] ({v.name}): position must be 'perimeter' or 'interior'")
+        if v.design_cfm <= 0 or v.min_cfm <= 0 or v.min_cfm > v.design_cfm:
+            raise ValueError(f"vavs[{i}] ({v.name}): min_cfm must be positive and <= design_cfm")

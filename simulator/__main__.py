@@ -39,6 +39,7 @@ from .devices.emon import EmonClass3200
 from .devices.onicon_gas import OniconF5500Gas
 from .devices.onicon_water import OniconF3500Water
 from .devices.ahu import AHU
+from .devices.vav import VAV
 
 
 log = logging.getLogger("simulator")
@@ -59,7 +60,11 @@ DEVICE_MANIFEST: list[dict] = [
     {"kind": "ahu",          "device_id": 200001, "name": "AHU_1",              "ip_offset": 5, "ahu_index": 0},
     {"kind": "ahu",          "device_id": 200002, "name": "AHU_2",              "ip_offset": 6, "ahu_index": 1},
     {"kind": "ahu",          "device_id": 200003, "name": "AHU_3",              "ip_offset": 7, "ahu_index": 2},
-    # VAVs: "vav"  300001..300020         ip_offset 8..27        (Phase 5)
+] + [
+    # 20 VAVs at offsets 8..27. vav_index parallels cfg.vavs[] position.
+    {"kind": "vav", "device_id": 300001 + i, "name": f"VAV_{i+1}",
+     "ip_offset": 8 + i, "vav_index": i}
+    for i in range(20)
 ]
 
 
@@ -117,6 +122,11 @@ async def run():
             ahu_cfg = cfg.ahus[ahu_idx]
             dev = AHU(ahu_config=ahu_cfg, ahu_index=ahu_idx, **common_kwargs)
             tag = f"Metro AHU-Sim ({ahu_cfg.kind})"
+        elif kind == "vav":
+            vav_idx = spec["vav_index"]
+            vav_cfg = cfg.vavs[vav_idx]
+            dev = VAV(vav_config=vav_cfg, vav_index=vav_idx, **common_kwargs)
+            tag = f"Metro VAV-Sim ({vav_cfg.position}, parent {vav_cfg.parent_ahu})"
         else:
             log.warning(f"Unknown device kind in manifest: {kind!r}")
             continue

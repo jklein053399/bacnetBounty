@@ -68,6 +68,18 @@ class SiteState:
     # Indexed AHU_1 / AHU_2 / AHU_3 in parallel to config order.
     ahu_sat_f: tuple[float, float, float] = (55.0, 55.0, 55.0)
 
+    # Per-VAV reheat valve positions (0.0 .. 1.0). Primary data for Meter B
+    # rollup (per spec doc 03 §Flag 1: "reheat valve position × per-VAV max
+    # reheat kW is computed at the model layer and rolls up into Meter B's kW").
+    # VAV device objects read their own valve by index (parallel to cfg.vavs).
+    # Zero drift between per-VAV readings and Meter B — same numbers, same tick.
+    vav_valve_positions: tuple[float, ...] = ()
+
+    # Per-VAV zone temperature (degF). Primary data for VAV device objects
+    # (Zone_Temperature point). Phase-shifted per-instance from site-wide
+    # occupancy + thermal state, deterministic from zone_phase_deg.
+    vav_zone_temps_f: tuple[float, ...] = ()
+
     # Totalizers (integrated across ticks)
     meter_a_kwh: float = 0.0
     meter_b_kwh: float = 0.0
@@ -81,6 +93,7 @@ class SiteModel:
 
     def __init__(self, config: Config, seed: int | None = None):
         self.config = config
+        self._vav_configs = config.vavs
         self._rng = random.Random(seed)
         self._oat_walk = 0.0  # current random-walk offset
         self._last_tick: datetime | None = None
@@ -244,12 +257,63 @@ class SiteModel:
         ahu_vav_2_kw *= 0.97 + 0.06 * self._rng.random()
 
         # VAV electric reheat: heat_frac-driven, scoped to Meters A & B (not C).
-        # Per handoff: valve position × per-VAV max × 20 rolls up into Meter B's kW.
-        # Only material during occupied heating.
-        reheat_occ_floor = 0.3  # reheat even under partial occupancy
-        reheat_activity = heat_frac * max(reheat_occ_floor, occ)
-        vav_reheat_total_kw = reheat_activity * 20 * mags.vav_reheat_peak_kw_each
-        vav_reheat_total_kw *= 0.95 + 0.1 * self._rng.random()
+        # Per spec doc 03 §Flag 1: valve position × per-VAV max reheat kW rolls
+        # up into Meter B. Site model owns per-VAV valve positions as primary
+        # data (vav_valve_positions tuple below); Meter B sums them. VAV
+        # devices read their own valve by index — zero drift between device
+        # readings and Meter B.
+        #
+        # When no VAVs are configured (earlier phases), fall back to the
+        # aggregate heuristic so Meter B still gets a plausible reheat kW.
+        reheat_occ_floor = 0.3
+        reheat_activity_base = heat_frac * max(reheat_occ_floor, occ)
+
+        vav_valve_positions: tuple[float, ...] = ()
+        vav_zone_temps_f: tuple[float, ...] = ()
+
+        if self._vav_configs:
+            valves: list[float] = []
+            zones: list[float] = []
+            for v in self._vav_configs:
+                # Per-VAV reheat valve — base activity modulated by per-instance
+                # phase offset (±20% of base) so 20 VAVs don't march in lockstep.
+                # Perimeter zones run higher reheat load than interior (envelope
+                # exposure). Deterministic noise from zone_phase_deg so each
+                # tick's value is stable per VAV but varies across VAVs.
+                phase_rad = math.radians(v.zone_phase_deg)
+                phase_mod = 1.0 + 0.20 * math.sin(phase_rad)  # 0.8 .. 1.2
+                position_weight = 1.15 if v.position == "perimeter" else 0.85
+                valve = reheat_activity_base * phase_mod * position_weight
+                valve = max(0.0, min(1.0, valve))
+                valves.append(valve)
+
+                # Per-VAV zone temperature — drifts around the active setpoint
+                # with per-instance phase. Cooling season: setpoint 74F;
+                # heating season: 70F; shoulder: 72F. Perimeter zones
+                # over/undershoot the interior average by ±0.5F (solar/envelope).
+                if heat_frac > cool_frac:
+                    zone_sp = cfg.schedule.heating_setpoint_occupied if occ > 0 else cfg.schedule.heating_setpoint_unoccupied
+                elif cool_frac > heat_frac:
+                    zone_sp = cfg.schedule.cooling_setpoint_occupied if occ > 0 else cfg.schedule.cooling_setpoint_unoccupied
+                else:
+                    zone_sp = 72.0
+                drift = 0.8 * math.sin(phase_rad)  # ±0.8F phase-driven
+                envelope_bias = 0.5 if v.position == "perimeter" else 0.0
+                if heat_frac > cool_frac:
+                    envelope_bias = -envelope_bias  # perimeter colder in heating
+                zones.append(zone_sp + drift + envelope_bias + self._rng.uniform(-0.3, 0.3))
+
+            vav_valve_positions = tuple(valves)
+            vav_zone_temps_f = tuple(zones)
+            # Meter B rollup: sum of per-VAV reheat kW. This IS the spec-aligned
+            # path (doc 03 §Flag 1). Small jitter applied to the aggregate keeps
+            # Meter B visually live tick-to-tick.
+            vav_reheat_total_kw = sum(valves) * mags.vav_reheat_peak_kw_each
+            vav_reheat_total_kw *= 0.98 + 0.04 * self._rng.random()
+        else:
+            # Phase 1-3 fallback: aggregate-level reheat kW when no VAVs configured
+            vav_reheat_total_kw = reheat_activity_base * 20 * mags.vav_reheat_peak_kw_each
+            vav_reheat_total_kw *= 0.95 + 0.1 * self._rng.random()
 
         misc_kw = _MISC_ALWAYS_ON_KW * (0.95 + 0.1 * self._rng.random())
 
@@ -348,6 +412,8 @@ class SiteModel:
             gas_scf_total=self._gas_scf,
             water_gallons_total=self._water_gal,
             ahu_sat_f=ahu_sat_f,
+            vav_valve_positions=vav_valve_positions,
+            vav_zone_temps_f=vav_zone_temps_f,
         )
         self.state = state
         self._last_tick = now
