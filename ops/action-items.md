@@ -35,6 +35,14 @@ Running punch list. Flagged items live here until resolved or intentionally defe
 ### [Adapter name] Corrected in CLAUDE.md
 Note: actual adapter name on dev box is `Bacnet Simulator` (index 11), not "Ethernet 11 KM-TEST Loopback" as the inherited Controls-Suite CLAUDE.md implied. Fixed in rewrite. Co-worker's adapter name will differ — README must make that a configurable placeholder.
 
+### [Metro naming] AHU/VAV point names follow spec (not Metro abbreviations)
+**Owner:** Jake + co-worker (review at integration)
+**Detail:** Per Session B Q1, AHU/VAV points use spec 02 §5/§6 literal names (`Supply_Air_Temperature`, `Zone_Temperature`, etc.) rather than Metro abbreviations (`SA_T`, `ZN_T`). If co-worker's Niagara slot sheets expect Metro-style naming for existing templates, there's no auto-match. Simulator devices are fresh proxy points bound to new slots so this is almost certainly a non-issue, but flagged per the visibility note from Claude.ai review.
+
+### [Bring-up time] 28 devices take ~60 seconds to initialize
+**Owner:** Claude Code (Session C README)
+**Detail:** 2 seconds per device × 28 devices = ~60s bring-up time. README must set co-worker expectation so they don't kill the process prematurely thinking it's hung. Banner prints IP plan before device bring-up loop starts, so there's nothing user-visible for the first minute beyond "binding N devices..." messages scrolling.
+
 ### [Phase 7] Tuning pass triggers
 **Owner:** Jake
 **Target:** post-ship, after co-worker has 2–3 days of Niagara Reflow history

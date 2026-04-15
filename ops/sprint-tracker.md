@@ -40,25 +40,29 @@ Deliverables:
 - [x] Both `verify_meters_abc.py` (4/4) AND `verify_gas_water.py` (7/7) pass
 - [x] Full runtime smoke: `py -m simulator` brings up all 5 devices cleanly
 
-## Phase 4 — AHU device class (3 instances) ⏳
-**Target:** Session B (next session)
-**Status:** planned
+## Phase 4 — AHU device class (3 instances) ✅
+**Completed:** 2026-04-15 (Session B)
+**Commit:** `682f624 Phase 4: AHU device class — 3 instances verified on wire`
 
-- `simulator/ahu_physics.py` — pure-function physics (fan kW, SAT/RAT/MAT, damper/valve positions, DX staging)
-- `simulator/devices/ahu.py` — thin BACnet wrapper (~18 points per spec 02 §5)
-- 3 instances: AHU_1 (single-zone, `200001`), AHU_2/AHU_3 (VAV, `200002`/`200003`)
-- Verify script
+Deliverables:
+- [x] `simulator/ahu_physics.py` — pure-function physics
+- [x] `simulator/devices/ahu.py` — 18-point BACnet wrapper with AV/BV (doc 04 Flag E)
+- [x] 3 instances: AHU_1 (single-zone, 200001), AHU_2/AHU_3 (VAV, 200002/200003)
+- [x] `scripts/verify_ahu.py` — 28/28 PASS
+- [x] Warnings filter in `__main__.py` for bacpypes3 vendor UserWarnings
 
-## Phase 5 — VAV device class (20 instances) ⏳
-**Target:** Session B (next session)
-**Status:** planned
+## Phase 5 — VAV device class (20 instances) ✅
+**Completed:** 2026-04-15 (Session B)
+**Commit:** `ba012ea Phase 5: VAV device class — 20 instances; 28 devices on wire`
 
-- `simulator/vav_physics.py` — pure-function physics (zone temp drift, damper/reheat tracking, discharge-air-temp)
-- `simulator/devices/vav.py` — thin BACnet wrapper (~8 points per spec 02 §6)
-- 20 instances `300001`–`300020`, fed from AHU_2 (1–10) and AHU_3 (11–20)
-- Config rows in `site_config.json` (position tags, offsets)
-- Verify script
-- Closes the 28-device count on wire
+Deliverables:
+- [x] `simulator/vav_physics.py` — pure-function physics
+- [x] `simulator/devices/vav.py` — 9-point BACnet wrapper with AV/BV (doc 04 Flag E)
+- [x] 20 instances 300001–300020, fed from AHU_2 (1–10) and AHU_3 (11–20)
+- [x] Config rows in `site_config.json vavs[]` (position tags, zone_phase_deg spread)
+- [x] `scripts/verify_vav.py` — 28/28 PASS
+- [x] Meter B rewired to sum per-VAV valve positions (zero drift, spec doc 03 Flag 1)
+- [x] All 4 verify scripts pass — 67/67 total checks
 
 ## Phase 6 — Ship packaging ⏳
 **Target:** Friday 2026-04-17 (Session C)
