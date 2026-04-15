@@ -7,7 +7,7 @@
   },
   "network": {
     "base_ip": "192.168.100.",
-    "start_octet": 1,
+    "start_octet": 200,
     "subnet_mask_prefix": 24,
     "bacnet_port": 47808
   },
