@@ -64,16 +64,18 @@ Deliverables:
 - [x] Meter B rewired to sum per-VAV valve positions (zero drift, spec doc 03 Flag 1)
 - [x] All 4 verify scripts pass — 67/67 total checks
 
-## Phase 6 — Ship packaging ⏳
-**Target:** Friday 2026-04-17 (Session C)
-**Status:** planned
+## Phase 6 — Ship packaging ✅
+**Completed:** 2026-04-15 (Session C, pulled forward from 4/17 because Session B ran ~30 min vs estimated 3h)
+**Commit:** (see git log — one commit covering run.bat + README + signal fix + utf-8 stdout + zip staging)
 
-- `run.bat` — double-click entry; creates venv on first run, installs requirements, `py -m simulator`
-- `README.md` — co-worker-facing setup guide (controls tech with Claude Code assistance, not a Python developer)
-- `netsh interface ipv4 add address` reference block in README for loopback IP setup
-- `.gitattributes export-ignore` or build script for zip staging — ship artifact excludes `reference/`, `scripts/`, `ops/`, `.claude/`
-- Zip artifact: `bacnet_bounty.zip` containing only `simulator/`, `run.bat`, `site_config.json`, `requirements.txt`, `README.md`, empty `logs/`
-- Smoke test: unzip to scratch dir, double-click `run.bat`, verify clean bring-up
+Deliverables:
+- [x] `run.bat` — idempotent venv bootstrap, PYTHONIOENCODING=utf-8:replace, pause-on-exit
+- [x] `README.md` — full co-worker guide (prereqs, netsh block, soak-friendliness, troubleshooting)
+- [x] Ship zip at `dist/bacnet_bounty.zip` (38 KB, 17 files, self-contained)
+- [x] Scratch-dir smoke: unzip → venv → 28 devices → clean Ctrl+C → ports released
+- [x] Signal-handler bug fix for Windows Ctrl+C (was silent-fail; now verified with CTRL_BREAK_EVENT)
+- [x] UTF-8 stdout reconfigure in all 4 verify scripts (portable unicode fix)
+- [x] Soak running on dev box (PID 33672, started 2026-04-15 13:33 EDT)
 
 ## Phase 7 — Tuning pass ⏳
 **Target:** post-ship (after co-worker has 2–3 days of Niagara Reflow history)

@@ -23,6 +23,12 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+# Windows cp1252 default stdout can't encode some common chars. Reconfigure
+# so print() never crashes on a unicode char in an f-string. Python 3.7+.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import BAC0

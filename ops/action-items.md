@@ -11,10 +11,9 @@ Running punch list. Flagged items live here until resolved or intentionally defe
 **Blocker for:** nothing urgent; clean-up task
 **Detail:** `.claude/references/04_BACnet_Bounty_Phase2_Resolutions.md` documents four corrections (stack, instance IDs, start_octet, device count typo). Propagate into the source docs so future sessions read cleanly without needing 03 + 04 reconciliation.
 
-### [Phase 6] Ship packaging — Session C
-**Owner:** Claude Code (Session C), Jake (smoke test)
-**Target:** Friday 2026-04-17
-**Detail:** `run.bat`, `README.md`, `.gitattributes export-ignore` or zip build script, final zip smoke test on a scratch directory. See `ops/sprint-tracker.md` Phase 6 for full checklist.
+### [emon.py] RNG reseed each tick allocates a Random instance
+**Owner:** Claude Code (Phase 7 cleanup)
+**Detail:** `simulator/devices/emon.py:216` does `self._rng = _r.Random(self.device_id)` at the end of every `update()`. Not a leak (gets GCed), but wasteful: ~30 allocations/min across 3 EMon devices. Deterministic jitter could be achieved with `self._rng.seed(self.device_id)` (reset seed, reuse instance). Out of scope for ship; flag for Phase 7.
 
 ### [Legacy] `scripts/verify_meter_a.py` disposition
 **Owner:** Jake (decide during Session C)
@@ -50,6 +49,20 @@ Note: actual adapter name on dev box is `Bacnet Simulator` (index 11), not "Ethe
 - Gas peak/baseline realism vs. actual Michigan office gas bill data
 - VAV reheat total kW vs. B-C meter delta observed on cold days
 - Water flush-burst frequency vs. observed water trend
+
+## Resolved (during Session C — 2026-04-15)
+
+### [Phase 6] Ship packaging
+Resolved: `dist/bacnet_bounty.zip` (38 KB) built and scratch-dir smoke tested. `run.bat` + `README.md` shipped. Excludes verified: `.claude/`, `reference/`, `scripts/`, `ops/`, `.git/`, `.venv/`, `__pycache__/`, `PROJECT_CONTEXT.md`.
+
+### [Windows clean Ctrl+C] Signal handler bug fix
+Resolved: `simulator/__main__.py` now uses `signal.signal()` on Windows (SIGINT + SIGBREAK) with `call_soon_threadsafe` to hop onto the asyncio loop. Previously silent-failed (swallowed NotImplementedError from `loop.add_signal_handler`). Verified with `CTRL_BREAK_EVENT` — clean 1-second exit, all 28 devices disconnect, ports released immediately.
+
+### [Unicode crash] UTF-8 stdout reconfigure in verify scripts
+Resolved: all 4 verify scripts (`verify_meters_abc.py`, `verify_gas_water.py`, `verify_ahu.py`, `verify_vav.py`) now do `sys.stdout.reconfigure(encoding='utf-8', errors='replace')` at module load. Portable fix replacing the symptomatic `≈→~=` patch from Session B. `run.bat` also exports `PYTHONIOENCODING=utf-8:replace` for the simulator runtime.
+
+### [Soak-readiness] Pre-ship spot-checks
+Audited (no action needed): log rotation verified (rotated file exists from overnight), unbounded accumulators audited (none found), back-to-back verify scripts clean (no stale BAC0 state), memory baseline ~114 MB at startup.
 
 ## Resolved (during Phase 2)
 

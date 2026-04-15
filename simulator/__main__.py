@@ -138,16 +138,33 @@ async def run():
     log.info("Entering tick loop. Ctrl+C to stop.")
 
     stop = asyncio.Event()
+    loop = asyncio.get_running_loop()
 
-    def _handle_stop(*_):
-        log.info("Stop signal received.")
-        stop.set()
+    def _handle_stop_async():
+        if not stop.is_set():
+            log.info("Stop signal received.")
+            stop.set()
 
-    try:
-        for sig in (signal.SIGINT, signal.SIGTERM):
-            asyncio.get_running_loop().add_signal_handler(sig, _handle_stop)
-    except (NotImplementedError, AttributeError):
-        pass  # Windows asyncio doesn't always support add_signal_handler; Ctrl+C still works
+    # Windows asyncio doesn't implement loop.add_signal_handler. Use
+    # signal.signal() directly and call_soon_threadsafe back onto the loop.
+    # Covers Ctrl+C (SIGINT) and Ctrl+Break (SIGBREAK) from a console.
+    if sys.platform == "win32":
+        def _handle_stop_sync(signum, frame):
+            try:
+                loop.call_soon_threadsafe(_handle_stop_async)
+            except RuntimeError:
+                pass  # loop already closed
+        signal.signal(signal.SIGINT, _handle_stop_sync)
+        try:
+            signal.signal(signal.SIGBREAK, _handle_stop_sync)
+        except (AttributeError, ValueError):
+            pass
+    else:
+        try:
+            for sig in (signal.SIGINT, signal.SIGTERM):
+                loop.add_signal_handler(sig, _handle_stop_async)
+        except (NotImplementedError, AttributeError):
+            pass
 
     heartbeat_interval = 60
     last_heartbeat = 0.0
