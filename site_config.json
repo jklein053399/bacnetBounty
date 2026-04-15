@@ -60,5 +60,22 @@
     "log_dir": "./logs",
     "rotate_daily": true,
     "retention_days": 7
-  }
+  },
+  "ahus": [
+    {
+      "name": "AHU_1", "kind": "single_zone",
+      "design_cfm": 1600, "fan_nominal_kw": 2.5, "cooling_tons": 12,
+      "sa_pressure_setpoint_in_wc": 0.5
+    },
+    {
+      "name": "AHU_2", "kind": "vav",
+      "design_cfm": 5600, "fan_nominal_kw": 8.0, "cooling_tons": 40,
+      "sa_pressure_setpoint_in_wc": 1.5
+    },
+    {
+      "name": "AHU_3", "kind": "vav",
+      "design_cfm": 5600, "fan_nominal_kw": 8.0, "cooling_tons": 40,
+      "sa_pressure_setpoint_in_wc": 1.5
+    }
+  ]
 }

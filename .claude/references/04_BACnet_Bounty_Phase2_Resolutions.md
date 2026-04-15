@@ -1,7 +1,7 @@
-# BACnet Bounty — Phase 2 Consolidation Resolutions
+# BACnet Bounty — Phase 2 & Session B Consolidation Resolutions
 
-**Version:** 1.0
-**Date:** April 15, 2026
+**Version:** 1.1
+**Date:** April 15, 2026 (Phase 2 consolidation) / April 16, 2026 (Session B AV/BV override)
 **Supersedes:** conflicting guidance in `01_BACnet_Bounty_Architecture_and_Scope.md` and `02_BACnet_Bounty_Device_and_Points_Reference.md` per the items below. Both spec docs remain source of truth for everything not addressed here. Extends `03_BACnet_Bounty_Phase1_Handoff_Resolutions.md`.
 **Status:** Greenlit for Claude Code implementation
 
@@ -61,6 +61,37 @@ Prefix conventions:
 **Resolution:** Align to spec. Updated `site_config.json` sets `start_octet: 200`. Devices now bind `.200`–`.227`, leaving low octets (`.1`–`.199`) free for infrastructure (router, JACE, workstation, etc.). Verify scripts use `start_octet + offset` dynamically and follow automatically.
 
 **Jake's action:** add `192.168.100.200` through `192.168.100.206` to the KM-TEST Loopback adapter before any verify script runs. (That's enough for Phase 3: 3 EMon + gas + water + verify client with one spare.) Ship target needs `.200`–`.228` full range.
+
+### Flag E — AHU & VAV commandable objects: AV/BV, not AO/BO (RESOLVED, Session B 2026-04-16)
+
+**Spec 02 §5 AHU point list uses Analog Output (AO) for commandable analog points** (Fan VFD Speed Command, OA Damper Position, Heating Valve Position, Cooling Stage / DX Status) **and Binary Output (BO) for Fan Start/Stop**. **Spec 02 §6 VAV point list uses AO for Damper Position and Reheat Valve Position.** These tables are stale — naïve BACnet defaults that don't survive contact with Niagara in a real deployment.
+
+**Resolution:** All commandable analog points on AHU and VAV become **Analog Value (AV)**. All commandable binary points become **Binary Value (BV)**. Applies to every AO/BO entry in spec 02 §5 and §6.
+
+**Rationale (two-part):**
+1. **Niagara driver fault behavior** — Niagara's BACnet driver throws fault status on AO/BO objects it can't get a writeProperty acknowledgment from, even if the user never actually writes. This would show up as red fault flags on every AHU and VAV graphic the moment the co-worker bound points. AV/BV sidesteps the fault path entirely because they accept writes without the out-of-service / priority-array handshake that AO/BO expect.
+2. **BAC0 `analog_output` factory has a known MRO bug** — Niagara refuses to write to BAC0-created AO objects regardless. AV is the working path in BAC0-land.
+
+The simulator never acts on inbound writes (it re-sets presentValue from the SiteModel each tick anyway), so writability at the BACnet layer is cosmetic — the point is to not fault, not to honor writes.
+
+**Implementation mapping (supersedes spec 02 §5 and §6 object-type columns):**
+
+AHU (all three instances):
+| Spec 02 §5 | Implementation |
+|---|---|
+| AO 1 `Fan VFD Speed Command` | AV 3 `Fan_VFD_Speed_Command` |
+| AO 2 `OA Damper Position` | AV 4 `OA_Damper_Position` |
+| AO 3 `Heating Valve Position` | AV 5 `Heating_Valve_Position` |
+| AO 4 `Cooling Stage / DX Status` | AV 6 `Cooling_Stage_DX_Status` |
+| BO 1 `Fan Start/Stop` | BV 1 `Fan_Start_Stop` |
+
+VAV (all twenty instances):
+| Spec 02 §6 | Implementation |
+|---|---|
+| AO 1 `Damper Position` | AV 4 `Damper_Position` |
+| AO 2 `Reheat Valve Position` | AV 5 `Reheat_Valve_Position` |
+
+Point names otherwise follow spec 02 §5/§6 literally (per Jake's "follow the spec specifically, no overrides" answer — Metro abbreviation naming like `SA_T` / `ZN_T` is explicitly NOT applied to AHU/VAV). Use underscores in place of spaces; drop or underscore slashes (`Fan_Start_Stop`, `Cooling_Stage_DX_Status`).
 
 ### Flag D — Device count typo (minor, RESOLVED)
 

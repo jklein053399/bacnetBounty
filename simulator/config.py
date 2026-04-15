@@ -83,6 +83,16 @@ class LoggingSection:
 
 
 @dataclass
+class AHUConfig:
+    name: str                           # AHU_1 / AHU_2 / AHU_3
+    kind: str                           # "single_zone" or "vav"
+    design_cfm: float
+    fan_nominal_kw: float
+    cooling_tons: float
+    sa_pressure_setpoint_in_wc: float
+
+
+@dataclass
 class Config:
     site: SiteSection
     network: NetworkSection
@@ -91,6 +101,7 @@ class Config:
     schedule: ScheduleSection
     weather: WeatherSection
     logging: LoggingSection
+    ahus: list[AHUConfig] = field(default_factory=list)
     raw: dict = field(default_factory=dict)
 
 
@@ -114,6 +125,7 @@ def load_config(path: str | Path) -> Config:
             schedule=ScheduleSection(**data["schedule"]),
             weather=WeatherSection(**data["weather"]),
             logging=LoggingSection(**data["logging"]),
+            ahus=[AHUConfig(**a) for a in data.get("ahus", [])],
             raw=data,
         )
     except KeyError as e:
@@ -137,3 +149,8 @@ def _validate(cfg: Config) -> None:
         raise ValueError("simulation.tick_interval_seconds must be >= 1")
     if not 0 < cfg.magnitudes.power_factor_nominal <= 1:
         raise ValueError("magnitudes.power_factor_nominal must be in (0, 1]")
+    for i, ahu in enumerate(cfg.ahus):
+        if ahu.kind not in ("single_zone", "vav"):
+            raise ValueError(f"ahus[{i}].kind must be 'single_zone' or 'vav', got {ahu.kind!r}")
+        if ahu.design_cfm <= 0 or ahu.fan_nominal_kw <= 0 or ahu.cooling_tons <= 0:
+            raise ValueError(f"ahus[{i}]: design_cfm, fan_nominal_kw, cooling_tons must be positive")

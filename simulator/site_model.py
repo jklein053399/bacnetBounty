@@ -63,6 +63,11 @@ class SiteState:
     water_gpm: float
     water_temp_f: float                 # domestic cold, stable ~55F
 
+    # Per-AHU supply air temperature (degF) — primary data for AHU devices
+    # and shared reference for downstream VAV physics (see VAV discharge-air-temp).
+    # Indexed AHU_1 / AHU_2 / AHU_3 in parallel to config order.
+    ahu_sat_f: tuple[float, float, float] = (55.0, 55.0, 55.0)
+
     # Totalizers (integrated across ticks)
     meter_a_kwh: float = 0.0
     meter_b_kwh: float = 0.0
@@ -296,6 +301,25 @@ class SiteModel:
         # Water temperature — domestic cold, stable ~55F year-round with small jitter
         water_temp_f = 55.0 + self._rng.uniform(-1.0, 1.0)
 
+        # Per-AHU SAT — 55F in cooling season, 65F in heating season, interpolated
+        # in shoulder seasons. Per spec 02 §5 AV 1 ("55F cooling / 65F heating
+        # schedule"). Small per-AHU drift around the setpoint so device readings
+        # don't all sit at the same decimal. VAV physics reads these to compute
+        # discharge air temp; AHU devices expose them as Supply_Air_Temperature.
+        # Uses raw cool_frac/heat_frac before any occupancy gating — SAT tracks
+        # the dominant thermal mode regardless of load level.
+        if heat_frac > cool_frac:
+            sat_target = 65.0
+        elif cool_frac > heat_frac:
+            sat_target = 55.0
+        else:
+            sat_target = 60.0  # shoulder / both zero
+        ahu_sat_f = (
+            sat_target + self._rng.uniform(-0.8, 0.8),
+            sat_target + self._rng.uniform(-0.8, 0.8),
+            sat_target + self._rng.uniform(-0.8, 0.8),
+        )
+
         state = SiteState(
             timestamp=now,
             oat_f=oat,
@@ -323,6 +347,7 @@ class SiteModel:
             meter_c_kwh=self._meter_c_kwh,
             gas_scf_total=self._gas_scf,
             water_gallons_total=self._water_gal,
+            ahu_sat_f=ahu_sat_f,
         )
         self.state = state
         self._last_tick = now

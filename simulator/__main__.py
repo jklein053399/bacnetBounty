@@ -12,8 +12,23 @@ import asyncio
 import logging
 import signal
 import sys
+import warnings
 from datetime import datetime
 from pathlib import Path
+
+# Suppress bacpypes3's vendor-object-type re-registration UserWarnings. Every
+# BAC0.lite instance re-registers the NetworkPortObject (type 56) and
+# DeviceObject (type 8) against its configured vendor ID; with 28 devices on
+# wire that's 56 warnings scrolling past on startup, making the console look
+# broken. The warnings are internal noise, not diagnostic signal — bacpypes3
+# is just saying "I already have a class registered for this slot." Filtered
+# entirely per doc 04 guidance.
+warnings.filterwarnings(
+    "ignore",
+    message=r"object type \d+ for vendor identifier \d+ already registered",
+    category=UserWarning,
+    module=r"bacpypes3\.vendor",
+)
 
 import BAC0
 
@@ -23,6 +38,7 @@ from .site_model import SiteModel
 from .devices.emon import EmonClass3200
 from .devices.onicon_gas import OniconF5500Gas
 from .devices.onicon_water import OniconF3500Water
+from .devices.ahu import AHU
 
 
 log = logging.getLogger("simulator")
@@ -40,8 +56,10 @@ DEVICE_MANIFEST: list[dict] = [
     {"kind": "emon",         "device_id": 100003, "name": "ELECTRICAL_METER_C", "ip_offset": 2, "scope": "C"},
     {"kind": "onicon_gas",   "device_id": 110001, "name": "GAS_METER",          "ip_offset": 3},
     {"kind": "onicon_water", "device_id": 120001, "name": "WATER_METER",        "ip_offset": 4},
-    # AHUs: "ahu"  200001/200002/200003   ip_offset 5/6/7        (Session B)
-    # VAVs: "vav"  300001..300020         ip_offset 8..27        (Session B)
+    {"kind": "ahu",          "device_id": 200001, "name": "AHU_1",              "ip_offset": 5, "ahu_index": 0},
+    {"kind": "ahu",          "device_id": 200002, "name": "AHU_2",              "ip_offset": 6, "ahu_index": 1},
+    {"kind": "ahu",          "device_id": 200003, "name": "AHU_3",              "ip_offset": 7, "ahu_index": 2},
+    # VAVs: "vav"  300001..300020         ip_offset 8..27        (Phase 5)
 ]
 
 
@@ -94,6 +112,11 @@ async def run():
         elif kind == "onicon_water":
             dev = OniconF3500Water(**common_kwargs)
             tag = "ONICON F-3500 water"
+        elif kind == "ahu":
+            ahu_idx = spec["ahu_index"]
+            ahu_cfg = cfg.ahus[ahu_idx]
+            dev = AHU(ahu_config=ahu_cfg, ahu_index=ahu_idx, **common_kwargs)
+            tag = f"Metro AHU-Sim ({ahu_cfg.kind})"
         else:
             log.warning(f"Unknown device kind in manifest: {kind!r}")
             continue
