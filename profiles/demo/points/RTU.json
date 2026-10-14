@@ -1,0 +1,815 @@
+[
+ {
+  "name": "Control_Mode",
+  "type": "AI",
+  "instance": 2,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "0"
+ },
+ {
+  "name": "Control_Status",
+  "type": "AI",
+  "instance": 3,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "0"
+ },
+ {
+  "name": "Hvac_Mode",
+  "type": "AI",
+  "instance": 4,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "0"
+ },
+ {
+  "name": "Control_Temperature",
+  "type": "AI",
+  "instance": 5,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "72.0"
+ },
+ {
+  "name": "Supply_Air_Temperature",
+  "type": "AI",
+  "instance": 9,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "55.0"
+ },
+ {
+  "name": "Supply_Air_Setpoint",
+  "type": "AI",
+  "instance": 10,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "55.0"
+ },
+ {
+  "name": "Space_Temperature",
+  "type": "AI",
+  "instance": 12,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "72.0"
+ },
+ {
+  "name": "Space Humidity",
+  "type": "AI",
+  "instance": 13,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "45.0"
+ },
+ {
+  "name": "Return_Air_Temperature",
+  "type": "AI",
+  "instance": 14,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "73.0"
+ },
+ {
+  "name": "Outdoor_Air_Temperature",
+  "type": "AI",
+  "instance": 16,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "55.0"
+ },
+ {
+  "name": "Outdoor_Air_Humidity",
+  "type": "AI",
+  "instance": 17,
+  "units": "percent relative humidity",
+  "states": [],
+  "writable": false,
+  "value": "45.0"
+ },
+ {
+  "name": "Outdoor_Air_Wetbulb",
+  "type": "AI",
+  "instance": 18,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "55.0"
+ },
+ {
+  "name": "Outdoor_Air_Dewpoint",
+  "type": "AI",
+  "instance": 19,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "55.0"
+ },
+ {
+  "name": "Duct_Static_Pressure",
+  "type": "AI",
+  "instance": 21,
+  "units": "inches of water",
+  "states": [],
+  "writable": false,
+  "value": "1.2"
+ },
+ {
+  "name": "Duct_Static_Control_Signal",
+  "type": "AI",
+  "instance": 22,
+  "units": "percent",
+  "states": [],
+  "writable": false,
+  "value": "35.0"
+ },
+ {
+  "name": "Building_Pressure",
+  "type": "AI",
+  "instance": 23,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "0.05"
+ },
+ {
+  "name": "Building_Pressure_Control_Signal",
+  "type": "AI",
+  "instance": 24,
+  "units": "percent",
+  "states": [],
+  "writable": false,
+  "value": "35.0"
+ },
+ {
+  "name": "Carbon_Dioxide",
+  "type": "AI",
+  "instance": 29,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "600.0"
+ },
+ {
+  "name": "Desired_Economizer_Position",
+  "type": "AI",
+  "instance": 30,
+  "units": "percent",
+  "states": [],
+  "writable": false,
+  "value": "35.0"
+ },
+ {
+  "name": "Economizer_Feedback_Position",
+  "type": "AI",
+  "instance": 31,
+  "units": "percent",
+  "states": [],
+  "writable": false,
+  "value": "35.0"
+ },
+ {
+  "name": "Return_Damper_Position",
+  "type": "AI",
+  "instance": 32,
+  "units": "percent",
+  "states": [],
+  "writable": false,
+  "value": "35.0"
+ },
+ {
+  "name": "Modulating_Cooling_Position",
+  "type": "AI",
+  "instance": 34,
+  "units": "percent",
+  "states": [],
+  "writable": false,
+  "value": "35.0"
+ },
+ {
+  "name": "Mod_Gas_Heat_Valve_Position",
+  "type": "AI",
+  "instance": 43,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "0"
+ },
+ {
+  "name": "A1_Compressor_Signal",
+  "type": "AI",
+  "instance": 44,
+  "units": "percent",
+  "states": [],
+  "writable": false,
+  "value": "35.0"
+ },
+ {
+  "name": "A1_Condenser_Signal",
+  "type": "AI",
+  "instance": 46,
+  "units": "percent",
+  "states": [],
+  "writable": false,
+  "value": "35.0"
+ },
+ {
+  "name": "A1_Suction_Pressure",
+  "type": "AI",
+  "instance": 48,
+  "units": "pounds per square inch",
+  "states": [],
+  "writable": false,
+  "value": "120.0"
+ },
+ {
+  "name": "A1_Head_Pressure",
+  "type": "AI",
+  "instance": 50,
+  "units": "pounds per square inch",
+  "states": [],
+  "writable": false,
+  "value": "350.0"
+ },
+ {
+  "name": "A1_Saturation_Temperature",
+  "type": "AI",
+  "instance": 52,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "55.0"
+ },
+ {
+  "name": "A1_Suction_Line_Temperature",
+  "type": "AI",
+  "instance": 54,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "72.0"
+ },
+ {
+  "name": "A1_Discharge_Temperature",
+  "type": "AI",
+  "instance": 66,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "55.0"
+ },
+ {
+  "name": "Alarm_Status",
+  "type": "AI",
+  "instance": 144,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "0"
+ },
+ {
+  "name": "Outdoor_Air_Enthalpy",
+  "type": "AI",
+  "instance": 145,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "25.0"
+ },
+ {
+  "name": "Current_Duct_Static_Setpoint",
+  "type": "AI",
+  "instance": 150,
+  "units": "inches of water",
+  "states": [],
+  "writable": false,
+  "value": "1.2"
+ },
+ {
+  "name": "Occupied_Cooling_Setpoint",
+  "type": "AV",
+  "instance": 1,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "74.0"
+ },
+ {
+  "name": "Occupied_Heating_Setpoint",
+  "type": "AV",
+  "instance": 2,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "70.0"
+ },
+ {
+  "name": "Hood_On_Cooling_Setpoint",
+  "type": "AV",
+  "instance": 3,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "74.0"
+ },
+ {
+  "name": "Hood_On_Heating_Setpoint",
+  "type": "AV",
+  "instance": 4,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "70.0"
+ },
+ {
+  "name": "Unoccupied_Cooling_Offset",
+  "type": "AV",
+  "instance": 5,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "74.0"
+ },
+ {
+  "name": "Unoccupied_Heating_Offset",
+  "type": "AV",
+  "instance": 6,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "70.0"
+ },
+ {
+  "name": "Supply_Air_Cooling_Setpoint",
+  "type": "AV",
+  "instance": 10,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "Supply_Air_Heating_Setpoint",
+  "type": "AV",
+  "instance": 11,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "Max_SAT_Cooling_Setpoint_Reset_Limit",
+  "type": "AV",
+  "instance": 12,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "Max_SAT_Heating_Setpoint_Reset_Limit",
+  "type": "AV",
+  "instance": 13,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "Mechanical_Cooling_Outdoor_Air_Lockout",
+  "type": "AV",
+  "instance": 19,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "Mechanical_Heating_Outdoor_Air_Lockout",
+  "type": "AV",
+  "instance": 20,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "Outdoor_Air_Dewpoint_Setpoint",
+  "type": "AV",
+  "instance": 26,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "50.0"
+ },
+ {
+  "name": "Economizer_Enable_Setpoint",
+  "type": "AV",
+  "instance": 27,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "72.0"
+ },
+ {
+  "name": "Low_Ambient_Protection_Setpoint",
+  "type": "AV",
+  "instance": 36,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "72.0"
+ },
+ {
+  "name": "SAT_Cool_Setpoint_Reset_Source_Lo_Limit",
+  "type": "AV",
+  "instance": 37,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "Minimum_Economizer_Position",
+  "type": "AV",
+  "instance": 49,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "Maximum_Economizer_CO2_Reset_Limit",
+  "type": "AV",
+  "instance": 50,
+  "units": "parts per million",
+  "states": [],
+  "writable": true,
+  "value": "1100.0"
+ },
+ {
+  "name": "Minimum_Carbon_Dioxide_Setpoint",
+  "type": "AV",
+  "instance": 51,
+  "units": "parts per million",
+  "states": [],
+  "writable": true,
+  "value": "400.0"
+ },
+ {
+  "name": "Maximum_Carbon_Dioxide_Setpoint",
+  "type": "AV",
+  "instance": 52,
+  "units": "parts per million",
+  "states": [],
+  "writable": true,
+  "value": "1100.0"
+ },
+ {
+  "name": "Duct_Static_Pressure_Setpoint",
+  "type": "AV",
+  "instance": 55,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "1.2"
+ },
+ {
+  "name": "Building_Pressure_Control_Setpoint",
+  "type": "AV",
+  "instance": 57,
+  "units": "inches of water",
+  "states": [],
+  "writable": true,
+  "value": "0.05"
+ },
+ {
+  "name": "Schedule_Force",
+  "type": "AV",
+  "instance": 67,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "0"
+ },
+ {
+  "name": "Hvac_Mode_Override",
+  "type": "AV",
+  "instance": 68,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "0"
+ },
+ {
+  "name": "Outdoor Air Damper Override",
+  "type": "AV",
+  "instance": 70,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "0"
+ },
+ {
+  "name": "Supply_Setpoint_Override",
+  "type": "AV",
+  "instance": 71,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "Space_Temperature_Override",
+  "type": "AV",
+  "instance": 72,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "72.0"
+ },
+ {
+  "name": "Space Humidity Override",
+  "type": "AV",
+  "instance": 73,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "45.0"
+ },
+ {
+  "name": "Cooling_Enabled_Status",
+  "type": "BI",
+  "instance": 1,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "Heating_Enabled_Status",
+  "type": "BI",
+  "instance": 2,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "Economizer_Enabled_Status",
+  "type": "BI",
+  "instance": 3,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "Fan_Proof_of_Airflow_Status",
+  "type": "BI",
+  "instance": 6,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "Exhaust_Hood_On.Off_Status",
+  "type": "BI",
+  "instance": 7,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "Bad_Supply_Air_Sensor",
+  "type": "BI",
+  "instance": 12,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "Bad_Return_Air_Sensor",
+  "type": "BI",
+  "instance": 13,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "Bad_Outdoor_Air_Sensor",
+  "type": "BI",
+  "instance": 14,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "Bad_Carbon_Dioxide_Sensor",
+  "type": "BI",
+  "instance": 16,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "Bad_Building_Pressure_Sensor",
+  "type": "BI",
+  "instance": 17,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "Mechanical_Cooling_Alarm",
+  "type": "BI",
+  "instance": 22,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "Mechanical_Heating_Alarm",
+  "type": "BI",
+  "instance": 23,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "Fan_Proving_Alarm",
+  "type": "BI",
+  "instance": 24,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "Dirty_Filter_Alarm",
+  "type": "BI",
+  "instance": 25,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "Emergency_Shutdown_Alarm",
+  "type": "BI",
+  "instance": 26,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "A1_Compressor_Enable",
+  "type": "BI",
+  "instance": 77,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "A1_Compressor_Alarms",
+  "type": "BI",
+  "instance": 79,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "A1_4_Emergency_Shutdown_RSM_D",
+  "type": "BI",
+  "instance": 83,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "Return_Fan_Proving_Alarm",
+  "type": "BI",
+  "instance": 126,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "Return_Fan_Proving_Status",
+  "type": "BI",
+  "instance": 136,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "Ignition_Lockout",
+  "type": "BI",
+  "instance": 147,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "Fan_Array_Failure",
+  "type": "BI",
+  "instance": 150,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "false"
+ }
+]

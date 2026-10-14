@@ -1,0 +1,421 @@
+[
+ {
+  "name": "HW_DP",
+  "type": "AI",
+  "instance": 1256,
+  "units": "pounds per square inch",
+  "states": [],
+  "writable": false,
+  "value": "12.0"
+ },
+ {
+  "name": "PHWR_T",
+  "type": "AI",
+  "instance": 1276,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "160.0"
+ },
+ {
+  "name": "PHWS_T",
+  "type": "AI",
+  "instance": 1277,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "160.0"
+ },
+ {
+  "name": "CP1_O",
+  "type": "AO",
+  "instance": 2170,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "CP2_O",
+  "type": "AO",
+  "instance": 2172,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "BLRSP_O",
+  "type": "AO",
+  "instance": 280785,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "160.0"
+ },
+ {
+  "name": "OALO_SP",
+  "type": "AV",
+  "instance": 280771,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "10.0"
+ },
+ {
+  "name": "OAHI_SP",
+  "type": "AV",
+  "instance": 280772,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "60.0"
+ },
+ {
+  "name": "OAWTHI_SP",
+  "type": "AV",
+  "instance": 280773,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "180.0"
+ },
+ {
+  "name": "OAWTLO_SP",
+  "type": "AV",
+  "instance": 280774,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "120.0"
+ },
+ {
+  "name": "HTGOATLOCKOUT-SP",
+  "type": "AV",
+  "instance": 54,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "OA-T",
+  "type": "AV",
+  "instance": 62,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "HWDP-SP",
+  "type": "AV",
+  "instance": 89,
+  "units": "pounds per square inch",
+  "states": [],
+  "writable": true,
+  "value": "12.0"
+ },
+ {
+  "name": "SHWPSTG-SP",
+  "type": "AV",
+  "instance": 102,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "OALT-SP",
+  "type": "AV",
+  "instance": 103,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "SHWP1-RUNTIME",
+  "type": "AV",
+  "instance": 3681,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "1500"
+ },
+ {
+  "name": "SHWP2-RUNTIME",
+  "type": "AV",
+  "instance": 3683,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "1500"
+ },
+ {
+  "name": "Effective Setpoint",
+  "type": "AV",
+  "instance": 280768,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "72.0"
+ },
+ {
+  "name": "CP1_S",
+  "type": "BI",
+  "instance": 1280,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "CP2_S",
+  "type": "BI",
+  "instance": 1281,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "EMER_STOP",
+  "type": "BI",
+  "instance": 1515,
+  "units": "",
+  "states": [
+   "Shutdown",
+   "Enable"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "CP1_A",
+  "type": "BI",
+  "instance": 280779,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "CP2_A",
+  "type": "BI",
+  "instance": 280782,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "BLR_EN",
+  "type": "BO",
+  "instance": 2008,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "CP1_C",
+  "type": "BO",
+  "instance": 2171,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "CP2_C",
+  "type": "BO",
+  "instance": 2173,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "SYSTEM-EN",
+  "type": "BV",
+  "instance": 85,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "SHWP-ROT",
+  "type": "BV",
+  "instance": 93,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "TUNING-RESET",
+  "type": "BV",
+  "instance": 769,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "SYS-RESET",
+  "type": "MSV",
+  "instance": 148,
+  "units": "",
+  "states": [
+   "Off",
+   "Reset"
+  ],
+  "writable": true,
+  "value": "1"
+ },
+ {
+  "name": "BLR1-OUTSTATE",
+  "type": "MSV",
+  "instance": 3465,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "SHWPROTATE-OUTSTATE",
+  "type": "MSV",
+  "instance": 3678,
+  "units": "",
+  "states": [
+   "Idle",
+   "Deactivated$2c Instant Shutdown",
+   "Shutdown In$2dProcess",
+   "Staging Up$2c Interstage On Delay",
+   "Staging Up$2c Minimum Off Delay",
+   "Staging Down$2c Interstage Off Delay",
+   "Staging Down$2c Minimum On Delay"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "SHWP1-OUTSTATE",
+  "type": "MSV",
+  "instance": 4060,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "SHWP2-OUTSTATE",
+  "type": "MSV",
+  "instance": 4061,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "SCHWP 1-Status",
+  "type": "MSV",
+  "instance": 4752,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "SCHWP 2-Status",
+  "type": "MSV",
+  "instance": 4754,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "SCHWP 1-IA",
+  "type": "MSV",
+  "instance": 5795,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "SCHWP 2-IA",
+  "type": "MSV",
+  "instance": 5796,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "HWP 1-IA",
+  "type": "MSV",
+  "instance": 87133,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "1"
+ }
+]

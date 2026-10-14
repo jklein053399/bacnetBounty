@@ -9,6 +9,7 @@ Run from repo root:
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 import signal
 import sys
@@ -40,6 +41,7 @@ from .devices.onicon_gas import OniconF5500Gas
 from .devices.onicon_water import OniconF3500Water
 from .devices.ahu import AHU
 from .devices.vav import VAV
+from .devices.pointlist import PointListDevice
 
 
 log = logging.getLogger("simulator")
@@ -68,9 +70,29 @@ DEVICE_MANIFEST: list[dict] = [
 ]
 
 
+def load_profile(cfg_path: Path):
+    """A config with "profile": "profiles/<name>" runs that profile's point-list devices in place of
+    the built-in office manifest (profiles/<name>/devices.json + points/<TYPE>.json, written by
+    scripts/import_demo_points.py). Returns (manifest, location), or (None, None) for no profile."""
+    raw = json.load(open(cfg_path, encoding="utf-8"))
+    if not raw.get("profile"):
+        return None, None
+    folder = (cfg_path.parent / raw["profile"]).resolve()
+    prof = json.load(open(folder / "devices.json", encoding="utf-8"))
+    points, manifest = {}, []
+    for d in prof["devices"]:
+        if d["type"] not in points:
+            points[d["type"]] = json.load(open(folder / "points" / f"{d['type']}.json", encoding="utf-8"))
+        manifest.append(dict(d, kind="pointlist", points=points[d["type"]]))
+    return manifest, prof.get("location", "")
+
+
 async def run():
     cfg_path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("site_config.json")
     cfg = load_config(cfg_path)
+    manifest, location = load_profile(cfg_path)
+    if manifest is None:
+        manifest = DEVICE_MANIFEST
     setup_logging(cfg.logging)
 
     # Quiet BAC0's own chatter so our banner stays clean
@@ -83,10 +105,10 @@ async def run():
     log.info("=" * 66)
 
     # IP plan banner
-    n_devices = len(DEVICE_MANIFEST)
+    n_devices = len(manifest)
     workbench_ip = f"{cfg.network.base_ip}{cfg.network.start_octet + n_devices}"
     log.info("IP plan (assign these to the 'BACNet Simulator' loopback adapter before startup):")
-    for spec in DEVICE_MANIFEST:
+    for spec in manifest:
         ip = f"{cfg.network.base_ip}{cfg.network.start_octet + spec['ip_offset']}"
         log.info(f"  device    {ip:<18}  [{spec['device_id']}] {spec['name']}")
     log.info(f"  RESERVED  {workbench_ip:<18}  Niagara Workbench / Soft Station — do NOT bind simulator here")
@@ -97,7 +119,7 @@ async def run():
     site.tick(datetime.now())  # prime
 
     devices: list = []
-    for spec in DEVICE_MANIFEST:
+    for spec in manifest:
         ip = f"{cfg.network.base_ip}{cfg.network.start_octet + spec['ip_offset']}"
         kind = spec["kind"]
         common_kwargs = dict(
@@ -117,6 +139,11 @@ async def run():
         elif kind == "onicon_water":
             dev = OniconF3500Water(**common_kwargs)
             tag = "ONICON F-3500 water"
+        elif kind == "pointlist":
+            dev = PointListDevice(vendor_id=spec["vendor_id"], vendor_name=spec["vendor_name"],
+                                  model_name=spec["model_name"], points=spec["points"], location=location,
+                                  **common_kwargs)
+            tag = f"{spec['vendor_name']} {spec['model_name']}, {len(dev.points)} points"
         elif kind == "ahu":
             ahu_idx = spec["ahu_index"]
             ahu_cfg = cfg.ahus[ahu_idx]

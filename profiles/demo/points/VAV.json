@@ -1,0 +1,169 @@
+[
+ {
+  "name": "SA-T",
+  "type": "AI",
+  "instance": 1093,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "55.0"
+ },
+ {
+  "name": "DA-VP",
+  "type": "AI",
+  "instance": 1094,
+  "units": "inches of water",
+  "states": [],
+  "writable": false,
+  "value": "0.15"
+ },
+ {
+  "name": "ZN-T",
+  "type": "AI",
+  "instance": 1106,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "72.0"
+ },
+ {
+  "name": "RH-O",
+  "type": "AO",
+  "instance": 2014,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "45.0"
+ },
+ {
+  "name": "DPR-O",
+  "type": "AO",
+  "instance": 2131,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "ZN-SP",
+  "type": "AV",
+  "instance": 1103,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "72.0"
+ },
+ {
+  "name": "CLG-MAXFLOW",
+  "type": "AV",
+  "instance": 3108,
+  "units": "cubic feet per minute",
+  "states": [],
+  "writable": true,
+  "value": "600.0"
+ },
+ {
+  "name": "CLGOCC-MINFLOW",
+  "type": "AV",
+  "instance": 3109,
+  "units": "cubic feet per minute",
+  "states": [],
+  "writable": true,
+  "value": "150.0"
+ },
+ {
+  "name": "HTGOCC-MINFLOW",
+  "type": "AV",
+  "instance": 3110,
+  "units": "cubic feet per minute",
+  "states": [],
+  "writable": true,
+  "value": "150.0"
+ },
+ {
+  "name": "SAFLOW-SP",
+  "type": "AV",
+  "instance": 3384,
+  "units": "cubic feet per minute",
+  "states": [],
+  "writable": false,
+  "value": "400.0"
+ },
+ {
+  "name": "EFFCLG-SP",
+  "type": "AV",
+  "instance": 3472,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "74.0"
+ },
+ {
+  "name": "EFFHTG-SP",
+  "type": "AV",
+  "instance": 3473,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "70.0"
+ },
+ {
+  "name": "CLGOCC-SP",
+  "type": "AV",
+  "instance": 3474,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "74.0"
+ },
+ {
+  "name": "HTGOCC-SP",
+  "type": "AV",
+  "instance": 3475,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "70.0"
+ },
+ {
+  "name": "CLGUNOCC-SP",
+  "type": "AV",
+  "instance": 3478,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "74.0"
+ },
+ {
+  "name": "HTGUNOCC-SP",
+  "type": "AV",
+  "instance": 3479,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "70.0"
+ },
+ {
+  "name": "SA-F",
+  "type": "AV",
+  "instance": 3515,
+  "units": "cubic feet per minute",
+  "states": [],
+  "writable": false,
+  "value": "400.0"
+ },
+ {
+  "name": "OCC-MODE",
+  "type": "MSV",
+  "instance": 2086,
+  "units": "",
+  "states": [
+   "Occupied",
+   "UnOccupied",
+   "Bypass",
+   "Standby"
+  ],
+  "writable": true,
+  "value": "1"
+ }
+]

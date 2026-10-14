@@ -1,0 +1,170 @@
+[
+ {
+  "name": "ZN_T",
+  "type": "AI",
+  "instance": 1106,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "72.0"
+ },
+ {
+  "name": "CLGOCC-SP",
+  "type": "AV",
+  "instance": 3474,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "74.0"
+ },
+ {
+  "name": "CLGSTBY-SP",
+  "type": "AV",
+  "instance": 3476,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "74.0"
+ },
+ {
+  "name": "CLGUNOCC-SP",
+  "type": "AV",
+  "instance": 3478,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "74.0"
+ },
+ {
+  "name": "HTGOCC-SP",
+  "type": "AV",
+  "instance": 3475,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "70.0"
+ },
+ {
+  "name": "HTGSTBY-SP",
+  "type": "AV",
+  "instance": 3477,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "70.0"
+ },
+ {
+  "name": "HTGUNOCC-SP",
+  "type": "AV",
+  "instance": 3479,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "70.0"
+ },
+ {
+  "name": "ZNT-SP",
+  "type": "AV",
+  "instance": 12,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "72.0"
+ },
+ {
+  "name": "EFFCLG-SP",
+  "type": "AV",
+  "instance": 3472,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "74.0"
+ },
+ {
+  "name": "EFFHTG-SP",
+  "type": "AV",
+  "instance": 3473,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "70.0"
+ },
+ {
+  "name": "SF_S",
+  "type": "BI",
+  "instance": 1002,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "SF_C",
+  "type": "BO",
+  "instance": 2045,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "HTG_C",
+  "type": "BO",
+  "instance": 2065,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "OCC-SCHEDULE",
+  "type": "MSV",
+  "instance": 59,
+  "units": "",
+  "states": [
+   "Occupied",
+   "UnOccupied",
+   "Standby",
+   "Not Set"
+  ],
+  "writable": true,
+  "value": "1"
+ },
+ {
+  "name": "OCC_MODE",
+  "type": "MSV",
+  "instance": 2086,
+  "units": "",
+  "states": [
+   "Occupied",
+   "UnOccupied",
+   "Bypass",
+   "Standby"
+  ],
+  "writable": true,
+  "value": "1"
+ },
+ {
+  "name": "EFF-OCC",
+  "type": "MSV",
+  "instance": 3290,
+  "units": "",
+  "states": [
+   "Occupied",
+   "UnOccupied",
+   "Bypass",
+   "Standby"
+  ],
+  "writable": true,
+  "value": "1"
+ }
+]

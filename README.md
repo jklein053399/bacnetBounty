@@ -173,3 +173,45 @@ bacnet-bounty/
 If anything surprising happens, zip up the `logs/` directory and send it to Jake with a description of what you were doing. The `DEBUG`-level file log has the full BAC0 and bacpypes3 trace, which usually tells us what went sideways.
 
 For general BACnet / Niagara questions, ask Jake — the simulator's job ends at the BACnet wire; everything on the JACE side is outside what I built.
+
+---
+
+## Demo profile: the Metro PX demo devices
+
+A second set of devices, for the Metro PX graphics-standard demo: 22 devices that copy controllers
+integrated on real Metro jobs, each reporting the real vendor and model.
+
+| Devices | Copies | Vendor | Points |
+|---|---|---|---|
+| RTU_1 | AAON ASM07503 | AAON (545) | 83 |
+| AHU_1 | JCI FX-PCA2611-0 | JCI (5) | 60 |
+| CHWS_1 | JCI F4-CGM09090-0 | JCI (5) | 31 |
+| HWS_1 | JCI F4-CGM09090-0 | JCI (5) | 39 |
+| VAV_1 to VAV_10 | JCI FX-PCV1630-0 | JCI (5) | 18 |
+| EF_1 to EF_5 | JCI FX-PCG2611-0 | JCI (5) | 5 |
+| CUH_1 to CUH_3 | JCI FX-PCA2611-0 | JCI (5) | 16 |
+
+IPs `192.168.100.200`-`.221` (same adapter as the office profile; `.228` stays free for Niagara).
+Device IDs: AHU 2000xx, VAV 3000xx, RTU 4000xx, EF 5000xx, CUH 6000xx, CHWS 700001, HWS 800001.
+
+**Run:** double-click `run_demo.bat` (or `.venv\Scripts\python.exe -m simulator demo_config.json`).
+Only one profile can run at a time: both bind port 47808 on the same adapter.
+
+**What the values do:** measured values drift a little around their starting value; writable
+objects are commandable and stay where Niagara writes them; a binary status follows its command when
+the names pair up (`SF-S` with `SF-C`, `EF_S` with `EF_C` ...). Nothing about the equipment is
+modelled.
+
+**Where the points come from:** `Demo_Device_Points.xlsx` in the BAS-Atlas repo
+(`Design-Standard/demo/`): one sheet per device type, Keep Y/N, starting values. After editing it:
+
+```
+python scripts\import_demo_points.py <path>\Demo_Device_Points.xlsx
+```
+
+then restart the simulator. That writes `profiles/demo/devices.json` and `profiles/demo/points/*.json`.
+
+**Code:** `simulator/devices/pointlist.py` (one class for any controller, built from its point list)
+and `load_profile()` in `simulator/__main__.py` (a config with `"profile"` runs that profile instead
+of the office manifest). Checks: `scripts/verify_whois.py` (Who-Is on 47808 from `.228`, drift),
+`scripts/verify_demo.py` (vendor / model / object count per device, a command write and its status).

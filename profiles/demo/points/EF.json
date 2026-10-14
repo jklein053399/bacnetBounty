@@ -1,0 +1,56 @@
+[
+ {
+  "name": "EF_O",
+  "type": "AO",
+  "instance": 243994,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "EF_SPD_SP",
+  "type": "AV",
+  "instance": 243989,
+  "units": "percent",
+  "states": [],
+  "writable": false,
+  "value": "35.0"
+ },
+ {
+  "name": "EF_S",
+  "type": "BI",
+  "instance": 243986,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "EF_C",
+  "type": "BO",
+  "instance": 243991,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "EF_EN",
+  "type": "BV",
+  "instance": 243997,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": true,
+  "value": "true"
+ }
+]

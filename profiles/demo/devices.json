@@ -1,0 +1,203 @@
+{
+ "location": "Metro PX demo",
+ "devices": [
+  {
+   "name": "RTU_1",
+   "type": "RTU",
+   "device_id": 400001,
+   "ip_offset": 0,
+   "vendor_id": 545,
+   "vendor_name": "AAON",
+   "model_name": "ASM07503"
+  },
+  {
+   "name": "AHU_1",
+   "type": "AHU",
+   "device_id": 200001,
+   "ip_offset": 1,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCA2611-0"
+  },
+  {
+   "name": "CHWS_1",
+   "type": "CHWS",
+   "device_id": 700001,
+   "ip_offset": 2,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "F4-CGM09090-0"
+  },
+  {
+   "name": "HWS_1",
+   "type": "HWS",
+   "device_id": 800001,
+   "ip_offset": 3,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "F4-CGM09090-0"
+  },
+  {
+   "name": "VAV_1",
+   "type": "VAV",
+   "device_id": 300001,
+   "ip_offset": 4,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCV1630-0"
+  },
+  {
+   "name": "VAV_2",
+   "type": "VAV",
+   "device_id": 300002,
+   "ip_offset": 5,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCV1630-0"
+  },
+  {
+   "name": "VAV_3",
+   "type": "VAV",
+   "device_id": 300003,
+   "ip_offset": 6,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCV1630-0"
+  },
+  {
+   "name": "VAV_4",
+   "type": "VAV",
+   "device_id": 300004,
+   "ip_offset": 7,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCV1630-0"
+  },
+  {
+   "name": "VAV_5",
+   "type": "VAV",
+   "device_id": 300005,
+   "ip_offset": 8,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCV1630-0"
+  },
+  {
+   "name": "VAV_6",
+   "type": "VAV",
+   "device_id": 300006,
+   "ip_offset": 9,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCV1630-0"
+  },
+  {
+   "name": "VAV_7",
+   "type": "VAV",
+   "device_id": 300007,
+   "ip_offset": 10,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCV1630-0"
+  },
+  {
+   "name": "VAV_8",
+   "type": "VAV",
+   "device_id": 300008,
+   "ip_offset": 11,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCV1630-0"
+  },
+  {
+   "name": "VAV_9",
+   "type": "VAV",
+   "device_id": 300009,
+   "ip_offset": 12,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCV1630-0"
+  },
+  {
+   "name": "VAV_10",
+   "type": "VAV",
+   "device_id": 300010,
+   "ip_offset": 13,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCV1630-0"
+  },
+  {
+   "name": "EF_1",
+   "type": "EF",
+   "device_id": 500001,
+   "ip_offset": 14,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCG2611-0"
+  },
+  {
+   "name": "EF_2",
+   "type": "EF",
+   "device_id": 500002,
+   "ip_offset": 15,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCG2611-0"
+  },
+  {
+   "name": "EF_3",
+   "type": "EF",
+   "device_id": 500003,
+   "ip_offset": 16,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCG2611-0"
+  },
+  {
+   "name": "EF_4",
+   "type": "EF",
+   "device_id": 500004,
+   "ip_offset": 17,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCG2611-0"
+  },
+  {
+   "name": "EF_5",
+   "type": "EF",
+   "device_id": 500005,
+   "ip_offset": 18,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCG2611-0"
+  },
+  {
+   "name": "CUH_1",
+   "type": "CUH",
+   "device_id": 600001,
+   "ip_offset": 19,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCA2611-0"
+  },
+  {
+   "name": "CUH_2",
+   "type": "CUH",
+   "device_id": 600002,
+   "ip_offset": 20,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCA2611-0"
+  },
+  {
+   "name": "CUH_3",
+   "type": "CUH",
+   "device_id": 600003,
+   "ip_offset": 21,
+   "vendor_id": 5,
+   "vendor_name": "JCI",
+   "model_name": "FX-PCA2611-0"
+  }
+ ]
+}
