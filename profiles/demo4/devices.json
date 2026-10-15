@@ -1,0 +1,41 @@
+{
+  "location": "Metro PX demo",
+  "devices": [
+    {
+      "name": "AHU_1",
+      "type": "AHU",
+      "device_id": 200001,
+      "ip_offset": 1,
+      "vendor_id": 5,
+      "vendor_name": "JCI",
+      "model_name": "FX-PCA2611-0"
+    },
+    {
+      "name": "CHWS_1",
+      "type": "CHWS",
+      "device_id": 700001,
+      "ip_offset": 2,
+      "vendor_id": 5,
+      "vendor_name": "JCI",
+      "model_name": "F4-CGM09090-0"
+    },
+    {
+      "name": "VAV_1",
+      "type": "VAV",
+      "device_id": 300001,
+      "ip_offset": 4,
+      "vendor_id": 5,
+      "vendor_name": "JCI",
+      "model_name": "FX-PCV1630-0"
+    },
+    {
+      "name": "VAV_2",
+      "type": "VAV",
+      "device_id": 300002,
+      "ip_offset": 5,
+      "vendor_id": 5,
+      "vendor_name": "JCI",
+      "model_name": "FX-PCV1630-0"
+    }
+  ]
+}

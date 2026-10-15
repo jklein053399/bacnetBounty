@@ -1,0 +1,628 @@
+[
+ {
+  "name": "DA_T",
+  "type": "AI",
+  "instance": 1019,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "55.0"
+ },
+ {
+  "name": "MA_T",
+  "type": "AI",
+  "instance": 1060,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "60.0"
+ },
+ {
+  "name": "PH_T",
+  "type": "AI",
+  "instance": 1069,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "72.0"
+ },
+ {
+  "name": "RA_Q_N",
+  "type": "AI",
+  "instance": 1082,
+  "units": "parts per million",
+  "states": [],
+  "writable": false,
+  "value": "600.0"
+ },
+ {
+  "name": "RA_T",
+  "type": "AI",
+  "instance": 1084,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "73.0"
+ },
+ {
+  "name": "ZN_H",
+  "type": "AI",
+  "instance": 1102,
+  "units": "percent relative humidity",
+  "states": [],
+  "writable": false,
+  "value": "35.0"
+ },
+ {
+  "name": "ZN_T",
+  "type": "AI",
+  "instance": 1106,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "72.0"
+ },
+ {
+  "name": "CLG_O",
+  "type": "AO",
+  "instance": 2033,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "MOAD_O",
+  "type": "AO",
+  "instance": 2079,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "OAD_O",
+  "type": "AO",
+  "instance": 2084,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "PHFBD_O",
+  "type": "AO",
+  "instance": 2088,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "HTG_O",
+  "type": "AO",
+  "instance": 2100,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "RAD_O",
+  "type": "AO",
+  "instance": 2118,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "CLGOCC_SP",
+  "type": "AV",
+  "instance": 3474,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "74.0"
+ },
+ {
+  "name": "CLGUNOCC_SP",
+  "type": "AV",
+  "instance": 3478,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "74.0"
+ },
+ {
+  "name": "DATCLGMIN_SP",
+  "type": "AV",
+  "instance": 3118,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "DATHTGMAX_SP",
+  "type": "AV",
+  "instance": 3119,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "DATSATISFIED_SP",
+  "type": "AV",
+  "instance": 3120,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "ECONSWO_SP",
+  "type": "AV",
+  "instance": 3195,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "72.0"
+ },
+ {
+  "name": "FBPDSWO_SP",
+  "type": "AV",
+  "instance": 3216,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "72.0"
+ },
+ {
+  "name": "HTGOCC_SP",
+  "type": "AV",
+  "instance": 3475,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "70.0"
+ },
+ {
+  "name": "HTGUNOCC_SP",
+  "type": "AV",
+  "instance": 3479,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "70.0"
+ },
+ {
+  "name": "MOA-CO2RSTA",
+  "type": "AV",
+  "instance": 3175,
+  "units": "parts per million",
+  "states": [],
+  "writable": true,
+  "value": "600.0"
+ },
+ {
+  "name": "MOA-CO2RSTB",
+  "type": "AV",
+  "instance": 3176,
+  "units": "parts per million",
+  "states": [],
+  "writable": true,
+  "value": "600.0"
+ },
+ {
+  "name": "ZNT_SP",
+  "type": "AV",
+  "instance": 12,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "72.0"
+ },
+ {
+  "name": "MOADPOS_SP",
+  "type": "AV",
+  "instance": 44,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "HTGOATLOCKOUT_SP",
+  "type": "AV",
+  "instance": 54,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "OA_H",
+  "type": "AV",
+  "instance": 61,
+  "units": "percent relative humidity",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "OA_T",
+  "type": "AV",
+  "instance": 62,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "DEHUM_SP",
+  "type": "AV",
+  "instance": 305,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "45.0"
+ },
+ {
+  "name": "EFFDAT_SP",
+  "type": "AV",
+  "instance": 3182,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "72.0"
+ },
+ {
+  "name": "EFFCLG_SP",
+  "type": "AV",
+  "instance": 3472,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "74.0"
+ },
+ {
+  "name": "EFFHTG_SP",
+  "type": "AV",
+  "instance": 3473,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "70.0"
+ },
+ {
+  "name": "MAD_MINPOS",
+  "type": "AV",
+  "instance": 3494,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "UnOcc_TimeDelay_FanStart",
+  "type": "AV",
+  "instance": 276534,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "5"
+ },
+ {
+  "name": "DeHumid_DAT_SP",
+  "type": "AV",
+  "instance": 276772,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "45.0"
+ },
+ {
+  "name": "UnOcc_OAT_SP",
+  "type": "AV",
+  "instance": 276803,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "50.0"
+ },
+ {
+  "name": "UnOccDATSatisfied_SP",
+  "type": "AV",
+  "instance": 276804,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "UnOccDATHTG_SP",
+  "type": "AV",
+  "instance": 276805,
+  "units": "",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "FFILT_S",
+  "type": "BI",
+  "instance": 1036,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "LT_A",
+  "type": "BI",
+  "instance": 1053,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "SF_S",
+  "type": "BI",
+  "instance": 1095,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "SFPLO_A",
+  "type": "BI",
+  "instance": 9896,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "EF_G2_S",
+  "type": "BI",
+  "instance": 276496,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "EF_G1_S",
+  "type": "BI",
+  "instance": 276499,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "SF_C",
+  "type": "BO",
+  "instance": 2132,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "EF_G1_G2_C",
+  "type": "BO",
+  "instance": 276493,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "CLG-ENABLE",
+  "type": "BV",
+  "instance": 14,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "TUNING_RESET",
+  "type": "BV",
+  "instance": 769,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "CLG_AVAILABLE",
+  "type": "BV",
+  "instance": 3174,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "ECON_AVAILABLE",
+  "type": "BV",
+  "instance": 3196,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "PH_AVAILABLE",
+  "type": "BV",
+  "instance": 3307,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "APP-MODE",
+  "type": "MSV",
+  "instance": 3,
+  "units": "",
+  "states": [
+   "Cool Only",
+   "Heat Only",
+   "Fan Only",
+   "Water Flush",
+   "Purge",
+   "Vent",
+   "Auto"
+  ],
+  "writable": true,
+  "value": "1"
+ },
+ {
+  "name": "OCC_SCHEDULE",
+  "type": "MSV",
+  "instance": 59,
+  "units": "",
+  "states": [
+   "Occupied",
+   "UnOccupied",
+   "Standby",
+   "Not Set"
+  ],
+  "writable": true,
+  "value": "1"
+ },
+ {
+  "name": "UNITEN-MODE",
+  "type": "MSV",
+  "instance": 77,
+  "units": "",
+  "states": [
+   "Shutdown",
+   "Enable"
+  ],
+  "writable": true,
+  "value": "1"
+ },
+ {
+  "name": "WC_C",
+  "type": "MSV",
+  "instance": 80,
+  "units": "",
+  "states": [
+   "Normal",
+   "Warmup",
+   "Cooldown",
+   "Coast"
+  ],
+  "writable": true,
+  "value": "1"
+ },
+ {
+  "name": "EFF_OCC",
+  "type": "MSV",
+  "instance": 3290,
+  "units": "",
+  "states": [
+   "Occupied",
+   "UnOccupied",
+   "Bypass",
+   "Standby"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "UNITEN_STATE",
+  "type": "MSV",
+  "instance": 3393,
+  "units": "",
+  "states": [
+   "Shutdown",
+   "Enable"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "SMOKE_SEQUENCE_STATE",
+  "type": "MSV",
+  "instance": 3915,
+  "units": "",
+  "states": [
+   "Normal",
+   "Pressurize",
+   "Depressurize",
+   "Purge",
+   "Shutdown",
+   "Pre$2dShutdown"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "AHU_STATE",
+  "type": "MSV",
+  "instance": 3941,
+  "units": "",
+  "states": [
+   "Satisfied",
+   "Econ",
+   "Econ$2bMech",
+   "HX Cool$2bMech",
+   "HX Heat",
+   "HX Heat$2bPreheat",
+   "HX Heat$2bPreheat$2bReheat",
+   "Cooling Idle",
+   "Heating Idle",
+   "Temperature Unreliable"
+  ],
+  "writable": false,
+  "value": "1"
+ }
+]

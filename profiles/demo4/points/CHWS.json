@@ -1,0 +1,332 @@
+[
+ {
+  "name": "CHWS_T",
+  "type": "AI",
+  "instance": 1355,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "44.0"
+ },
+ {
+  "name": "CHWR_T",
+  "type": "AI",
+  "instance": 1356,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "44.0"
+ },
+ {
+  "name": "CUH_AUD_T",
+  "type": "AI",
+  "instance": 10026,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": false,
+  "value": "72.0"
+ },
+ {
+  "name": "CHW_SP",
+  "type": "AO",
+  "instance": 10011,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "44.0"
+ },
+ {
+  "name": "CHWP1_O",
+  "type": "AO",
+  "instance": 235736,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "CHWP2_O",
+  "type": "AO",
+  "instance": 235739,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "CLGOATLOCKOUT_SP",
+  "type": "AV",
+  "instance": 52,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "CHWDT_SP",
+  "type": "AV",
+  "instance": 136,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "44.0"
+ },
+ {
+  "name": "PCHWP1-RUNTIME",
+  "type": "AV",
+  "instance": 3766,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "1500"
+ },
+ {
+  "name": "PCHWP2-RUNTIME",
+  "type": "AV",
+  "instance": 3767,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "1500"
+ },
+ {
+  "name": "CHWTEMP-DIFF",
+  "type": "AV",
+  "instance": 3783,
+  "units": "",
+  "states": [],
+  "writable": false,
+  "value": "44.0"
+ },
+ {
+  "name": "OA_T",
+  "type": "AV",
+  "instance": 10014,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "55.0"
+ },
+ {
+  "name": "CUH_AUD_SP",
+  "type": "AV",
+  "instance": 10027,
+  "units": "fahrenheit",
+  "states": [],
+  "writable": true,
+  "value": "72.0"
+ },
+ {
+  "name": "PUMP_SPD_SP",
+  "type": "AV",
+  "instance": 235760,
+  "units": "percent",
+  "states": [],
+  "writable": true,
+  "value": "35.0"
+ },
+ {
+  "name": "CP1_S",
+  "type": "BI",
+  "instance": 1427,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "CP2_S",
+  "type": "BI",
+  "instance": 1428,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "ACC1_Failure_A",
+  "type": "BI",
+  "instance": 10016,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "Glycol_LowPressure_A",
+  "type": "BI",
+  "instance": 10019,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "Glycol_LowLevel_A",
+  "type": "BI",
+  "instance": 10022,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "false"
+ },
+ {
+  "name": "ACC1_EN",
+  "type": "BO",
+  "instance": 2206,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "CP1_C",
+  "type": "BO",
+  "instance": 2238,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "CP2_C",
+  "type": "BO",
+  "instance": 2239,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "CUH_AUD_C",
+  "type": "BO",
+  "instance": 10025,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "CHWS_EN",
+  "type": "BV",
+  "instance": 85,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "CHWP_ROT",
+  "type": "BV",
+  "instance": 117,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "TUNING_RESET",
+  "type": "BV",
+  "instance": 769,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": true,
+  "value": "true"
+ },
+ {
+  "name": "CHWSYS_AVAIL",
+  "type": "BV",
+  "instance": 3782,
+  "units": "",
+  "states": [
+   "False",
+   "True"
+  ],
+  "writable": false,
+  "value": "true"
+ },
+ {
+  "name": "SYS_RESET",
+  "type": "MSV",
+  "instance": 148,
+  "units": "",
+  "states": [
+   "Off",
+   "Reset"
+  ],
+  "writable": true,
+  "value": "1"
+ },
+ {
+  "name": "PCHWP_1_IA",
+  "type": "MSV",
+  "instance": 5779,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "PCHWP_2_IA",
+  "type": "MSV",
+  "instance": 5780,
+  "units": "",
+  "states": [
+   "Normal",
+   "Alarm"
+  ],
+  "writable": false,
+  "value": "1"
+ },
+ {
+  "name": "CUH_AUD_Enable",
+  "type": "MSV",
+  "instance": 10028,
+  "units": "",
+  "states": [
+   "Off",
+   "On"
+  ],
+  "writable": true,
+  "value": "1"
+ }
+]
