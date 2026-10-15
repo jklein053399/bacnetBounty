@@ -35,9 +35,30 @@ from BAC0.core.devices.local.factory import (
     multistate_value,
 )
 from bacpypes3.primitivedata import Unsigned
+from bacpypes3.service.object import ReadWritePropertyServices
 
 
 log = logging.getLogger(__name__)
+
+
+# BACnet: a WriteProperty with no priority on a commandable property is a write at priority 16.
+# bacpypes3 only accepts a NULL (a release) when a priority is given, so Niagara's release at 16,
+# which leaves the priority out, came back "REJECT: invalid Tag" and faulted every writable point.
+_write_property = ReadWritePropertyServices.do_WritePropertyRequest
+
+
+async def _write_property_default_16(self, apdu):
+    if apdu.priority is None and str(apdu.propertyIdentifier) == 'present-value':
+        try:
+            obj = self.get_object_id(apdu.objectIdentifier)
+            if obj is not None and getattr(obj, 'priorityArray', None) is not None:
+                apdu.priority = 16
+        except Exception as e:                       # never let the check itself fail the request
+            log.debug(f'priority check: {e}')
+    return await _write_property(self, apdu)
+
+
+ReadWritePropertyServices.do_WritePropertyRequest = _write_property_default_16
 
 # Niagara unit names (as integrated) -> BACnet engineering units
 UNITS = {
