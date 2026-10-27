@@ -42,6 +42,7 @@ DASHBOARD_METER_POINTS = {
     "onicon_water": {"Flow_Rate", "Totalizer"},
 }
 BINARY, MULTI = ("BI", "BO", "BV"), ("MSI", "MSO", "MSV")
+BACNET_TYPE = {"AI": 0, "AO": 1, "AV": 2, "BI": 3, "BO": 4, "BV": 5, "MSI": 13, "MSO": 14, "MSV": 19}
 
 
 def months_before(t: datetime, months: int) -> datetime:
@@ -70,7 +71,7 @@ def build_points(manifest: list[dict]) -> list[dict]:
                     init = max(1, min(len(p.get("states") or [1, 2]), int(float(p.get("value") or 1))))
                 else:
                     init = float(p.get("value") or 0)
-                pts.append(dict(device=d["name"], dtype=d["type"], src="pointlist", name=p["name"], kind=k,
+                pts.append(dict(device=d["name"], device_id=d["device_id"], dtype=d["type"], src="pointlist", name=p["name"], kind=k,
                                 writable=writable, base=init if k not in BINARY + MULTI else 0.0, init=init,
                                 object=f"{k}:{p['instance']}", units=p.get("units") or "", states=p.get("states") or [],
                                 months="other"))
@@ -236,6 +237,15 @@ def main(argv=None) -> int:
                     "records": q["writer"].n, "file": q["file"]} for q in points],
     }
     (out / "manifest.json").write_text(json.dumps(meta, indent=1), encoding="utf-8")
+    # the same list as tab-separated text, for the Niagara loader (a Robot has no JSON parser)
+    rows = ["# t0_ms\t" + str(meta["t0_ms"]),
+            "\t".join(("device_id", "device", "point", "object_type", "instance", "kind", "series", "months",
+                           "records", "file"))]
+    for q, pm in zip(points, meta["points"]):
+        kind_code, inst = q["object"].split(":")
+        rows.append("\t".join(str(x) for x in (q["device_id"], q["device"], q["name"], BACNET_TYPE[kind_code], inst,
+                                                pm["kind"], pm["series"], pm["months"], pm["records"], pm["file"])))
+    (out / "manifest.tsv").write_text("\n".join(rows) + "\n", encoding="ascii")
     model.totals(end_ts)
     model.save_state(out / "state.json")
     state_file = cfg.raw.get("shared_model", {}).get("state_file")
