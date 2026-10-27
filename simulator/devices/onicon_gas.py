@@ -67,6 +67,7 @@ class OniconF5500Gas:
         subnet_mask_prefix: int,
         bacnet_port: int,
         site_model: SiteModel,
+        location: str = "32K Michigan Office Demo",
     ):
         self.device_id = device_id
         self.device_name = device_name
@@ -87,7 +88,7 @@ class OniconF5500Gas:
             modelName=ONICON_GAS_MODEL_NAME,
             firmwareRevision=ONICON_GAS_FIRMWARE,
             description=f"ONICON F-5500 gas meter — {device_name}",
-            location="32K Michigan Office Demo",
+            location=location,
         )
 
         # BAC0 quirk (same as emon): vendorName kwarg doesn't propagate to the

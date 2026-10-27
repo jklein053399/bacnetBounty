@@ -1,0 +1,334 @@
+{
+  "site": {
+    "name": "Sales demo (shared site)",
+    "square_feet": 30000,
+    "location": "Michigan",
+    "timezone": "America/Detroit"
+  },
+  "network": {
+    "base_ip": "192.168.100.",
+    "start_octet": 200,
+    "subnet_mask_prefix": 24,
+    "bacnet_port": 47808
+  },
+  "simulation": {
+    "tick_interval_seconds": 10,
+    "noise_scale": 1.0
+  },
+  "magnitudes": {
+    "building_peak_kw": 200,
+    "building_baseline_kw": 22,
+    "ahu_vav_peak_kw_each": 55,
+    "ahu_sz_peak_kw": 17,
+    "vav_reheat_peak_kw_each": 3.6,
+    "lighting_peak_kw": 35,
+    "plug_peak_kw": 29,
+    "plug_baseline_kw": 4,
+    "gas_peak_scfh": 500,
+    "gas_baseline_scfh": 50,
+    "water_peak_gpm": 8,
+    "water_baseline_gpm": 0.05,
+    "voltage_nominal": 208,
+    "voltage_phase_nominal": 120,
+    "power_factor_nominal": 0.92
+  },
+  "schedule": {
+    "occupied_weekday_start": "07:00",
+    "occupied_weekday_end": "18:00",
+    "ramp_up_hours": 2,
+    "ramp_down_hours": 1,
+    "saturday_peak_fraction": 0.3,
+    "sunday_baseline_fraction": 0.05,
+    "cooling_setpoint_occupied": 74,
+    "heating_setpoint_occupied": 70,
+    "cooling_setpoint_unoccupied": 82,
+    "heating_setpoint_unoccupied": 60
+  },
+  "weather": {
+    "location": "Detroit_MI",
+    "monthly_high_low_f": [
+      [
+        32,
+        19
+      ],
+      [
+        35,
+        21
+      ],
+      [
+        45,
+        28
+      ],
+      [
+        58,
+        38
+      ],
+      [
+        70,
+        48
+      ],
+      [
+        79,
+        58
+      ],
+      [
+        83,
+        63
+      ],
+      [
+        81,
+        62
+      ],
+      [
+        74,
+        54
+      ],
+      [
+        61,
+        42
+      ],
+      [
+        49,
+        33
+      ],
+      [
+        36,
+        24
+      ]
+    ],
+    "diurnal_peak_hour": 15,
+    "diurnal_trough_hour": 5,
+    "random_walk_bound_f": 1.5
+  },
+  "logging": {
+    "console_level": "INFO",
+    "file_level": "DEBUG",
+    "log_dir": "./logs",
+    "rotate_daily": true,
+    "retention_days": 7
+  },
+  "ahus": [
+    {
+      "name": "AHU_1",
+      "kind": "single_zone",
+      "design_cfm": 1600,
+      "fan_nominal_kw": 2.5,
+      "cooling_tons": 12,
+      "sa_pressure_setpoint_in_wc": 0.5
+    },
+    {
+      "name": "AHU_2",
+      "kind": "vav",
+      "design_cfm": 5600,
+      "fan_nominal_kw": 8.0,
+      "cooling_tons": 40,
+      "sa_pressure_setpoint_in_wc": 1.5
+    },
+    {
+      "name": "AHU_3",
+      "kind": "vav",
+      "design_cfm": 5600,
+      "fan_nominal_kw": 8.0,
+      "cooling_tons": 40,
+      "sa_pressure_setpoint_in_wc": 1.5
+    }
+  ],
+  "vavs": [
+    {
+      "name": "VAV_1",
+      "parent_ahu": "AHU_2",
+      "position": "perimeter",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 0
+    },
+    {
+      "name": "VAV_2",
+      "parent_ahu": "AHU_2",
+      "position": "interior",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 18
+    },
+    {
+      "name": "VAV_3",
+      "parent_ahu": "AHU_2",
+      "position": "perimeter",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 36
+    },
+    {
+      "name": "VAV_4",
+      "parent_ahu": "AHU_2",
+      "position": "interior",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 54
+    },
+    {
+      "name": "VAV_5",
+      "parent_ahu": "AHU_2",
+      "position": "perimeter",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 72
+    },
+    {
+      "name": "VAV_6",
+      "parent_ahu": "AHU_2",
+      "position": "interior",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 90
+    },
+    {
+      "name": "VAV_7",
+      "parent_ahu": "AHU_2",
+      "position": "perimeter",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 108
+    },
+    {
+      "name": "VAV_8",
+      "parent_ahu": "AHU_2",
+      "position": "interior",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 126
+    },
+    {
+      "name": "VAV_9",
+      "parent_ahu": "AHU_2",
+      "position": "perimeter",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 144
+    },
+    {
+      "name": "VAV_10",
+      "parent_ahu": "AHU_2",
+      "position": "interior",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 162
+    },
+    {
+      "name": "VAV_11",
+      "parent_ahu": "AHU_3",
+      "position": "perimeter",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 180
+    },
+    {
+      "name": "VAV_12",
+      "parent_ahu": "AHU_3",
+      "position": "interior",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 198
+    },
+    {
+      "name": "VAV_13",
+      "parent_ahu": "AHU_3",
+      "position": "perimeter",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 216
+    },
+    {
+      "name": "VAV_14",
+      "parent_ahu": "AHU_3",
+      "position": "interior",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 234
+    },
+    {
+      "name": "VAV_15",
+      "parent_ahu": "AHU_3",
+      "position": "perimeter",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 252
+    },
+    {
+      "name": "VAV_16",
+      "parent_ahu": "AHU_3",
+      "position": "interior",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 270
+    },
+    {
+      "name": "VAV_17",
+      "parent_ahu": "AHU_3",
+      "position": "perimeter",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 288
+    },
+    {
+      "name": "VAV_18",
+      "parent_ahu": "AHU_3",
+      "position": "interior",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 306
+    },
+    {
+      "name": "VAV_19",
+      "parent_ahu": "AHU_3",
+      "position": "perimeter",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 324
+    },
+    {
+      "name": "VAV_20",
+      "parent_ahu": "AHU_3",
+      "position": "interior",
+      "design_cfm": 500,
+      "min_cfm": 150,
+      "reheat_mbh": 15,
+      "zone_phase_deg": 342
+    }
+  ],
+  "profile": "profiles/sales",
+  "model": "shared",
+  "shared_model": {
+    "_about": "One model behind all 28 devices; see simulator/shared_model.py. Values are a pure function of the time and the seed. Totalizers start at the epoch (plus their offsets). The history export (python -m simulator.export) uses the same model.",
+    "seed": 20261027,
+    "epoch": "2025-09-01T00:00:00",
+    "grid_seconds": 60,
+    "square_feet": 30000,
+    "state_file": "exports/sales_state.json",
+    "history": {
+      "dashboard_meter_months": 13,
+      "other_months": 6,
+      "interval_minutes": 15,
+      "change_step_minutes": 5
+    }
+  }
+}

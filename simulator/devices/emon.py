@@ -4,7 +4,7 @@ Point list per the manufacturer manual §12 (BACnet Object Descriptors),
 confirmed in .claude/references/hbt-bms-E-Mon-Class-3200-Meter-Installation-Instructions-62-0390-04.pdf.
 
 One instance = one BACnet device on its own IP. scope="A"|"B"|"C" selects which
-meter rollup from the SiteModel drives this device's kW.
+meter rollup from the SiteModel drives this device's kW ("D" too, with the shared model).
 
 Vendor identifier 224 per ASHRAE BACnet Vendor ID list (https://bacnet.org/vendorid/).
 E-Mon was acquired by Honeywell Building Technologies; real Class 3200 meters still
@@ -102,6 +102,96 @@ def _create_emon_points():
     return obj
 
 
+def emon_point_values(real_kw: float, kwh: float, peak_demand: float, cfg, device_id: int) -> dict[str, float]:
+    """All 43 point values for one meter. Pure: the same inputs give the same values (the history
+    export calls it too). cfg is the magnitudes section (power factor, voltages)."""
+    pf = cfg.power_factor_nominal
+    v_ln = cfg.voltage_phase_nominal
+    v_ll = cfg.voltage_nominal
+
+    # --- Primary and derived totals ---
+    kvar = real_kw * math.tan(math.acos(pf)) if pf < 1 else 0.0
+    kva = real_kw / pf if pf > 0 else real_kw
+    reactive_kvarh = kwh * math.tan(math.acos(pf)) if pf < 1 else 0.0
+    current_avg = (real_kw * 1000.0) / (v_ll * math.sqrt(3) * pf) if pf > 0 else 0.0
+
+    # --- Per-phase split with small ±3% imbalance ---
+    rng = _r.Random(device_id)
+    for _ in range(3):
+        rng.random()
+    imb_a = 1.0 + rng.uniform(-0.03, 0.03)
+    imb_b = 1.0 + rng.uniform(-0.03, 0.03)
+    imb_c = 3.0 - imb_a - imb_b
+    rng = _r.Random(device_id)
+
+    kw_a = real_kw / 3.0 * imb_a
+    kw_b = real_kw / 3.0 * imb_b
+    kw_c = real_kw / 3.0 * imb_c
+    kvar_a = kvar / 3.0 * imb_a
+    kvar_b = kvar / 3.0 * imb_b
+    kvar_c = kvar / 3.0 * imb_c
+    kva_a = kva / 3.0 * imb_a
+    kva_b = kva / 3.0 * imb_b
+    kva_c = kva / 3.0 * imb_c
+    i_a = (kw_a * 1000.0) / (v_ln * pf) if pf > 0 else 0.0
+    i_b = (kw_b * 1000.0) / (v_ln * pf) if pf > 0 else 0.0
+    i_c = (kw_c * 1000.0) / (v_ln * pf) if pf > 0 else 0.0
+
+    v_ln_a = v_ln + rng.uniform(-0.5, 0.5)
+    v_ln_b = v_ln + rng.uniform(-0.5, 0.5)
+    v_ln_c = v_ln + rng.uniform(-0.5, 0.5)
+    v_ab = ((v_ln_a + v_ln_b) / 2) * math.sqrt(3)
+    v_bc = ((v_ln_b + v_ln_c) / 2) * math.sqrt(3)
+    v_ca = ((v_ln_c + v_ln_a) / 2) * math.sqrt(3)
+
+    values: dict[str, float] = {
+        "Energy_delivered": kwh,
+        "Energy_received": 0.0,
+        "Reactive_energy_delivered": reactive_kvarh,
+        "Reactive_energy_received": 0.0,
+        "Real_power": real_kw,
+        "Reactive_power": kvar,
+        "Apparent_power": kva,
+        "Power_factor": pf * 100.0,
+        "Peak_demand": peak_demand,
+        "Current_average": current_avg,
+        "Voltage_LN": v_ln,
+        "Voltage_LL": v_ll,
+        "Frequency": 60.0,
+        "Phase_angle": 0.0,
+        "Real_power_phase_A": kw_a,
+        "Real_power_phase_B": kw_b,
+        "Real_power_phase_C": kw_c,
+        "Reactive_power_phase_A": kvar_a,
+        "Reactive_power_phase_B": kvar_b,
+        "Reactive_power_phase_C": kvar_c,
+        "Apparent_power_phase_A": kva_a,
+        "Apparent_power_phase_B": kva_b,
+        "Apparent_power_phase_C": kva_c,
+        "Power_factor_phase_A": pf * 100.0,
+        "Power_factor_phase_B": pf * 100.0,
+        "Power_factor_phase_C": pf * 100.0,
+        "Current_phase_A": i_a,
+        "Current_phase_B": i_b,
+        "Current_phase_C": i_c,
+        "Voltage_LN_phase_A": v_ln_a,
+        "Voltage_LN_phase_B": v_ln_b,
+        "Voltage_LN_phase_C": v_ln_c,
+        "Voltage_LL_phase_AB": v_ab,
+        "Voltage_LL_phase_BC": v_bc,
+        "Voltage_LL_phase_CA": v_ca,
+        "Phase_angle_A": 0.0,
+        "Phase_angle_B": -120.0,
+        "Phase_angle_C": 120.0,
+        "Reserve_A": 0.0,
+        "Reserve_B": 0.0,
+        "Reserve_C": 0.0,
+        "External_Input_1": 0.0,
+        "External_Input_2": 0.0,
+    }
+    return values
+
+
 class EmonClass3200:
     """One E-Mon Class 3200 BACnet device bound to a specific IP.
 
@@ -117,9 +207,10 @@ class EmonClass3200:
         bacnet_port: int,
         scope: str,
         site_model: SiteModel,
+        location: str = "32K Michigan Office Demo",
     ):
-        if scope not in ("A", "B", "C"):
-            raise ValueError(f"EmonClass3200 scope must be A/B/C, got {scope!r}")
+        if scope not in ("A", "B", "C", "D"):
+            raise ValueError(f"EmonClass3200 scope must be A/B/C/D, got {scope!r}")
 
         self.device_id = device_id
         self.device_name = device_name
@@ -141,7 +232,7 @@ class EmonClass3200:
             modelName=EMON_MODEL_NAME,
             firmwareRevision=EMON_FIRMWARE,
             description=f"E-Mon Class 3200 electrical meter — scope {scope}",
-            location="32K Michigan Office Demo",
+            location=location,
         )
 
         # BAC0 quirk: vendorName kwarg is accepted but doesn't propagate to the
@@ -169,9 +260,6 @@ class EmonClass3200:
             raise RuntimeError("EMON point creation returned no object")
         last.add_objects_to_application(self.bacnet)
 
-        # Deterministic per-device RNG for phase imbalance jitter
-        self._rng = _r.Random(device_id)
-
     # ---------- Per-tick update ----------
 
     def update(self) -> None:
@@ -181,99 +269,9 @@ class EmonClass3200:
             return
         cfg = self.site.config.magnitudes
 
-        if self.scope == "A":
-            real_kw = s.meter_a_kw
-            kwh = s.meter_a_kwh
-        elif self.scope == "B":
-            real_kw = s.meter_b_kw
-            kwh = s.meter_b_kwh
-        else:
-            real_kw = s.meter_c_kw
-            kwh = s.meter_c_kwh
-
-        pf = cfg.power_factor_nominal
-        v_ln = cfg.voltage_phase_nominal
-        v_ll = cfg.voltage_nominal
-
-        # --- Primary and derived totals ---
-        kvar = real_kw * math.tan(math.acos(pf)) if pf < 1 else 0.0
-        kva = real_kw / pf if pf > 0 else real_kw
-        reactive_kvarh = kwh * math.tan(math.acos(pf)) if pf < 1 else 0.0
-        current_avg = (real_kw * 1000.0) / (v_ll * math.sqrt(3) * pf) if pf > 0 else 0.0
-        peak_demand = self.site.peak_demand_kw(self.scope)
-
-        # --- Per-phase split with small ±3% imbalance ---
-        imb_a = 1.0 + self._rng.uniform(-0.03, 0.03)
-        imb_b = 1.0 + self._rng.uniform(-0.03, 0.03)
-        imb_c = 3.0 - imb_a - imb_b
-        # Reseed for stable jitter across ticks (we want consistent imbalance, not drift)
-        self._rng = _r.Random(self.device_id)
-
-        kw_a = real_kw / 3.0 * imb_a
-        kw_b = real_kw / 3.0 * imb_b
-        kw_c = real_kw / 3.0 * imb_c
-        kvar_a = kvar / 3.0 * imb_a
-        kvar_b = kvar / 3.0 * imb_b
-        kvar_c = kvar / 3.0 * imb_c
-        kva_a = kva / 3.0 * imb_a
-        kva_b = kva / 3.0 * imb_b
-        kva_c = kva / 3.0 * imb_c
-        i_a = (kw_a * 1000.0) / (v_ln * pf) if pf > 0 else 0.0
-        i_b = (kw_b * 1000.0) / (v_ln * pf) if pf > 0 else 0.0
-        i_c = (kw_c * 1000.0) / (v_ln * pf) if pf > 0 else 0.0
-
-        v_ln_a = v_ln + self._rng.uniform(-0.5, 0.5)
-        v_ln_b = v_ln + self._rng.uniform(-0.5, 0.5)
-        v_ln_c = v_ln + self._rng.uniform(-0.5, 0.5)
-        v_ab = ((v_ln_a + v_ln_b) / 2) * math.sqrt(3)
-        v_bc = ((v_ln_b + v_ln_c) / 2) * math.sqrt(3)
-        v_ca = ((v_ln_c + v_ln_a) / 2) * math.sqrt(3)
-
-        values: dict[str, float] = {
-            "Energy_delivered": kwh,
-            "Energy_received": 0.0,
-            "Reactive_energy_delivered": reactive_kvarh,
-            "Reactive_energy_received": 0.0,
-            "Real_power": real_kw,
-            "Reactive_power": kvar,
-            "Apparent_power": kva,
-            "Power_factor": pf * 100.0,
-            "Peak_demand": peak_demand,
-            "Current_average": current_avg,
-            "Voltage_LN": v_ln,
-            "Voltage_LL": v_ll,
-            "Frequency": 60.0,
-            "Phase_angle": 0.0,
-            "Real_power_phase_A": kw_a,
-            "Real_power_phase_B": kw_b,
-            "Real_power_phase_C": kw_c,
-            "Reactive_power_phase_A": kvar_a,
-            "Reactive_power_phase_B": kvar_b,
-            "Reactive_power_phase_C": kvar_c,
-            "Apparent_power_phase_A": kva_a,
-            "Apparent_power_phase_B": kva_b,
-            "Apparent_power_phase_C": kva_c,
-            "Power_factor_phase_A": pf * 100.0,
-            "Power_factor_phase_B": pf * 100.0,
-            "Power_factor_phase_C": pf * 100.0,
-            "Current_phase_A": i_a,
-            "Current_phase_B": i_b,
-            "Current_phase_C": i_c,
-            "Voltage_LN_phase_A": v_ln_a,
-            "Voltage_LN_phase_B": v_ln_b,
-            "Voltage_LN_phase_C": v_ln_c,
-            "Voltage_LL_phase_AB": v_ab,
-            "Voltage_LL_phase_BC": v_bc,
-            "Voltage_LL_phase_CA": v_ca,
-            "Phase_angle_A": 0.0,
-            "Phase_angle_B": -120.0,
-            "Phase_angle_C": 120.0,
-            "Reserve_A": 0.0,
-            "Reserve_B": 0.0,
-            "Reserve_C": 0.0,
-            "External_Input_1": 0.0,
-            "External_Input_2": 0.0,
-        }
+        real_kw = getattr(s, f"meter_{self.scope.lower()}_kw")
+        kwh = getattr(s, f"meter_{self.scope.lower()}_kwh")
+        values = emon_point_values(real_kw, kwh, self.site.peak_demand_kw(self.scope), cfg, self.device_id)
 
         for name, value in values.items():
             try:

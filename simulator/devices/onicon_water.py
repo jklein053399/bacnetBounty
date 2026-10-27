@@ -67,6 +67,7 @@ class OniconF3500Water:
         subnet_mask_prefix: int,
         bacnet_port: int,
         site_model: SiteModel,
+        location: str = "32K Michigan Office Demo",
     ):
         self.device_id = device_id
         self.device_name = device_name
@@ -87,7 +88,7 @@ class OniconF3500Water:
             modelName=ONICON_WATER_MODEL_NAME,
             firmwareRevision=ONICON_WATER_FIRMWARE,
             description=f"ONICON F-3500 water meter — {device_name}",
-            location="32K Michigan Office Demo",
+            location=location,
         )
 
         # BAC0 quirk (same as emon): vendorName kwarg doesn't propagate to the

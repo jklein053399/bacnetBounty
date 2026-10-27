@@ -215,3 +215,50 @@ then restart the simulator. That writes `profiles/demo/devices.json` and `profil
 and `load_profile()` in `simulator/__main__.py` (a config with `"profile"` runs that profile instead
 of the office manifest). Checks: `scripts/verify_whois.py` (Who-Is on 47808 from `.228`, drift),
 `scripts/verify_demo.py` (vendor / model / object count per device, a command write and its status).
+
+---
+
+## Sales profile: 28 shared devices, one model
+
+The devices behind the four sales demo stations (BAS-Atlas `Sales-Demo/HANDOFF.md`): the demo
+profile's 22 point-list devices plus E-Mon Meters A-D, the ONICON gas meter and the ONICON water
+meter, all driven by one shared site model.
+
+| Devices | IPs | Device IDs |
+|---|---|---|
+| The 22 demo-profile devices (same point lists, `profiles/demo/points`) | `.200`-`.221` | as the demo profile |
+| `ELECTRICAL_METER_A` to `_D` (E-Mon Class 3200) | `.222`-`.225` | 100001-100004 |
+| `GAS_METER` (ONICON F-5500), `WATER_METER` (ONICON F-3500) | `.226`, `.227` | 110001, 120001 |
+
+**Run:** double-click `run_sales.bat` (or `.venv\Scripts\python.exe -m simulator sales_config.json`).
+It uses all 28 addresses, `.200`-`.227`; `.228` stays free for Niagara. Only one profile can run at a time.
+
+**What the values do:** the key points of each device type follow the model (`simulator/shared_points.py`):
+occupancy and schedules, Michigan weather and the seasons, zone and supply temperatures, dampers, valves,
+airflow, fans, plant temperatures. The meters add up the equipment:
+
+- Meter A: everything electric. Meter B: `RTU_1` + `AHU_1` + the VAVs' electric reheat.
+- Meter C: the central plant (`CHWS_1`, `HWS_1`). Meter D: a separate, smaller building.
+- Gas: `RTU_1`'s gas heat and `HWS_1`'s boilers. Water: domestic use.
+
+Every value is a function of the time and the seed (`sales_config.json`, `shared_model`), so the live run
+and the history export give the same number for the same moment. A model-driven writable point gets
+its value as the relinquish default: a write from Niagara at any priority (16 included) wins, and its
+release hands the point back to the model. The other points behave as in the demo profile, except that
+measured values drift smoothly (keyed to the time) and the alarms the demo lists start in are Normal.
+
+**History export** (no network; it can run while another profile is running):
+
+```
+.venv\Scripts\python.exe -m simulator.export sales_config.json --end 2026-10-27T14:00
+```
+
+writes `exports\sales_<T0>\`: one gzipped CSV per point (`epoch_ms,value`) and `manifest.json`. That's
+13 months for the meter points the Energy Dashboard uses and 6 months for the rest. It also saves
+the model's state at T0 (`exports\sales_state.json`), which the live run loads at start. `exports\`
+is not in git; the seed rebuilds it exactly.
+
+**Code:** `simulator/shared_model.py` (the model), `simulator/shared_points.py` (which point follows
+what), `simulator/devices/model_pointlist.py` (the live device), `simulator/export.py`. Checks:
+`scripts/verify_shared.py` (offline: meter nesting, kWh totals, seasons, the join at T0, kBtu/sf, and
+every device's update with an override and release on each writable kind).

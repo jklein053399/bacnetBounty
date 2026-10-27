@@ -36,12 +36,14 @@ import BAC0
 from .config import load_config
 from .logging_config import setup_logging
 from .site_model import SiteModel
+from .shared_model import SharedSiteModel
 from .devices.emon import EmonClass3200
 from .devices.onicon_gas import OniconF5500Gas
 from .devices.onicon_water import OniconF3500Water
 from .devices.ahu import AHU
 from .devices.vav import VAV
 from .devices.pointlist import PointListDevice
+from .devices.model_pointlist import ModelPointListDevice
 
 
 log = logging.getLogger("simulator")
@@ -73,16 +75,23 @@ DEVICE_MANIFEST: list[dict] = [
 def load_profile(cfg_path: Path):
     """A config with "profile": "profiles/<name>" runs that profile's point-list devices in place of
     the built-in office manifest (profiles/<name>/devices.json + points/<TYPE>.json, written by
-    scripts/import_demo_points.py). Returns (manifest, location), or (None, None) for no profile."""
+    scripts/import_demo_points.py). Returns (manifest, location), or (None, None) for no profile.
+
+    devices.json may name another profile's point lists ("points_dir": "../demo/points"), and a device
+    with a "kind" (emon, onicon_gas, onicon_water) is a meter rather than a point-list device."""
     raw = json.load(open(cfg_path, encoding="utf-8"))
     if not raw.get("profile"):
         return None, None
     folder = (cfg_path.parent / raw["profile"]).resolve()
     prof = json.load(open(folder / "devices.json", encoding="utf-8"))
+    points_dir = (folder / prof.get("points_dir", "points")).resolve()
     points, manifest = {}, []
     for d in prof["devices"]:
+        if d.get("kind", "pointlist") != "pointlist":
+            manifest.append(dict(d))
+            continue
         if d["type"] not in points:
-            points[d["type"]] = json.load(open(folder / "points" / f"{d['type']}.json", encoding="utf-8"))
+            points[d["type"]] = json.load(open(points_dir / f"{d['type']}.json", encoding="utf-8"))
         manifest.append(dict(d, kind="pointlist", points=points[d["type"]]))
     return manifest, prof.get("location", "")
 
@@ -115,8 +124,19 @@ async def run():
     log.info(f"  Required IPs on loopback: {n_devices + 1} minimum ({n_devices} device + 1 Workbench, top of range).")
     log.info("=" * 66)
 
-    site = SiteModel(cfg)
+    shared = cfg.raw.get("model") == "shared"
+    if shared:
+        # one model behind every device; values are a pure function of the time (shared_model.py)
+        site = SharedSiteModel(cfg)
+        state_file = cfg.raw.get("shared_model", {}).get("state_file")
+        if state_file and site.load_state(cfg_path.parent / state_file):
+            log.info(f"Shared model: totalizers from {state_file}")
+        else:
+            log.info("Shared model: integrating the totalizers from the epoch (about 20 seconds)...")
+    else:
+        site = SiteModel(cfg)
     site.tick(datetime.now())  # prime
+    meter_kwargs = {"location": location} if location else {}
 
     devices: list = []
     for spec in manifest:
@@ -131,14 +151,19 @@ async def run():
             site_model=site,
         )
         if kind == "emon":
-            dev = EmonClass3200(scope=spec["scope"], **common_kwargs)
+            dev = EmonClass3200(scope=spec["scope"], **meter_kwargs, **common_kwargs)
             tag = f"E-Mon scope {spec['scope']}"
         elif kind == "onicon_gas":
-            dev = OniconF5500Gas(**common_kwargs)
+            dev = OniconF5500Gas(**meter_kwargs, **common_kwargs)
             tag = "ONICON F-5500 gas"
         elif kind == "onicon_water":
-            dev = OniconF3500Water(**common_kwargs)
+            dev = OniconF3500Water(**meter_kwargs, **common_kwargs)
             tag = "ONICON F-3500 water"
+        elif kind == "pointlist" and shared:
+            dev = ModelPointListDevice(device_type=spec["type"], vendor_id=spec["vendor_id"],
+                                       vendor_name=spec["vendor_name"], model_name=spec["model_name"],
+                                       points=spec["points"], location=location, **common_kwargs)
+            tag = f"{spec['vendor_name']} {spec['model_name']}, {len(dev.points)} points, shared model"
         elif kind == "pointlist":
             dev = PointListDevice(vendor_id=spec["vendor_id"], vendor_name=spec["vendor_name"],
                                   model_name=spec["model_name"], points=spec["points"], location=location,
