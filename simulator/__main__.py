@@ -78,7 +78,15 @@ def load_profile(cfg_path: Path):
     scripts/import_demo_points.py). Returns (manifest, location), or (None, None) for no profile.
 
     devices.json may name another profile's point lists ("points_dir": "../demo/points"), and a device
-    with a "kind" (emon, onicon_gas, onicon_water) is a meter rather than a point-list device."""
+    with a "kind" (emon, onicon_gas, onicon_water) is a meter rather than a point-list device.
+
+    A point-list device may also carry (profiles/qa/ uses these to make a test site with faults):
+        "point_values": {"EFFHTG-SP": "nan"}   starting values for this device only ("nan" reads NaN)
+        "no_points": true                      no objects but the device object
+        "port": 47809                          its UDP port, for a second BACnet/IP network
+        "answer": "iam-only"                   answers Who-Is only (pointlist.misbehave)
+        "reply_delay_ms": 500                  answers every confirmed request this late
+    """
     raw = json.load(open(cfg_path, encoding="utf-8"))
     if not raw.get("profile"):
         return None, None
@@ -92,7 +100,16 @@ def load_profile(cfg_path: Path):
             continue
         if d["type"] not in points:
             points[d["type"]] = json.load(open(points_dir / f"{d['type']}.json", encoding="utf-8"))
-        manifest.append(dict(d, kind="pointlist", points=points[d["type"]]))
+        own = points[d["type"]]
+        if d.get("no_points"):
+            own = []
+        elif d.get("point_values"):
+            values = d["point_values"]
+            unknown = sorted(set(values) - {p["name"] for p in own})
+            if unknown:
+                raise ValueError(f"{d['name']}: point_values names points its {d['type']} list does not have: {unknown}")
+            own = [dict(p, value=values[p["name"]]) if p["name"] in values else p for p in own]
+        manifest.append(dict(d, kind="pointlist", points=own))
     return manifest, prof.get("location", "")
 
 
@@ -119,7 +136,10 @@ async def run():
     log.info("IP plan (assign these to the 'BACNet Simulator' loopback adapter before startup):")
     for spec in manifest:
         ip = f"{cfg.network.base_ip}{cfg.network.start_octet + spec['ip_offset']}"
-        log.info(f"  device    {ip:<18}  [{spec['device_id']}] {spec['name']}")
+        port = spec.get("port", cfg.network.bacnet_port)
+        where = ip if port == cfg.network.bacnet_port else f"{ip}:{port}"
+        note = f"   ({spec['qa']})" if spec.get("qa") else ""
+        log.info(f"  device    {where:<18}  [{spec['device_id']}] {spec['name']}{note}")
     log.info(f"  RESERVED  {workbench_ip:<18}  Niagara Workbench / Soft Station — do NOT bind simulator here")
     log.info(f"  Required IPs on loopback: {n_devices + 1} minimum ({n_devices} device + 1 Workbench, top of range).")
     log.info("=" * 66)
@@ -142,12 +162,13 @@ async def run():
     for spec in manifest:
         ip = f"{cfg.network.base_ip}{cfg.network.start_octet + spec['ip_offset']}"
         kind = spec["kind"]
+        port = spec.get("port", cfg.network.bacnet_port)
         common_kwargs = dict(
             device_id=spec["device_id"],
             device_name=spec["name"],
             local_ip=ip,
             subnet_mask_prefix=cfg.network.subnet_mask_prefix,
-            bacnet_port=cfg.network.bacnet_port,
+            bacnet_port=port,
             site_model=site,
         )
         if kind == "emon":
@@ -167,6 +188,7 @@ async def run():
         elif kind == "pointlist":
             dev = PointListDevice(vendor_id=spec["vendor_id"], vendor_name=spec["vendor_name"],
                                   model_name=spec["model_name"], points=spec["points"], location=location,
+                                  answer=spec.get("answer", "all"), reply_delay_ms=spec.get("reply_delay_ms", 0),
                                   **common_kwargs)
             tag = f"{spec['vendor_name']} {spec['model_name']}, {len(dev.points)} points"
         elif kind == "ahu":
@@ -184,7 +206,7 @@ async def run():
             continue
         dev.update()
         devices.append(dev)
-        log.info(f"  [{spec['device_id']}] {spec['name']:<22} @ {ip}:{cfg.network.bacnet_port} ({tag})")
+        log.info(f"  [{spec['device_id']}] {spec['name']:<22} @ {ip}:{port} ({tag})")
 
     log.info(f"{len(devices)} devices online.")
     log.info("Entering tick loop. Ctrl+C to stop.")

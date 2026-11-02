@@ -13,10 +13,21 @@ values only have to look right on a graphic:
 Point record (profiles/<name>/points/<TYPE>.json):
     {"name": "ZN-T", "type": "AI", "instance": 1, "units": "fahrenheit", "states": [],
      "writable": false, "value": "72.0"}
+
+An analog value of "nan" reads NaN and stays NaN (it does not drift). For test sites (profiles/qa/) a
+device can also be made to misbehave on the wire:
+
+    answer="iam-only"     it answers Who-Is with I-Am, so a station can discover it, and drops every
+                          confirmed request (reads, writes, subscriptions) without any reply: the
+                          station sees a device that never answers, and marks it down
+    reply_delay_ms=N      every confirmed request is answered N ms late, like a device on a slow
+                          MS/TP trunk; Who-Is is answered at once
 """
 from __future__ import annotations
 
+import asyncio
 import logging
+import math
 import random
 import re
 
@@ -88,10 +99,43 @@ def unescape(text: str) -> str:
     return re.sub(r'\$([0-9a-fA-F]{2})', lambda m: chr(int(m.group(1), 16)), text)
 
 
+ANSWERS = ('all', 'iam-only')
+
+
+def misbehave(app, device_name: str, answer: str = 'all', reply_delay_ms: int = 0) -> None:
+    """Make one device drop or delay its replies (see the module docstring). The hook sits on this
+    device's own application service access point, where incoming PDUs arrive before a server
+    transaction exists, so a dropped request gets no reply of any kind (not even an abort). Every
+    datagram is handled in its own task, so a delay does not queue the requests behind each other."""
+    if answer not in ANSWERS:
+        raise ValueError(f'{device_name}: answer must be one of {ANSWERS}, not {answer!r}')
+    if answer == 'all' and not reply_delay_ms:
+        return
+    asap = app.asap
+    original = asap.confirmation
+    delay = max(0, int(reply_delay_ms)) / 1000.0
+
+    async def confirmation(pdu):
+        # APDU type is the high nibble of the first octet; 0 = confirmed request
+        confirmed = len(pdu.pduData) > 0 and (pdu.pduData[0] >> 4) == 0
+        if confirmed and answer == 'iam-only':
+            return
+        if confirmed and delay:
+            await asyncio.sleep(delay)
+        await original(pdu)
+
+    asap.confirmation = confirmation
+    if answer == 'iam-only':
+        log.info(f'{device_name}: answers Who-Is only; every other request is dropped')
+    if delay:
+        log.info(f'{device_name}: replies {int(delay * 1000)} ms late')
+
+
 class PointListDevice:
     def __init__(self, device_id: int, device_name: str, local_ip: str, subnet_mask_prefix: int, bacnet_port: int,
                  vendor_id: int, vendor_name: str, model_name: str, points: list[dict], description: str = '',
-                 location: str = '', seed: int = 0, **_ignored):
+                 location: str = '', seed: int = 0, answer: str = 'all', reply_delay_ms: int = 0,
+                 **_ignored):
         self.device_id, self.device_name = device_id, device_name
         self.rng = random.Random(seed or device_id)
         ObjectFactory.clear_objects()
@@ -107,6 +151,7 @@ class PointListDevice:
                     break
         except Exception as e:
             log.warning(f'{device_name}: could not set vendorName: {e}')
+        misbehave(self.bacnet.this_application.app, device_name, answer, reply_delay_ms)
 
         self.points, seen, last = [], set(), None
         for p in points:
@@ -147,10 +192,13 @@ class PointListDevice:
                 continue
             base = float(p.get('value') or 0) if kind in ANALOG else 0.0
             self.points.append({'name': p['name'], 'kind': kind, 'writable': writable, 'base': base,
-                                'drift': kind == 'AI' or (kind == 'AV' and not writable)})
-        if last is None:
-            raise RuntimeError(f'{device_name}: no points')
-        last.add_objects_to_application(self.bacnet)
+                                'drift': (kind == 'AI' or (kind == 'AV' and not writable)) and math.isfinite(base)})
+        if last is not None:
+            last.add_objects_to_application(self.bacnet)
+        elif points:
+            raise RuntimeError(f'{device_name}: none of its {len(points)} points could be created')
+        else:
+            log.info(f'{device_name}: no points, only its device object')
 
         # statuses that follow a command
         commands = {stem(q['name'], COMMAND_TAIL): q['name'] for q in self.points
