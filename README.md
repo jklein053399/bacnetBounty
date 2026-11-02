@@ -140,7 +140,7 @@ The simulator is designed to run indefinitely — days, weeks.
 
 **Devices don't appear in Niagara's discovery**
 - Confirm Niagara's BACnet network is bound to your loopback adapter's IP range. The adapter must be the network interface the Niagara station is listening on.
-- Your Workbench / JACE should bind to `192.168.100.228`. If you're running Soft Station locally, configure its BACnet port to bind to that IP.
+- Your Workbench / JACE should bind to `192.168.100.228`. If you're running Soft Station locally, note that Niagara's BACnet/IP port picks an *adapter*, not an address: it binds the adapter's first IPv4 address (see "Which address a Niagara station binds" under the QA profile below), so make `.228` the adapter's first address.
 - Try a Who-Is broadcast from Niagara — should see all 28 devices reply.
 
 **Log file grows large during soak**
@@ -262,3 +262,53 @@ is not in git; the seed rebuilds it exactly.
 what), `simulator/devices/model_pointlist.py` (the live device), `simulator/export.py`. Checks:
 `scripts/verify_shared.py` (offline: meter nesting, kWh totals, seasons, the join at T0, kBtu/sf, and
 every device's update with an override and release on each writable kind).
+
+---
+
+## QA profile: the demo devices plus deliberate faults
+
+The devices behind the BAS Gateway QA walkthrough (basGateway `docs/QA_WALKTHROUGH.md`): the demo profile's 22
+devices (same point lists, `profiles/demo/points`) and six more, with faults a station meets on real sites.
+
+| Device | Address | What is wrong with it | Checks in the gateway |
+|---|---|---|---|
+| `AHU_1` | `.201` | `DATHTGMAX_SP` reads NaN (a discharge-air alarm limit) | Bug-18 on an AHU |
+| `VAV_2` | `.205` | `EFFHTG-SP` reads NaN (the zone alarm's heating limit) | Bug-18 |
+| `VAV_3` | `.206` | `ZN-T` reads NaN (the alarmed point itself) | Bug-18 |
+| `CUH_1` | `.219` | `EFFHTG-SP` reads NaN | Bug-18 on a CUH |
+| `VAV_11` (300011) | `.222` | **Offline**: answers Who-Is with I-Am, never answers a read or write | device down |
+| `AHU_2` (200002) | `.223` | **Empty**: no objects but its device object (JCI, vendor 5) | Bugs 12, 13 |
+| `RTU_2` (400002) | `.224` | **Slow**: every reply 500 ms late, like MS/TP | Bug-13, Feature-06 |
+| `EF_6`, `EF_7`, `VAV_12` (500006, 500007, 300012) | `.225`-`.227`, **UDP 47809** | A second BACnet/IP network | a second IP port in the station |
+
+All other devices are as in the demo profile. It uses `.200`-`.227`; `.228` stays free for Niagara.
+
+**Run:** double-click `run_qa.bat` (or `.venv\Scripts\python.exe -m simulator qa_config.json`). Only one profile
+can run at a time.
+
+**Check on the wire:** `.venv\Scripts\python.exe scripts\verify_qa.py [--client 192.168.100.11]`. It sends
+unicast requests only (no broadcast Who-Is), so it is safe while a station is bound to `.228`, and checks every
+device and every fault: names, vendors, models and object counts, the NaN points, the offline device (I-Am yes,
+reads no), the empty device, the slow device's delay, the second port.
+
+**How the faults are made** (`simulator/devices/pointlist.py`, `misbehave`): a device's `devices.json` entry may
+carry `point_values` (starting values for that device; `"nan"` reads NaN and never drifts), `no_points`, `port`,
+`answer: "iam-only"` and `reply_delay_ms`. The last two hook the device's own application service access point,
+where a request arrives before any transaction exists: a dropped request gets no reply at all (not an abort), and
+each request is delayed in its own task, so delays do not queue.
+
+**Which address a Niagara station binds** (checked in the decompiled `bacnet-rt` of Niagara 4.15.1.16; the classes
+are byte-identical in FX 14.15): a BACnet/IP port's Link lists one entry per network adapter, with that adapter's
+**first** IPv4 address, and its Ip Address is read-only. The socket is bound to that address and the port's UDP
+port (`new DatagramSocket(port, address)`). So:
+
+- make the Niagara address (`.228`) the adapter's first address. "First" is the order Windows reports the
+  addresses in, which was not checked here; the safe way is to set `.228` first (`netsh interface ipv4 set address
+  name="Bacnet Simulator" static 192.168.100.228 255.255.255.0`, which also turns DHCP off), then add `.200`-`.227`
+  and any others. After enabling the port, its Link's Ip Address shows the address it took: it must say `.228`
+  (any other `.2xx` would collide with a simulated device);
+- two stations on this PC that both pick this adapter bind the same address: on the same UDP port the second
+  one's port faults ("Cannot bind"). Run one station's BACnet network at a time;
+- only one BacnetNetwork is allowed in a station. A second BACnet/IP network is a second IP port under the same
+  BacnetNetwork's Network, on UDP 47809 with its own network number; it binds the same `.228`, port 47809, and
+  finds `EF_6`, `EF_7` and `VAV_12`.
