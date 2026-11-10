@@ -7,6 +7,10 @@ each type's sheet (only rows with Keep = Y), and writes:
     profiles/demo/devices.json         the device list: names, BACnet device IDs, IP offsets, vendor
     profiles/demo/points/<TYPE>.json   the points of that type
 Run it again whenever the workbook changes, then restart the simulator.
+
+The Writable column: Y = commandable (priority array and Relinquish Default 104, for a JCI setpoint
+such as CLGOCC-SP); 3113 = a JCI setting written only through its Default Value, property 3113, not
+commandable (airflow constants such as CLG-MAXFLOW); blank = read-only.
 """
 import json
 import os
@@ -45,9 +49,15 @@ def main():
                 continue
             states = str(r[col['States']] or '')
             sep = ' / ' if ' / ' in states else ', '
-            pts.append({'name': str(r[col['Point name']]).strip(), 'type': r[col['Type']], 'instance': int(re.match(r'\d+', obj.split(':')[1]).group(0)),
-                        'units': r[col['Units']] or '', 'states': [s.strip() for s in states.split(sep)] if states else [],
-                        'writable': str(r[col['Writable']] or '').upper() == 'Y', 'value': str(r[col['Demo value']] if r[col['Demo value']] is not None else '0')})
+            access = str(r[col['Writable']] or '').strip().upper()
+            if access not in ('', 'Y', '3113'):
+                print(f'  {typ}: "{r[col["Point name"]]}" has Writable {access!r}; read as read-only (use Y, 3113 or blank)')
+            point = {'name': str(r[col['Point name']]).strip(), 'type': r[col['Type']], 'instance': int(re.match(r'\d+', obj.split(':')[1]).group(0)),
+                     'units': r[col['Units']] or '', 'states': [s.strip() for s in states.split(sep)] if states else [],
+                     'writable': access == 'Y', 'value': str(r[col['Demo value']] if r[col['Demo value']] is not None else '0')}
+            if access == '3113':
+                point['default_value'] = True
+            pts.append(point)
         json.dump(pts, open(os.path.join(out, 'points', f'{typ}.json'), 'w', encoding='utf-8'), indent=1)
         t = types[typ]
         for i in range(1, t['count'] + 1):

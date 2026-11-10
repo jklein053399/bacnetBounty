@@ -14,6 +14,13 @@ Point record (profiles/<name>/points/<TYPE>.json):
     {"name": "ZN-T", "type": "AI", "instance": 1, "units": "fahrenheit", "states": [],
      "writable": false, "value": "72.0"}
 
+A JCI setting that is not commandable, such as a VAV's airflow constants (CLG-MAXFLOW, CD-AREA,
+CD-KFACTOR ...), carries "default_value": true. It has no priority array and no Relinquish Default;
+the setting lives in JCI's proprietary Default Value, property 3113 (DEFAULT_VALUE, Real, in JCI's
+VAV1717/1732 PICS). A read or write of 3113 is the setting itself and the present value follows it,
+as on a real controller integrated on 3113. A JCI setpoint that IS commandable (CLGOCC-SP ...) is a
+plain writable point: its priority array and Relinquish Default (104) are there for a station.
+
 An analog value of "nan" reads NaN and stays NaN (it does not drift). For test sites (profiles/qa/) a
 device can also be made to misbehave on the wire:
 
@@ -45,7 +52,7 @@ from BAC0.core.devices.local.factory import (
     multistate_output,
     multistate_value,
 )
-from bacpypes3.primitivedata import Unsigned
+from bacpypes3.primitivedata import Real, Unsigned
 from bacpypes3.service.object import ReadWritePropertyServices
 
 
@@ -70,6 +77,61 @@ async def _write_property_default_16(self, apdu):
 
 
 ReadWritePropertyServices.do_WritePropertyRequest = _write_property_default_16
+
+JCI_DEFAULT_VALUE = 3113
+
+
+def _is_default_value(attr) -> bool:
+    try:
+        return int(attr) == JCI_DEFAULT_VALUE
+    except (TypeError, ValueError):            # 'presentValue' and the other named properties
+        return False
+
+
+def add_default_value(obj) -> None:
+    """Give one analog object JCI's Default Value (3113). bacpypes3 answers "unknown property" for an
+    identifier its object class does not define, and the class is shared by every analog value of
+    every device, so the property goes on this one object: its own read, write and type lookups
+    answer 3113 and hand everything else to the class. ReadProperty, ReadPropertyMultiple and
+    WriteProperty all go through these three."""
+    read, write, kind = obj.read_property, obj.write_property, obj.get_property_type
+
+    async def read_property(attr, index=None):
+        if _is_default_value(attr):
+            return Real(float(obj.presentValue))
+        return await read(attr, index)
+
+    async def write_property(attr, value, index=None, priority=None):
+        if _is_default_value(attr):
+            obj.presentValue = Real(float(value))
+            return
+        return await write(attr, value, index, priority)
+
+    def get_property_type(attr):
+        return Real if _is_default_value(attr) else kind(attr)
+
+    object.__setattr__(obj, 'read_property', read_property)
+    object.__setattr__(obj, 'write_property', write_property)
+    object.__setattr__(obj, 'get_property_type', get_property_type)
+
+
+def follow_relinquish_default(obj) -> None:
+    """On a commandable value object, a write to Relinquish Default (104) moves the present value when
+    no priority is commanding it, as on a real controller. bacpypes3 recalculates the present value
+    only when the priority array changes, so a station integrated on 104 saw its write read back while
+    the present value stayed where it was."""
+    write = obj.write_property
+
+    async def write_property(attr, value, index=None, priority=None):
+        await write(attr, value, index, priority)
+        try:
+            name = obj._property_identifier_class(attr).attr
+        except Exception:
+            name = None
+        if name == 'relinquishDefault':
+            obj.recalculating()
+
+    object.__setattr__(obj, 'write_property', write_property)
 
 # Niagara unit names (as integrated) -> BACnet engineering units
 UNITS = {
@@ -160,8 +222,12 @@ class PointListDevice:
                 log.warning(f'{device_name}: {kind}:{inst} defined twice; "{p["name"]}" left out')
                 continue
             seen.add((kind, inst))
-            writable = bool(p.get('writable')) or kind in ALWAYS_WRITABLE
-            commandable = writable and kind not in ALWAYS_WRITABLE     # AO/BO/MSO already have a priority array
+            default = bool(p.get('default_value'))
+            if default and kind != 'AV':
+                log.warning(f'{device_name}: "{p["name"]}" is {kind}; a Default Value (3113) is only made on an AV')
+                default = False
+            writable = bool(p.get('writable')) or kind in ALWAYS_WRITABLE or default
+            commandable = writable and kind not in ALWAYS_WRITABLE and not default   # AO/BO/MSO already have a priority array
             desc = p.get('description') or p['name']
             states = [unescape(s) for s in p.get('states') or []]
             try:
@@ -191,10 +257,23 @@ class PointListDevice:
                 log.warning(f'{device_name}: could not create "{p["name"]}" ({kind}:{inst}): {e}')
                 continue
             base = float(p.get('value') or 0) if kind in ANALOG else 0.0
-            self.points.append({'name': p['name'], 'kind': kind, 'writable': writable, 'base': base,
+            self.points.append({'name': p['name'], 'kind': kind, 'writable': writable, 'base': base, 'default': default,
+                                'commandable': commandable,
                                 'drift': (kind == 'AI' or (kind == 'AV' and not writable)) and math.isfinite(base)})
         if last is not None:
             last.add_objects_to_application(self.bacnet)
+            app = self.bacnet.this_application.app
+            for q in self.points:
+                if q['commandable']:
+                    obj = app.get_object_name(q['name'])
+                    if obj is not None and hasattr(obj, 'recalculating'):
+                        follow_relinquish_default(obj)
+                if q['default']:
+                    obj = app.get_object_name(q['name'])
+                    if obj is None:
+                        log.warning(f'{device_name}: "{q["name"]}" not found; no Default Value (3113)')
+                    else:
+                        add_default_value(obj)
         elif points:
             raise RuntimeError(f'{device_name}: none of its {len(points)} points could be created')
         else:

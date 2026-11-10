@@ -467,7 +467,7 @@
    "False",
    "True"
   ],
-  "writable": false,
+  "writable": true,
   "value": "true"
  },
  {
